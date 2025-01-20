@@ -1,5 +1,4 @@
 import './App.css'
-import pato from '@/'
 
 function App() {
   return (
