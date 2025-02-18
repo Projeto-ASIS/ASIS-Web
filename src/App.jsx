@@ -1,10 +1,11 @@
+import { Header } from "@/common/components/Header"
 
-function App() {
+export function App() {
   return (
     <>
-    <h1>Asis Project</h1>
+      <Header />
+      <h1>Asis Project</h1>
     </>
   )
 }
 
-export default App
