@@ -40,6 +40,9 @@
 
 
 }
+html{
+  font-size: 12px;
+}
 
 /*Tipografias*/
 h1 {
@@ -54,6 +57,12 @@ h2{
 h3{
   font-size: 32px;
   text-transform: uppercase;
+}
+h4{
+  font-size: 24px;
+}
+p{
+  font-size: 20px;
 }
 
 .text-pink{
@@ -70,5 +79,5 @@ section {
   position: relative;
   max-width: var(--max-content-width);
   padding-top: var(--section-padding);
-  
+  margin-inline: auto;
 }

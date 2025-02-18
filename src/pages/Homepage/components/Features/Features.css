@@ -1,3 +1,28 @@
-.title__features{
-  text-align: center;
+.features__cards{
+  display: flex;
+  margin-top: 6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-direction: row;
+  .card{
+    width: 296px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 5px solid var(--color-pink);
+    height: 370px;
+    border-radius: 20px;
+    padding: 15px;
+    justify-content: space-between;
+    color: var(--color-blue);
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.466);
+    
+  }
+  .feature__icon{
+    width: 4rem;
+    height: 4rem;
+    color: var(--color-blue-20);
+  }
 }
