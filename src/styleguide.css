@@ -1,4 +1,3 @@
-
 :root {
   --max-content-width: 1280px;
 
@@ -37,4 +36,27 @@
   --color-neutral-100: #fff;
 
   --color-background: var(--color-neutral-100);
+
+
+}
+
+/*Tipografias*/
+h1 {
+  font-size: 60px;
+  text-transform: uppercase;
+  letter-spacing: -1.8px;
+}
+h2{
+  font-size: 40px;
+  text-transform: uppercase;
+}
+h3{
+  font-size: 32px;
+  text-transform: uppercase;
+}
+.text-pink{
+  color: var(--color-pink);
+}
+.text-blue{
+  color: var(--color-blue);
 }

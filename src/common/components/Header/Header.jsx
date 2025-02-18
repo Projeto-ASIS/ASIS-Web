@@ -1,11 +1,12 @@
 // import React from 'react'
+import './Header.css'
 
 export function Header() {
   return (
     <header className="header">
     <div className="container header-content">
       <div className="logo">
-        ASIS
+        <img src="Logo.png" alt="Logo" />
       </div>
       <nav className="nav-links">
         <a href="#inicio">INÍCIO</a>

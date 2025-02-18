@@ -1,10 +1,9 @@
-import { Header } from "@/common/components/Header"
+import Homepage from "./pages/Homepage/Homepage"
 
 export function App() {
   return (
     <>
-      <Header />
-      <h1>Asis Project</h1>
+      <Homepage />
     </>
   )
 }
