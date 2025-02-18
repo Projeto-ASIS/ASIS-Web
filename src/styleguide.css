@@ -1,5 +1,7 @@
 
-:root{
+:root {
+  --max-content-width: 1280px;
+
   /* Cores dos azuis */
   --color-blue: #0056AD;
   --color-blue-20: #003D7A;
