@@ -42,15 +42,18 @@
 }
 
 /*Tipografias*/
+
 h1 {
   font-size: 60px;
   text-transform: uppercase;
   letter-spacing: -1.8px;
 }
+
 h2{
   font-size: 40px;
   text-transform: uppercase;
 }
+
 h3{
   font-size: 32px;
   text-transform: uppercase;
