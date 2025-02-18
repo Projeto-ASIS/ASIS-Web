@@ -3,6 +3,7 @@ import Footer from "@/common/components/Footer/Footer";
 import Offers from "./components/Offers/Offers";
 import Features from "./components/Features/Features";
 import Results from "./components/Results/Results";
+import Invite from "./components/Invite";
 
 export default function Homepagage() {
   return (
@@ -11,6 +12,7 @@ export default function Homepagage() {
       <Offers />
       <Features />
       <Results />
+      <Invite />
       <Footer/>
     </div>
   );

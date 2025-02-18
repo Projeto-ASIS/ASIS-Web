@@ -68,6 +68,9 @@ p{
   font-size: 20px;
 }
 
+.text-white {
+  color: var(--color-neutral-100);
+}
 .text-pink{
   color: var(--color-pink);
 }
