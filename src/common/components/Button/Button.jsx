@@ -2,12 +2,12 @@ import "./Button.css"
 
 import PropTypes from "prop-types"
 
-ButtonPrimary.propTypes = {
+Button.propTypes = {
   children: PropTypes.node,
   type: PropTypes.string
 }
 
-export default function ButtonPrimary({ children, type = "default" }){
+export default function Button({ children, type = "default" }){
   return (
     <button data-button-type={type} className="button">{children}</button>
   )

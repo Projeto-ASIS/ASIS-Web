@@ -1,4 +1,5 @@
 // import React from 'react'
+import Button from '../Button'
 import './Header.css'
 
 export function Header() {
@@ -15,8 +16,8 @@ export function Header() {
         <a href="#resultados">RESULTADOS</a>
       </nav>
       <div className="auth-buttons">
-        <button className="btn-secondary-blue">CADASTRAR-SE</button>
-        <button className="btn btn-primary">FAZER LOGIN</button>
+       <Button />
+       <Button type='stroked'/>
       </div>
     </div>
   </header>

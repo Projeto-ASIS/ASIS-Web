@@ -1,0 +1,73 @@
+.Cadunico__title {
+display: flex;
+justify-content: space-between;
+ p{
+  width: 30vw;
+  
+ }
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.data__field {
+  width: 100%;
+  height: 124px;
+  background-color: #1a73e8;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  font-size: 40px;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.content {
+  border: 1px solid #ddd;
+  border-top: none;
+  padding: 16px;
+  border-radius: 0 0 4px 4px;
+  background-color: white;
+}
+
+.inputGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.inputGroup {
+  flex: 1 1 calc(50% - 8px);
+  min-width: 250px;
+}
+
+.inputFull {
+  flex: 1 1 100%;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  min-height: 100px;
+  resize: vertical;
+}
+
