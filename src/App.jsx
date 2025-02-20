@@ -1,9 +1,12 @@
-import Homepage from "./pages/Homepage/Homepage"
+import { RouterProvider } from "react-router-dom"
+
+import { router } from "@/Routes"
 
 export function App() {
   return (
     <>
-      <Homepage />
+      {/* <Homepage /> */}
+      <RouterProvider router={router} />
     </>
   )
 }

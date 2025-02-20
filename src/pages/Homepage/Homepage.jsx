@@ -5,7 +5,7 @@ import Features from "./components/Features/Features";
 import Results from "./components/Results/Results";
 import Invite from "./components/Invite";
 
-export default function Homepagage() {
+export default function Homepage() {
   return (
     <div>
       <Header />

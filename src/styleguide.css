@@ -41,6 +41,8 @@
 
 html{
   font-size: clamp(0.75em, 1.2vw, 16px);
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
 /*Tipografias*/

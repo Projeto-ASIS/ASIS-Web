@@ -2,7 +2,7 @@ import "./Offers.css"
 export default function Offers(){
   return (
     <section className="offers">
-      <h3 className="offers__upper__description">Facilitando o acesso aos seus <br /> direitos</h3>
+      <h3 className="offers__upper__description footnote">Facilitando o acesso aos seus <br /> direitos</h3>
       <h1 className="title">Tudo em um só lugar</h1>
       <div className="wrapper">
         <div className="item">

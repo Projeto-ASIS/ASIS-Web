@@ -1,11 +1,12 @@
 import { Brain, HousePlus, UserRoundCog, UserRoundPlus } from "lucide-react";
+
 import './Features.css'
 
 export default function Features() {
   return (
     <section className="features">
       <div className="features__title">
-        <h3 className="features__footnote">Nossas funcionalidades </h3>
+        <h3 className="features__footnote footnote">Nossas funcionalidades </h3>
         <h1 className="text-blue">O que te <span className="text-pink">Oferecemos ?</span></h1>
       </div>
       <p className="features__description">Observe abaixo algumas das nossas funcionalidades</p>

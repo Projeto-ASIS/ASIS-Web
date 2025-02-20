@@ -54,7 +54,7 @@ export default function Results() {
   return (
     <section id='results'>
       <div className="results__title">
-        <h3 className="results__footnote text-blue">Abaixo estão os nossos </h3>
+        <h3 className="results__footnote text-blue footnote">Abaixo estão os nossos </h3>
         <div className="title__lines">
           <div className="line">.</div>
           <h1 className="text-pink">resultados</h1>

@@ -30,6 +30,8 @@
 }
 
 .features__footnote {
+  margin-bottom: 40px;
+
   color: var(--color-blue-20);
 }
 
@@ -43,6 +45,7 @@
 .features__description {
   text-align: center;
   font-size: 34px;
+  font-weight: bold;
   color: var(--color-blue-20);
 }
 
