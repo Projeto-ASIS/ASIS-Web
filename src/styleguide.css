@@ -74,9 +74,11 @@ p{
 .text-pink{
   color: var(--color-pink);
 }
-
 .text-blue{
   color: var(--color-blue);
+}
+.text-blue-20{
+  color: var(--color-blue-20);
 }
 
 /* Sections e containers */
