@@ -37,35 +37,46 @@
   --color-neutral-100: #fff;
 
   --color-background: var(--color-neutral-100);
-
-
 }
+
 html{
-  font-size: 12px;
+  font-size: clamp(0.75em, 1.2vw, 16px);
 }
 
 /*Tipografias*/
 
 h1 {
-  font-size: 60px;
+  font-size: 3.75rem;
   text-transform: uppercase;
+  line-height: 0.8;
   letter-spacing: -1.8px;
 }
 
 h2{
-  font-size: 40px;
+  font-size: 2.5rem;
   text-transform: uppercase;
 }
 
 h3{
-  font-size: 32px;
+  font-size: 2rem;
   text-transform: uppercase;
 }
+
 h4{
-  font-size: 24px;
+  font-size: 1.5rem;
 }
+
 p{
-  font-size: 20px;
+  font-size: 1.25rem;
+}
+
+.footnote {
+  line-height: 1.15;
+  text-transform: uppercase;
+  font-size: 32px;
+  letter-spacing: -0.64px;
+  font-weight: 700;
+
 }
 
 .text-white {

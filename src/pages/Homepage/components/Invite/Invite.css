@@ -1,7 +1,29 @@
 .invite {
-  max-width: none; 
+  max-width: none;
   height: 673px;
   width: 100vw;
+  padding-block: 190px;
+
+  
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    width: 1920px;
+    height: 100%;
+    transform: translateX(-50%);
+
+    background: url("../../../../assets/hands-image-changed.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1920px;
+    background-position-y: -400px;
+
+    z-index: -2;
+  }
 
   &::before {
     position: absolute;
@@ -14,14 +36,25 @@
     height: 100%;
 
     background-color: rgba(0, 0, 0, 0.25);
-    
+
     z-index: -1;
   }
 }
 
+.invite__title {
+  margin-bottom: 2rem;
+
+  line-height: 1.2;
+}
+
+.invite__text {
+  color: var(--color-neutral-100);
+  margin-bottom: 2rem;
+}
+
 .invite__mark {
-  padding: 8px 9px;
-  
+  padding: 1px 9px;
+
   background-color: var(--color-blue);
   line-height: 0.0;
 
@@ -31,4 +64,9 @@
 .invite__wrapper {
   max-width: var(--max-content-width);
   margin-inline: auto;
+}
+
+.invite__call-to-actions {
+  display: flex;
+  gap: 32px;
 }

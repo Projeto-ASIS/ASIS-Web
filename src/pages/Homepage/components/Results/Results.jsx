@@ -1,8 +1,10 @@
 import './Results.css'
+
+import { ArrowLeft, ArrowRight } from "lucide-react"
+
 import { useState, useEffect } from 'react';
 
 export default function Results() {
-
   const items = [
     { id: 1, url: './images/imageslider.jpg' },
     { id: 2, url: './images/imageslider.jpg' },
@@ -51,8 +53,8 @@ export default function Results() {
 
   return (
     <section id='results'>
-      <div className="title__results">
-        <h3 className="text-blue">Abaixo estão nossos </h3>
+      <div className="results__title">
+        <h3 className="results__footnote text-blue">Abaixo estão os nossos </h3>
         <div className="title__lines">
           <div className="line">.</div>
           <h1 className="text-pink">resultados</h1>
@@ -61,35 +63,34 @@ export default function Results() {
 
       </div>
       <div className="slider">
+        <div className="carousel-container">
+          <div className="carousel">
+            {items.map((item) => (
+              <article
+                key={item.id}
+                className="carousel-item"
+                style={{ backgroundImage: `url(${item.url})` }}
+              ></article>
+            ))}
+          </div>
 
-      <div className="carousel-container">
-      <div className="carousel">
-        {items.map((item) => (
-          <div
-            key={item.id}
-            className="carousel-item"
-            style={{ backgroundImage: `url(${item.url})` }}
-          ></div>
-        ))}
-      </div>
 
-      <button className="nav-button" id="prev" onClick={prev}>
-        ←
-      </button>
-      <button className="nav-button" id="next" onClick={next}>
-        →
-      </button>
-
-      <div className="dots-container">
-        {items.map((_, index) => (
-          <div
-            key={index}
-            className={`dot ${index === currentIndex ? 'active' : ''}`}
-            onClick={() => goToSlide(index)}
-          ></div>
-        ))}
-      </div>
-    </div>
+          <ul className="dots-container">
+            <button className="nav-button" id="prev" onClick={prev}>
+              <ArrowLeft />
+            </button>
+            {items.map((_, index) => (
+              <li
+                key={`Dots_${index}`}
+                className={`dot ${index === currentIndex ? 'active' : ''}`}
+                onClick={() => goToSlide(index)}
+              ></li>
+            ))}
+            <button className="nav-button" id="next" onClick={next}>
+              <ArrowRight />
+            </button>
+          </ul>
+        </div>
       </div>
     </section>
   )

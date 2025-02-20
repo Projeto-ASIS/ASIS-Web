@@ -1,19 +1,24 @@
 import "./Invite.css"
 
+import Button from "@/common/components/Button"
+
 export default function Invite() {
   return (
     <section className="invite">
       <div className="invite__wrapper">
-        <h1 className="text-white">
+        <h1 className="text-white invite__title">
           Não está
           <br />
           <mark className="invite__mark text-white">Convencido?</mark>
         </h1>
-        <p>Experimente agora e veja como é fácil ter acesso aos serviços que você precisa!</p>
+        <p className="invite__text">
+          Experimente agora e veja como é fácil ter acesso
+          <br />
+          aos serviços que você precisa!</p>
         <div className="invite__call-to-actions">
-          <button>Use agora os serviços</button>
-          <button>Ver nossa missão</button>
-          </div>
+          <Button >Use agora os serviços</Button>
+          <Button type="secondary">Ver nossa missão</Button>
+        </div>
       </div>
     </section>
   )
