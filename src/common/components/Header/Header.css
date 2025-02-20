@@ -1,0 +1,33 @@
+header {
+  display: flex;
+  flex-direction: column;
+
+  .navbar {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    nav {
+      display: flex;
+      gap: 20px;
+
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--color-blue);
+    }
+
+  }
+}
+
+.acessibility {
+  background-color: var(--color-blue);
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  align-items: center;
+}

@@ -5,9 +5,10 @@ export default function Fields() {
   const [expandedSections, setExpandedSections] = useState({
     personalInfo: true,
     address: false,
-    household: false,
+    househoodInfo: false,
     expenses: false,
-    services: false
+    familyInfo: false,
+    servicesPlace:false
   });
 
   const toggleSection = (section) => {
@@ -24,7 +25,7 @@ export default function Fields() {
           onClick={() => toggleSection('personalInfo')}
           className="data__field"
         >
-          <span>Informações Pessoais</span>
+          <span>Minhas informações</span>
           <span>{expandedSections.personalInfo ? '−' : '+'}</span>
         </button>
 
@@ -64,149 +65,16 @@ export default function Fields() {
         )}
       </div>
 
-
       <div className="">
-        <button className="data__field"
+        <button
           onClick={() => toggleSection('address')}
-
+          className="data__field"
         >
-          <span>Endereço da Família</span>
+          <span>Endereço da familia</span>
           <span>{expandedSections.address ? '−' : '+'}</span>
         </button>
 
         {expandedSections.address && (
-          <div className="content">
-            <div className="inputGrid">
-              <div className="inputFull">
-                <input
-                  type="text"
-                  placeholder="Endereço"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Cidade"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Estado"
-                  className="input"
-                />
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
-
-      <div className="">
-        <button
-          onClick={() => toggleSection('household')}
-          className="data__field"
-        >
-          <span>Características da Família</span>
-          <span>{expandedSections.household ? '−' : '+'}</span>
-        </button>
-
-        {expandedSections.household && (
-          <div className="content">
-            <div className="inputGrid">
-              <div className="inputFull">
-                <textarea
-                  placeholder="Descreva as características da família"
-                  className="textarea"
-                />
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
-
-      <div className="">
-        <button
-          onClick={() => toggleSection('expenses')}
-          className="data__field"
-        >
-          <span>Despesas Mensais</span>
-          <span>{expandedSections.expenses ? '−' : '+'}</span>
-        </button>
-
-        {expandedSections.expenses && (
-          <div className="content">
-            <div className="inputGrid">
-              <div className="inputGroup">
-                <input
-                  type="number"
-                  placeholder="Aluguel"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="number"
-                  placeholder="Alimentação"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="number"
-                  placeholder="Transporte"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="number"
-                  placeholder="Outros"
-                  className="input"
-                />
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
-
-      <div className="">
-        <button
-          onClick={() => toggleSection('services')}
-          className="data__field"
-        >
-          <span>Unidades de Atendimento</span>
-          <span>{expandedSections.services ? '−' : '+'}</span>
-        </button>
-
-        {expandedSections.services && (
-          <div className="content">
-            <div className="inputGrid">
-              <div className="inputFull">
-                <select className="input">
-                  <option value="">Selecione uma unidade</option>
-                  <option value="1">Unidade 1</option>
-                  <option value="2">Unidade 2</option>
-                  <option value="3">Unidade 3</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>    <div className="">
-        <button
-          onClick={() => toggleSection('personalInfo')}
-          className="data__field"
-        >
-          <span>Informações Pessoais</span>
-          <span>{expandedSections.personalInfo ? '−' : '+'}</span>
-        </button>
-
-        {expandedSections.personalInfo && (
           <div className="content">
             <div className="inputGrid">
               <div className="inputGroup">
@@ -242,76 +110,57 @@ export default function Fields() {
         )}
       </div>
 
-
-      <div className="">
-        <button className="data__field"
-          onClick={() => toggleSection('address')}
-
-        >
-          <span>Endereço da Família</span>
-          <span>{expandedSections.address ? '−' : '+'}</span>
-        </button>
-
-        {expandedSections.address && (
-          <div className="content">
-            <div className="inputGrid">
-              <div className="inputFull">
-                <input
-                  type="text"
-                  placeholder="Endereço"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Cidade"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Estado"
-                  className="input"
-                />
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
-
       <div className="">
         <button
-          onClick={() => toggleSection('household')}
+          onClick={() => toggleSection('househoodInfo')}
           className="data__field"
         >
-          <span>Características da Família</span>
-          <span>{expandedSections.household ? '−' : '+'}</span>
+          <span>Dados do domicilio</span>
+          <span>{expandedSections.househoodInfo ? '−' : '+'}</span>
         </button>
 
-        {expandedSections.household && (
+        {expandedSections.househoodInfo && (
           <div className="content">
             <div className="inputGrid">
-              <div className="inputFull">
-                <textarea
-                  placeholder="Descreva as características da família"
-                  className="textarea"
+              <div className="inputGroup">
+                <input
+                  type="text"
+                  placeholder="Nome completo"
+                  className="input"
+                />
+              </div>
+              <div className="inputGroup">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="input"
+                />
+              </div>
+              <div className="inputGroup">
+                <input
+                  type="tel"
+                  placeholder="Telefone"
+                  className="input"
+                />
+              </div>
+              <div className="inputGroup">
+                <input
+                  type="text"
+                  placeholder="Documento"
+                  className="input"
                 />
               </div>
             </div>
           </div>
         )}
       </div>
-
 
       <div className="">
         <button
           onClick={() => toggleSection('expenses')}
           className="data__field"
         >
-          <span>Despesas Mensais</span>
+          <span>Dispesas mensais</span>
           <span>{expandedSections.expenses ? '−' : '+'}</span>
         </button>
 
@@ -320,29 +169,29 @@ export default function Fields() {
             <div className="inputGrid">
               <div className="inputGroup">
                 <input
-                  type="number"
-                  placeholder="Aluguel"
+                  type="text"
+                  placeholder="Nome completo"
                   className="input"
                 />
               </div>
               <div className="inputGroup">
                 <input
-                  type="number"
-                  placeholder="Alimentação"
+                  type="email"
+                  placeholder="Email"
                   className="input"
                 />
               </div>
               <div className="inputGroup">
                 <input
-                  type="number"
-                  placeholder="Transporte"
+                  type="tel"
+                  placeholder="Telefone"
                   className="input"
                 />
               </div>
               <div className="inputGroup">
                 <input
-                  type="number"
-                  placeholder="Outros"
+                  type="text"
+                  placeholder="Documento"
                   className="input"
                 />
               </div>
@@ -350,32 +199,97 @@ export default function Fields() {
           </div>
         )}
       </div>
-
 
       <div className="">
         <button
-          onClick={() => toggleSection('services')}
+          onClick={() => toggleSection('familyInfo')}
           className="data__field"
         >
-          <span>Unidades de Atendimento</span>
-          <span>{expandedSections.services ? '−' : '+'}</span>
+          <span>Caracteristicas da familia</span>
+          <span>{expandedSections.familyInfo ? '−' : '+'}</span>
         </button>
 
-        {expandedSections.services && (
+        {expandedSections.familyInfo && (
           <div className="content">
             <div className="inputGrid">
-              <div className="inputFull">
-                <select className="input">
-                  <option value="">Selecione uma unidade</option>
-                  <option value="1">Unidade 1</option>
-                  <option value="2">Unidade 2</option>
-                  <option value="3">Unidade 3</option>
-                </select>
+              <div className="inputGroup">
+                <input
+                  type="text"
+                  placeholder="Nome completo"
+                  className="input"
+                />
+              </div>
+              <div className="inputGroup">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="input"
+                />
+              </div>
+              <div className="inputGroup">
+                <input
+                  type="tel"
+                  placeholder="Telefone"
+                  className="input"
+                />
+              </div>
+              <div className="inputGroup">
+                <input
+                  type="text"
+                  placeholder="Documento"
+                  className="input"
+                />
               </div>
             </div>
           </div>
         )}
       </div>
+
+      <div className="">
+        <button
+          onClick={() => toggleSection('servicesPlace')}
+          className="data__field"
+        >
+          <span>Unidades de atendimento</span>
+          <span>{expandedSections.servicesPlace ? '−' : '+'}</span>
+        </button>
+
+        {expandedSections.servicesPlace && (
+          <div className="content">
+            <div className="inputGrid">
+              <div className="inputGroup">
+                <input
+                  type="text"
+                  placeholder="Nome completo"
+                  className="input"
+                />
+              </div>
+              <div className="inputGroup">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="input"
+                />
+              </div>
+              <div className="inputGroup">
+                <input
+                  type="tel"
+                  placeholder="Telefone"
+                  className="input"
+                />
+              </div>
+              <div className="inputGroup">
+                <input
+                  type="text"
+                  placeholder="Documento"
+                  className="input"
+                />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
     </section>
   )
 }

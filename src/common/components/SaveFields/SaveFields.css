@@ -1,0 +1,11 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  p{
+    width: 80%;
+  }
+  .btns{
+    display: flex;
+    gap: 20px;
+  }
+}
