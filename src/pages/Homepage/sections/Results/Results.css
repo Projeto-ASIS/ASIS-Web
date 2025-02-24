@@ -1,7 +1,7 @@
 .results__title {
   width: 100%;
   text-align: center;
-  
+
 
   .title__lines {
     display: flex;
@@ -78,6 +78,12 @@
   /* perspective: 200px; */
 }
 
+.carousel-item:nth-child(5).next {
+  transform: scale(0.8) translateX(200px) rotate3d(0, 1, 0, 60deg);
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+}
+
 .carousel-item.active {
   opacity: 1;
   transform: scale(1) translateX(0);
@@ -150,9 +156,9 @@
   gap: 8px;
 
   padding-top: 2rem;
-  
+
   list-style-type: none;
-  
+
   z-index: 10;
 }
 
@@ -167,7 +173,7 @@
 }
 
 .dot.active {
-  width: 12px; 
+  width: 12px;
   background: #333;
 
   border-radius: 99px;

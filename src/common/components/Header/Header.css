@@ -7,7 +7,11 @@ header {
     align-items: center;
     display: flex;
     flex-direction: row;
-    padding: 10px 320px;
+    padding-block: 10px;
+    max-width: var(--max-content-width);
+    width: 100%;
+    margin-inline: auto;
+
     nav {
       display: flex;
       gap: 20px;
@@ -19,26 +23,29 @@ header {
       font-weight: bold;
       color: var(--color-blue);
     }
+
     .auth__buttons {
       display: flex;
       gap: 20px;
     }
+
     .logged__user{
-      background-color: var(--color-blue);
-      width: 175px;
-      height: 43px;
-      color: white;
+      /* background-color: var(--color-blue); */
+      /* width: 175px; */
       display: flex;
-      justify-content: center;
       align-items: center;
-      font-size: 18px;
-      border-radius: 10px;
+
+      height: 47px;
+
+      color: white;
+      font-size: 1rem;
+      
     }
 
   }
 }
 
-.acessibility {
+.header__accessibility {
   background-color: var(--color-blue);
   color: white;
   display: flex;
@@ -46,5 +53,10 @@ header {
   gap: 20px;
   align-items: center;
   height: 40px;
-  padding: 20px 320px;
+  padding-block: 20px;
+  width: 100%;
+  max-width: var(--max-content-width);
+  box-shadow: 0 0 0 100vmax var(--color-blue);
+  margin-inline: auto;
+  clip-path: inset(0 -100vmax);
 }

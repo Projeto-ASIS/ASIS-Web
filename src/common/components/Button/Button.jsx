@@ -4,11 +4,13 @@ import PropTypes from "prop-types"
 
 Button.propTypes = {
   children: PropTypes.node,
-  type: PropTypes.string
+  type: PropTypes.string,
+  className: PropTypes.string
 }
 
-export default function Button({ children, type = "default", onClick }){
+export default function Button({ children, type = "default", className, ...props }) {
   return (
-    <button data-button-type={type}  className="button" onClick={onClick}>{children}</button>
+    <button data-button-type={type} className={`${className} button`} {...props} >{children}</button>
   )
 }
+

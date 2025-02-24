@@ -1,5 +1,5 @@
 // import React from 'react'
-import { ChevronDown, Contrast, ContrastIcon, PersonStanding, ZoomIn, ZoomOut } from 'lucide-react'
+import { ChevronDown, AccessibilityIcon, PersonStanding, ZoomIn, ZoomOut } from 'lucide-react'
 import { MdContrast } from "react-icons/md";
 import Button from '../Button'
 import { Link } from 'react-router-dom';
@@ -30,11 +30,11 @@ export function Header() {
 
   return (
     <header className="header">
-      <div className="acessibility">
-        <MdContrast size={25}/>
-        <PersonStanding />
-        <ZoomIn />
-        <ZoomOut />
+      <div className="header__accessibility">
+        <MdContrast className="header__accessibility__option--high-contrast" size={16}/>
+        <ZoomIn className="header__accessibility__option--zoom-in" size={16} />
+        <ZoomOut size={16} />
+        <PersonStanding size={16}/>
       </div>
       <div className="navbar container header-content">
         <div className="logo">
@@ -47,11 +47,11 @@ export function Header() {
           <Link to="/resultados">RESULTADOS</Link>
         </nav>
         {isLogged ? (
-          <div className="logged__user">
+          <Button className="logged__user">
              {username}
              <ChevronDown size={35}/>
             
-          </div>
+          </Button>
         ) : (
           <div className="auth__buttons">
             <Button type='stroked'>Cadastrar-se</Button>
