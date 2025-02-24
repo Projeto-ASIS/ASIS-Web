@@ -10,3 +10,29 @@
   color: var(--color-pink);
   text-align: center;
 }
+.impactos{
+  display: flex;
+  .impacto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 413px;
+    p{
+      width: 271px;
+      font-weight:500;
+      font-size: 18px;
+      color: var(--color-blue-20);
+    }
+  }
+
+}
+.icon{
+  color: var(--color-pink);
+.gradient {
+  background: linear-gradient(45deg, var(--color-blue-20), var(--color-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+}

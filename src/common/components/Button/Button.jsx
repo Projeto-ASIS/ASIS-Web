@@ -7,8 +7,8 @@ Button.propTypes = {
   type: PropTypes.string
 }
 
-export default function Button({ children, type = "default" }){
+export default function Button({ children, type = "default", onClick }){
   return (
-    <button data-button-type={type} className="button">{children}</button>
+    <button data-button-type={type}  className="button" onClick={onClick}>{children}</button>
   )
 }

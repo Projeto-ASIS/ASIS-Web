@@ -4,11 +4,13 @@ import Offers from "./sections/Offers/Offers";
 import Features from "./sections/Features/Features";
 import Results from "./sections/Results/Results";
 import Invite from "./sections/Invite";
+import Hero from "./sections/Hero/Hero";
 
 export default function Homepage() {
   return (
     <div>
       <Header />
+      <Hero />
       <Offers />
       <Features />
       <Results />
