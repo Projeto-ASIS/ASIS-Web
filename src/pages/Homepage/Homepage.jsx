@@ -4,7 +4,7 @@ import Offers from "./sections/Offers/Offers";
 import Features from "./sections/Features/Features";
 import Results from "./sections/Results/Results";
 import Invite from "./sections/Invite";
-import Hero from "./sections/Hero/Hero";
+import Hero from "./sections/hero/Hero";
 
 export default function Homepage() {
   return (
