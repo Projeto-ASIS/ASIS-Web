@@ -8,7 +8,7 @@ export default function Fields() {
     househoodInfo: false,
     expenses: false,
     familyInfo: false,
-    servicesPlace:false
+    servicesPlace: false
   });
 
   const toggleSection = (section) => {
@@ -20,7 +20,7 @@ export default function Fields() {
 
   return (
     <section className='container'>
-      <div className="">
+      <div className="data">
         <button
           onClick={() => toggleSection('personalInfo')}
           className="data__field"
@@ -29,43 +29,41 @@ export default function Fields() {
           <span>{expandedSections.personalInfo ? '−' : '+'}</span>
         </button>
 
-        {expandedSections.personalInfo && (
-          <div className="content">
-            <div className="inputGrid">
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Nome completo"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="tel"
-                  placeholder="Telefone"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Documento"
-                  className="input"
-                />
-              </div>
+        <div className="content" aria-expanded={expandedSections.personalInfo}>
+          <div className="inputGrid">
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Nome completo da Pessoa de Referência"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="email"
+                placeholder="Email"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="tel"
+                placeholder="Telefone"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Documento"
+                className="input"
+              />
             </div>
           </div>
-        )}
+        </div>
       </div>
 
-      <div className="">
+      <div className="data">
         <button
           onClick={() => toggleSection('address')}
           className="data__field"
@@ -74,8 +72,7 @@ export default function Fields() {
           <span>{expandedSections.address ? '−' : '+'}</span>
         </button>
 
-        {expandedSections.address && (
-          <div className="content">
+          <div className="content" aria-expanded={expandedSections.address}>
             <div className="inputGrid">
               <div className="inputGroup">
                 <input
@@ -107,10 +104,9 @@ export default function Fields() {
               </div>
             </div>
           </div>
-        )}
       </div>
 
-      <div className="">
+      <div className="data">
         <button
           onClick={() => toggleSection('househoodInfo')}
           className="data__field"
@@ -119,8 +115,8 @@ export default function Fields() {
           <span>{expandedSections.househoodInfo ? '−' : '+'}</span>
         </button>
 
-        {expandedSections.househoodInfo && (
-          <div className="content">
+        {/* {expandedSections.househoodInfo && ( */}
+          <div className="content" aria-expanded={expandedSections.househoodInfo}>
             <div className="inputGrid">
               <div className="inputGroup">
                 <input
@@ -152,10 +148,10 @@ export default function Fields() {
               </div>
             </div>
           </div>
-        )}
+        {/* )} */}
       </div>
 
-      <div className="">
+      <div className="data">
         <button
           onClick={() => toggleSection('expenses')}
           className="data__field"
@@ -164,8 +160,8 @@ export default function Fields() {
           <span>{expandedSections.expenses ? '−' : '+'}</span>
         </button>
 
-        {expandedSections.expenses && (
-          <div className="content">
+        {/* {expandedSections.expenses && ( */}
+          <div className="content" aria-expanded={expandedSections.expenses}>
             <div className="inputGrid">
               <div className="inputGroup">
                 <input
@@ -197,10 +193,10 @@ export default function Fields() {
               </div>
             </div>
           </div>
-        )}
+        {/* )} */}
       </div>
 
-      <div className="">
+      <div className="data">
         <button
           onClick={() => toggleSection('familyInfo')}
           className="data__field"
@@ -209,8 +205,8 @@ export default function Fields() {
           <span>{expandedSections.familyInfo ? '−' : '+'}</span>
         </button>
 
-        {expandedSections.familyInfo && (
-          <div className="content">
+        {/* {expandedSections.familyInfo && ( */}
+          <div className="content" aria-expanded={expandedSections.familyInfo}>
             <div className="inputGrid">
               <div className="inputGroup">
                 <input
@@ -242,10 +238,10 @@ export default function Fields() {
               </div>
             </div>
           </div>
-        )}
+        {/* )} */}
       </div>
 
-      <div className="">
+      <div className="data">
         <button
           onClick={() => toggleSection('servicesPlace')}
           className="data__field"
@@ -254,8 +250,8 @@ export default function Fields() {
           <span>{expandedSections.servicesPlace ? '−' : '+'}</span>
         </button>
 
-        {expandedSections.servicesPlace && (
-          <div className="content">
+        {/* {expandedSections.servicesPlace && ( */}
+          <div className="content" aria-expanded={expandedSections.servicesPlace}>
             <div className="inputGrid">
               <div className="inputGroup">
                 <input
@@ -287,7 +283,7 @@ export default function Fields() {
               </div>
             </div>
           </div>
-        )}
+        {/* )} */}
       </div>
 
     </section>

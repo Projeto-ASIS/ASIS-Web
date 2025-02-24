@@ -7,12 +7,9 @@ import Cadunico from "./pages/User/Services/Cadunico/Cadunico"
 
 
 export const router = createBrowserRouter([
-  {
-    element: <Cadunico />,path: "/user",
-  },
+  { element: <User />, path: "/user", },
+  { element: <Cadunico />, path: "/user/cadunico", },
   { element: <About />, path: "/about" },
-  {
-    element: <Homepage />,path: "/"
-  },
+  { element: <Homepage />, path: "/" },
 
 ]) 
