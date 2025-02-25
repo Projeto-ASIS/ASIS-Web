@@ -3,7 +3,7 @@ import { ChevronDown, AccessibilityIcon, PersonStanding, ZoomIn, ZoomOut } from 
 import { MdContrast } from "react-icons/md";
 import Button from '../Button'
 import { Link } from 'react-router-dom';
-import { useState , useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './Header.css'
 
 export function Header() {
@@ -31,16 +31,17 @@ export function Header() {
   return (
     <header className="header">
       <div className="header__accessibility">
-        <MdContrast className="header__accessibility__option--high-contrast" size={16}/>
+        <MdContrast className="header__accessibility__option--high-contrast" size={16} />
         <ZoomIn className="header__accessibility__option--zoom-in" size={16} />
         <ZoomOut size={16} />
-        <PersonStanding size={16}/>
+        <PersonStanding size={16} />
       </div>
       <div className="navbar container header-content">
         <div className="logo">
-          <img src="Logo.png" alt="Logo" />
+          <img src="/Logo.png" alt="Logo" />
         </div>
         <nav className="nav__links">
+          
           <Link to="/">INÍCIO</Link>
           <Link to="/offers">BENEFÍCIOS</Link>
           <Link to="/funcionalidades">FUNCIONALIDADES</Link>
@@ -48,14 +49,18 @@ export function Header() {
         </nav>
         {isLogged ? (
           <Button className="logged__user">
-             {username}
-             <ChevronDown size={35}/>
-            
+            {username}
+            <ChevronDown size={35} />
+
           </Button>
         ) : (
           <div className="auth__buttons">
-            <Button type='stroked'>Cadastrar-se</Button>
-            <Button type='default-secondary'  onClick={handleLogin}>Fazer login</Button>
+            <Button type='stroked'>
+              <Link to="/auth/signup">Cadastrar-se</Link>
+              </Button>
+            <Button type='default-secondary'>
+              <Link style={{ color: 'white' }} to="/auth/signin">Fazer login</Link>
+            </Button>
           </div>
         )}
       </div>

@@ -94,6 +94,9 @@ p{
   color: var(--color-blue-20);
 }
 
+a{
+  text-decoration: none;
+}
 /* Sections e containers */
 
 section {
