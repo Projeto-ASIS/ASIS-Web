@@ -1,6 +1,9 @@
 import '../Appoinments.css'
 
 export default function Calendar() {
+
+  const dates = [26 , 5, 13]
+
   return <>
     <section className='calendar' >
       <div className="calendar__title">
@@ -19,55 +22,30 @@ export default function Calendar() {
         <div>SAB</div>
       </div>
       <div class="semanas">
-        <div class="semana">
-          <div class="dia"></div>
-          <div class="dia">2</div>
-          <div class="dia">3</div>
-          <div class="dia">4</div>
-          <div class="dia">5</div>
-          <div class="dia">6</div>
-          <div class="dia"></div>
-        </div>
-
-        <div class="semana">
-          <div class="dia"></div>
-          <div class="dia">9</div>
-          <div class="dia destaque-amarelo">10</div>
-          <div class="dia">11</div>
-          <div class="dia">12</div>
-          <div class="dia">13</div>
-          <div class="dia"></div>
-        </div>
-
-        <div class="semana">
-          <div class="dia"></div>
-          <div class="dia">16</div>
-          <div class="dia">17</div>
-          <div class="dia">18</div>
-          <div class="dia">19</div>
-          <div class="dia">20</div>
-          <div class="dia"></div>
-        </div>
-
-        <div class="semana">
-          <div class="dia"></div>
-          <div class="dia">23</div>
-          <div class="dia">24</div>
-          <div class="dia destaque-rosa">25</div>
-          <div class="dia">26</div>
-          <div class="dia">27</div>
-          <div class="dia"></div>
-        </div>
-
-        <div class="semana">
-          <div class="dia"></div>
-          <div class="dia">30</div>
-          <div class="dia">31</div>
-          <div class="dia inativo">1</div>
-          <div class="dia inativo">2</div>
-          <div class="dia inativo">3</div>
-          <div class="dia inativo">4</div>
-        </div>
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className="semana">
+            {[...Array(7)].map((_, j) => {
+              const day = i * 7 + j + 1;
+              const color = dates.includes(day)
+                ? {
+                    26: 'var(--color-pink)',
+                    5: 'var(--color-blue)',
+                    13: 'var(--color-yellow)',
+                  }[day]
+                : '';
+              return (
+                <div
+                  key={j}
+                  className={`dia ${color ? `destaque-${color.replace('var(--color-', '').replace(')', '')}` : ''
+                    }`}
+                  style={{ backgroundColor: color }}
+                >
+                  {(j === 0 || j === 6) ? '' : day}
+                </div>
+              );
+            })}
+          </div>
+        ))}
       </div>
 
       </div>
