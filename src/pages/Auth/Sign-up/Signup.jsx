@@ -7,7 +7,7 @@ export default function Signup() {
     <main className='main'>
       <div className="brand">
         <img src={shape} alt="" />
-        <img className='logo' src={Logo} alt="" />
+        <img className='sign-up__logo' src={Logo} alt="" />
       </div>
       <div className="UserData">
         <img style={{ width: '70px', height: '70px' }} src={Logo} alt="" />

@@ -9,7 +9,7 @@ export default function Signin() {
   <main className='main'>
         <div className="brand">
           <img src={shape} alt="" />
-          <img className='logo' src={Logo} alt="" />
+          <img className="sign-in__logo" src={Logo} alt="" />
         </div>
         <div className="UserData">
           
