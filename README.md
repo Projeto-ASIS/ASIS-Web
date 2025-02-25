@@ -1,5 +1,7 @@
 # **PLATAFORMA DE ACESSO E AGENDAMENTO DE SERVIÇOS DE ASSISTENCIA SOCIAL.**
 
+<img style="width: 100%;" src="./banner.jpg">
+
 O *ASIS* tem como objetivo desenvolver uma solução para o *Sistema Único de Assistência Social (SUAS), focada na digitalização e padronização do armazenamento de prontuários dos cidadãos atendidos pelos **Centros de Referência de Assistência Social (CRAS)*.
 
 Atualmente, as unidades do CRAS operam de forma isolada, sem integração de dados, o que dificulta o acesso e a atualização das informações. O *ASIS* propõe a unificação desses dados e centraliza o agendamento de serviços, permitindo uma comunicação eficiente entre as unidades, eliminando registros descentralizados e processos burocráticos, trazendo mais eficiência e organização para o atendimento às famílias. como projeto de conclusão de curso do programa START.
