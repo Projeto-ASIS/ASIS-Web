@@ -1,0 +1,102 @@
+.calender{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+.calendar__title {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .line {
+    width: 303px;
+    border-radius: 16px;
+    height: 7px;
+    background-color: var(--color-pink);
+  }
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cabecalho div {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  color: #0066a4;
+  padding: 8px 0;
+}
+
+.semanas {
+  display: flex;
+  flex-direction: column;
+}
+
+.semana {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.dia {
+  flex: 1;
+  height: 60px;
+  margin: 0 3px;
+  border: 1px solid var(--color-blue);
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 5px;
+  position: relative;
+  background-color: #fff;
+}
+
+.dia.destaque-amarelo {
+  background-color: #ffff00;
+}
+
+.dia.destaque-rosa {
+  background-color: #ff1493;
+  color: white;
+}
+
+.dia.inativo {
+  background-color: #f0f0f0;
+  color: #aaa;
+}
+
+.legenda__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legenda__item__color {
+  width: 26px;
+  height: 26px;
+  border-radius: 40px;
+}
+
+
+@media (max-width: 600px) {
+  .dia {
+    height: 45px;
+    padding: 3px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .dia {
+    height: 35px;
+    padding: 2px;
+    font-size: 10px;
+  }
+}
