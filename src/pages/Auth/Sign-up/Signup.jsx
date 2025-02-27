@@ -1,7 +1,10 @@
 import './Signup.css'
+
 import Logo from '../../../assets/LogoASISCentralizada.png'
 import Button from '@/common/components/Button'
+
 export default function Signup() {
+  console.log("Signup rendered")
   return (
     <div className="UserData">
       <img style={{ width: '70px', height: '70px' }} src={Logo} alt="" />
