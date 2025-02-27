@@ -1,9 +1,12 @@
 
 .hero{
+  padding-top: 124px;
+
   background-image: url("/Hero.jpeg");
   background-size: cover;
   background-position: center;
   height: 100vh;
+  max-height: 1000px;
   box-shadow: inset 0px 280px 100.4px 0px rgba(15, 15, 15, 0.35);
 }
 .Hero__title{
