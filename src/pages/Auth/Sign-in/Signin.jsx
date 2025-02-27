@@ -2,9 +2,10 @@
 import Logo from '../../../assets/LogoASISCentralizada.png'
 import Button from '@/common/components/Button'
 import './Signin.css'
-import { LucideCircleChevronLeft } from 'lucide-react'
+// import { LucideCircleChevronLeft } from 'lucide-react'
 
 export default function Signin() {
+  console.log("Signup rendered")
   return (
     <div className="UserData">
       <img style={{ width: '70px', height: '70px' }} src={Logo} alt="" />
