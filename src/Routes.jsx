@@ -12,7 +12,7 @@ import AuthLayout from "./pages/Auth/AuthLayout"
 
 export const router = createBrowserRouter([
   { element: <User />, path: "/user", },
-  { element: <AuthLayout />, children: [
+  { element: <AuthLayout />,path: "/auth", children: [
     { element: <Signup />, path: "/signup" },
     { element: <Signin />, path: "/signin" },
   ]},

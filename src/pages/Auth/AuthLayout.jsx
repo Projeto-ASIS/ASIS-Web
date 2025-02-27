@@ -2,7 +2,7 @@ import './AuthLayout.css'
 import shape from '../../assets/shapeauth.png'
 import Logo from '../../assets/LogoASISCentralizada.png'
 export default function AuthLayout({children}) {
-  return <>
+  return (
         <main className='main'>
           <div className="brand">
             <img src={shape} alt="" />
@@ -10,7 +10,5 @@ export default function AuthLayout({children}) {
           </div>
          {children}
         </main>
-    
-    
-  </>
+        )
 } 
