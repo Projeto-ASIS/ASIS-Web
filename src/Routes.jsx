@@ -9,6 +9,7 @@ import Appoinments from "./pages/User/Services/Appoinments/Appoinsments"
 import AuthLayout from "@/pages/Auth/AuthLayout"
 import Signup from "@/pages/Auth/Sign-up/Signup"
 import Signin from "@/pages/Auth/Sign-in/Signin"
+import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPassword"
 
 
 export const router = createBrowserRouter([
@@ -20,11 +21,12 @@ export const router = createBrowserRouter([
     children: [
       { element: <Signup />, path: "sign-up" },
       { element: <Signin />, path: "sign-in" },
+      {element:<ForgotPassword /> , path: "forgot-pass"}
     ]
   },
-  // { element: <Cadunico />, path: "/user/Services/Cadunico", },
-  // { element: <Appoinments />, path: "/user/Services/Appoinments", },
-  // { element: <About />, path: "/about" },
-  // { element: <Homepage />, path: "/" },
+  { element: <Cadunico />, path: "/user/Services/Cadunico", },
+  { element: <Appoinments />, path: "/user/Services/Appoinments", },
+  { element: <About />, path: "/about" },
+  { element: <Homepage />, path: "/" },
 
 ]) 

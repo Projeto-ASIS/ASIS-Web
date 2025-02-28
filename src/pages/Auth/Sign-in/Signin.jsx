@@ -1,7 +1,7 @@
 
 import Logo from '../../../assets/LogoASISCentralizada.png'
 import Button from '@/common/components/Button'
-import './Signin.css'
+import '../AuthLayout.css'
 // import { LucideCircleChevronLeft } from 'lucide-react'
 
 export default function Signin() {
@@ -17,10 +17,10 @@ export default function Signin() {
         <input type="text" placeholder='Nome' />
         <input type="email" placeholder='Email' />
         <input type="password" placeholder='Senha' />
-        <a className='text-blue-20'>Esqueci minha senha</a>
+        <a href='forgot-pass' className='text-blue-20'>Esqueci minha senha</a>
         <div className="btns__register">
           <Button type="default">Confirmar Login</Button>
-          <Button type="stroked" ><a href="signup" style={{ color: 'var(--color-blue)' }}>Criar uma conta</a></Button>
+          <Button type="stroked" ><a href="sign-up" style={{ color: 'var(--color-blue)' }}>Criar uma conta</a></Button>
         </div>
       </form>
     </div>

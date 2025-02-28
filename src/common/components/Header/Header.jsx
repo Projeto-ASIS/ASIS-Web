@@ -41,7 +41,7 @@ export function Header() {
           <img src="/Logo.png" alt="Logo" />
         </div>
         <nav className="nav__links">
-          
+
           <Link to="/">INÍCIO</Link>
           <Link to="/offers">BENEFÍCIOS</Link>
           <Link to="/funcionalidades">FUNCIONALIDADES</Link>
@@ -55,12 +55,21 @@ export function Header() {
           </Button>
         ) : (
           <div className="auth__buttons">
-            <Button type='stroked'>
-              <Link to="/auth/signup">Cadastrar-se</Link>
+
+            <Link to="/sign-up">
+              <Button type='stroked'>
+                Cadastrar-se
               </Button>
-            <Button type='default-secondary'>
-              <Link style={{ color: 'white' }} to="/auth/signin">Fazer login</Link>
-            </Button>
+            </Link>
+
+
+
+            <Link style={{ color: 'white' }} to="/sign-in">
+              <Button type='default-secondary'>
+                Fazer login
+              </Button>
+            </Link>
+
           </div>
         )}
       </div>

@@ -1,4 +1,4 @@
-import './Signup.css'
+import '../AuthLayout.css'
 
 import Logo from '../../../assets/LogoASISCentralizada.png'
 import Button from '@/common/components/Button'
@@ -18,7 +18,7 @@ export default function Signup() {
         <input type="password" placeholder='Senha' />
         <div className="btns__register">
           <Button type="default">Cadastrar-se</Button>
-          <Button type="stroked" ><a href="signin" style={{ color: 'var(--color-blue)' }}>Já possuo uma conta</a></Button>
+          <Button type="stroked" ><a href="sign-in" style={{ color: 'var(--color-blue)' }}>Já possuo uma conta</a></Button>
         </div>
       </form>
     </div>
