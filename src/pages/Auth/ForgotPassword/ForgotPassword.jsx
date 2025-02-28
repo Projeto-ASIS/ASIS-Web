@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from '@/common/components/Button';
 import Logo from '../../../assets/LogoASISCentralizada.png'
-import { Check } from 'lucide-react';
+import { Check, ChevronLeft } from 'lucide-react';
 import { FaCheck } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 
@@ -89,6 +89,7 @@ export default function ForgotPassword() {
   const totalSteps = 4;
   return (
     <div className="UserData">
+        <Link to={{pathname:"/"}}><ChevronLeft className='back' size={80}/></Link> 
       {step === 1 && <StepOne onNext={nextStep} />}
       {step === 2 && <StepTwo onNext={nextStep} />}
       {step === 3 && <StepThree onNext={nextStep} />}

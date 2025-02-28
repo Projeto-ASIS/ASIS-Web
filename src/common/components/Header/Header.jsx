@@ -64,7 +64,7 @@ export function Header() {
 
 
 
-            <Link style={{ color: 'white' }} to="/sign-in">
+            <Link style={{ color: 'white' }} to={{ pathname: "/sign-in" }}>
               <Button type='default-secondary'>
                 Fazer login
               </Button>

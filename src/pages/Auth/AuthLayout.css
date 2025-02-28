@@ -2,6 +2,7 @@ main{
   display: flex;
   align-items: center;
   height: 100vh;
+
 }
 .UserData {
   display: flex;
@@ -12,7 +13,12 @@ main{
   gap: 2rem;
   width: 600px;
   text-align: center;
-
+  .back{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    color: var(--color-neutral-10);
+  }
   form {
     .btns__register {
       display: flex;

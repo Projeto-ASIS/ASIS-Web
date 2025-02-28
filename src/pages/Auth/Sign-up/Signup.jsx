@@ -2,11 +2,14 @@ import '../AuthLayout.css'
 
 import Logo from '../../../assets/LogoASISCentralizada.png'
 import Button from '@/common/components/Button'
+import { ChevronLeft } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function Signup() {
   console.log("Signup rendered")
   return (
     <div className="UserData">
+        <Link to={{pathname:"/"}}><ChevronLeft className='back' size={80}/></Link> 
       <img style={{ width: '70px', height: '70px' }} src={Logo} alt="" />
       <div className="form__title">
         <h1 className='text-blue'>comece agora no ASIS</h1>

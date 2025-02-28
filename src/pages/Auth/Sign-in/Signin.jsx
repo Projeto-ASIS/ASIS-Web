@@ -2,12 +2,15 @@
 import Logo from '../../../assets/LogoASISCentralizada.png'
 import Button from '@/common/components/Button'
 import '../AuthLayout.css'
+import { Link } from 'react-router-dom'
+import { ChevronLeft } from 'lucide-react'
 // import { LucideCircleChevronLeft } from 'lucide-react'
 
 export default function Signin() {
   console.log("Signup rendered")
   return (
     <div className="UserData">
+        <Link to={{pathname:"/"}}><ChevronLeft className='back' size={80}/></Link> 
       <img style={{ width: '70px', height: '70px' }} src={Logo} alt="" />
       <div className="form__title">
         <h1 className='text-blue'>Faça seu Login!</h1>
