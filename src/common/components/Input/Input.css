@@ -156,3 +156,25 @@
 
   &::after {}
 }
+
+.input__icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 16px;
+  height: 16px;
+  aspect-ratio: 1 / 1;
+
+  /* fill: var(--color-neutral-sec-80); */
+  stroke: var(--color-neutral-sec-80);
+
+  transition: stroke 300ms ease-in-out;
+}
+
+
+.input__base:where(:focus, :active) + .input__icon {
+  /* fill: var(--color-blue-60); */
+  stroke: var(--color-blue-60);
+}
