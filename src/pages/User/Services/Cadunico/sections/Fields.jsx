@@ -34,7 +34,7 @@ export default function Fields() {
         <div className="content" aria-expanded={expandedSections.personalInfo}>
           <div className="inputGrid">
             <div className="inputGroup">
-              <Input required placeholder="Email" hasIcon/>
+              <Input placeholder="Email" hasIcon/>
               {/* <input
                 type="text"
                 placeholder="Nome completo da Pessoa de Referência"

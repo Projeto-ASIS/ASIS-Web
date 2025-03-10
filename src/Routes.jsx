@@ -11,11 +11,11 @@ import Appoinments from "./pages/User/Services/Appoinments/Appoinsments"
 
 export const router = createBrowserRouter([
   { element: <User />, path: "/user", },
-  { element: <Cadunico />, path: "/user/Services/Cadunico", },
+  { element: <Cadunico />, path: "/", },
   { element: <Appoinments />, path: "/user/Services/Appoinments", },
   { element: <About />, path: "/about" },
   { element: <Signup />, path: "/auth/signup" },
   { element: <Signin />, path: "/auth/signin" },
-  { element: <Homepage />, path: "/" },
+  { element: <Homepage />, path: "/home" },
 
 ]) 

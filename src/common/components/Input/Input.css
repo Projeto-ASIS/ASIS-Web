@@ -1,3 +1,51 @@
+.input__container {
+  position: relative;
+  display: inline-block;
+}
+
+.input__label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  padding: 2px;
+
+  line-height: 1;
+
+  background-color: var(--color-neutral-100);
+
+  pointer-events: none;
+  z-index: 2;
+
+  transition: font-size 300ms ease-in-out, top 300ms ease-in-out, background 300ms ease-in-out;
+}
+
+.input__label--not-empty {
+  top: 0;
+
+  font-size: 8px;
+  background-color: var(--color-neutral-100);
+}
+
+.input__label--empty {
+  top: 50%;
+
+  font-size: 14px;
+
+  background: transparent;
+}
+
+.input__container__required-icon {
+  position: relative;
+  left: 2px;
+  top: 0;
+
+  vertical-align: text-top;
+  color: var(--color-red);
+
+}
+
 .input__base {
   position: relative;
 
@@ -34,7 +82,7 @@
     transition: font-size 200ms ease-in-out, transition 200ms ease-in-out, color 200ms ease-in-out;
   }
 
-  
+
   &:placeholder-shown:focus,
   &:placeholder-shown:active {
     color: var(--color-blue-60);
@@ -46,11 +94,11 @@
     left: 0;
     bottom: 0;
     right: 0;
-    
+
     width: 16px;
     height: 11px;
 
-    content: "email";
+    /* content: "email"; */
 
     padding-inline: 3px;
     color: var(--color-blue-60);
@@ -58,7 +106,7 @@
     background-color: var(--color-blue-60);
 
     z-index: 99;
-    
+
   }
 
   &:where(:focus, :active)::placeholder {
@@ -86,19 +134,19 @@
 }
 
 /* .input__base:where(:focus, :active)::placeholder {} */
-.input__base:invalid {
+.input__base--invalid {
   color: var(--color-red);
 
   border: 1px solid var(--color-red);
-} 
+}
 
 .input__base[required]::placeholder::after {
   content: "*";
-  
+
   vertical-align: top;
 }
 
-.input__base:where(:valid){
+.input__base--valid {
   color: var(--);
   border: 1px solid var(--color-green-50);
 }
@@ -106,7 +154,5 @@
 .input__base--has-icon {
   padding-right: calc(16px + 18px);
 
-  &::after {
-    
-  }
+  &::after {}
 }
