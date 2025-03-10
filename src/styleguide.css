@@ -37,6 +37,9 @@
   --color-neutral-100: #fff;
 
   --color-background: var(--color-neutral-100);
+
+  --color-neutral-sec-95: #F2F2F2;
+  --color-neutral-sec-80: #CCC;
 }
 
 html{
