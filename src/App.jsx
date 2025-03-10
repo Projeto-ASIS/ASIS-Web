@@ -1,8 +1,9 @@
+import Header from "@/common/components/Header/Header"
 
 function App() {
   return (
     <>
-    <h1>Asis Project</h1>
+    <Header />
     </>
   )
 }

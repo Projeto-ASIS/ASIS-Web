@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Header = () => {
+function Header() {
   return (
     <header className="header">
-    <div className="container header-content">
+    <div className="accessibility-interface">
       <div className="logo">
         ASIS
       </div>
