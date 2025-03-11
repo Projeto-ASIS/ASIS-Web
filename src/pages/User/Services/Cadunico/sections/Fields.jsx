@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function Fields() {
-
   const [expandedSections, setExpandedSections] = useState({
     personalInfo: true,
     address: false,
@@ -72,38 +71,38 @@ export default function Fields() {
           <span>{expandedSections.address ? '−' : '+'}</span>
         </button>
 
-          <div className="content" aria-expanded={expandedSections.address}>
-            <div className="inputGrid">
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Nome completo"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="tel"
-                  placeholder="Telefone"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Documento"
-                  className="input"
-                />
-              </div>
+        <div className="content" aria-expanded={expandedSections.address}>
+          <div className="inputGrid">
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Nome completo"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="email"
+                placeholder="Email"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="tel"
+                placeholder="Telefone"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Documento"
+                className="input"
+              />
             </div>
           </div>
+        </div>
       </div>
 
       <div className="data">
@@ -116,38 +115,38 @@ export default function Fields() {
         </button>
 
         {/* {expandedSections.househoodInfo && ( */}
-          <div className="content" aria-expanded={expandedSections.househoodInfo}>
-            <div className="inputGrid">
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Nome completo"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="tel"
-                  placeholder="Telefone"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Documento"
-                  className="input"
-                />
-              </div>
+        <div className="content" aria-expanded={expandedSections.househoodInfo}>
+          <div className="inputGrid">
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Nome completo"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="email"
+                placeholder="Email"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="tel"
+                placeholder="Telefone"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Documento"
+                className="input"
+              />
             </div>
           </div>
+        </div>
         {/* )} */}
       </div>
 
@@ -161,38 +160,38 @@ export default function Fields() {
         </button>
 
         {/* {expandedSections.expenses && ( */}
-          <div className="content" aria-expanded={expandedSections.expenses}>
-            <div className="inputGrid">
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Nome completo"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="tel"
-                  placeholder="Telefone"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Documento"
-                  className="input"
-                />
-              </div>
+        <div className="content" aria-expanded={expandedSections.expenses}>
+          <div className="inputGrid">
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Nome completo"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="email"
+                placeholder="Email"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="tel"
+                placeholder="Telefone"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Documento"
+                className="input"
+              />
             </div>
           </div>
+        </div>
         {/* )} */}
       </div>
 
@@ -206,38 +205,38 @@ export default function Fields() {
         </button>
 
         {/* {expandedSections.familyInfo && ( */}
-          <div className="content" aria-expanded={expandedSections.familyInfo}>
-            <div className="inputGrid">
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Nome completo"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="tel"
-                  placeholder="Telefone"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Documento"
-                  className="input"
-                />
-              </div>
+        <div className="content" aria-expanded={expandedSections.familyInfo}>
+          <div className="inputGrid">
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Nome completo"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="email"
+                placeholder="Email"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="tel"
+                placeholder="Telefone"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Documento"
+                className="input"
+              />
             </div>
           </div>
+        </div>
         {/* )} */}
       </div>
 
@@ -251,38 +250,38 @@ export default function Fields() {
         </button>
 
         {/* {expandedSections.servicesPlace && ( */}
-          <div className="content" aria-expanded={expandedSections.servicesPlace}>
-            <div className="inputGrid">
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Nome completo"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="tel"
-                  placeholder="Telefone"
-                  className="input"
-                />
-              </div>
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  placeholder="Documento"
-                  className="input"
-                />
-              </div>
+        <div className="content" aria-expanded={expandedSections.servicesPlace}>
+          <div className="inputGrid">
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Nome completo"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="email"
+                placeholder="Email"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="tel"
+                placeholder="Telefone"
+                className="input"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Documento"
+                className="input"
+              />
             </div>
           </div>
+        </div>
         {/* )} */}
       </div>
 

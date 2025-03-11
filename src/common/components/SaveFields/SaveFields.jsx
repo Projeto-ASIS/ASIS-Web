@@ -2,7 +2,6 @@ import Button from "../Button";
 import './SaveFields.css'
 import { Modal } from '../Modals/Modal';
 import { useState } from "react";
-import { Check } from "lucide-react";
 import { FaCheck } from "react-icons/fa";
 
 

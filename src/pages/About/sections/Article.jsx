@@ -52,8 +52,8 @@ export default function Article(){
 
       <>
      <section className="about__title">
-        <h1 className="text-blue">O que é o <span className="text-pink">asis</span> ?<br /> quem somos nós ?</h1>
-        <h4 className="text-blue-20 foot_note1">Nossa origem e como começamos a fazer esse <br></br> maravilhoso projeto para o público</h4>
+        <h1 className="text-blue about__title__innerText">O que é o <span className="text-pink">asis</span> ?<br /> quem somos nós ?</h1>
+        <h4 className="text-blue-20 footnote about__title__footnote">Nossa origem e como começamos a fazer esse <br></br> maravilhoso projeto para o público</h4>
       </section>
       <section >
         <video autoPlay loop muted controls width={"100%"} src="ProjetoAssis.mp4"></video>

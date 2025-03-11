@@ -1,6 +1,17 @@
 .about__title{
   text-align: center;
 }
+
+.about__title__innerText {
+  font-size: 96px;
+  line-height: 1;
+}
+
+
+.about__title__footnote {
+  margin-top: 64px;
+}
+
 video{
   border-radius: 15px;
   
