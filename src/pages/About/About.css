@@ -4,17 +4,19 @@
 video{
   border-radius: 15px;
   
+  
 }
 .team-container {
   margin: 0 auto;
   padding: 20px;
+
   
 }
 
 .team__flex{
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
 }
 
@@ -56,3 +58,53 @@ video{
   margin: 0;
 }
 
+.about__title{
+  margin-top: 96px;
+  margin-bottom: 37px;
+}
+
+.foot_note1{
+  margin-top: 26.15px;
+  margin-bottom: 30.18px;
+  }
+
+.title_02{
+  margin-top: 143px;
+  margin-bottom: 36.43px;
+}
+
+.foot_note2{
+ 
+  margin-bottom: 36.43px;
+}
+
+.foot_note3{
+  margin-top: 36.43px;
+ 
+}
+
+.title_03{
+  margin-top: 36.43px;
+  margin-bottom: 36.43px;
+}
+
+.foot_note4{
+  margin-bottom: 46px;
+}
+
+.foot_note5{
+  margin-bottom: 150px;
+}
+
+.foot_note6{
+  margin-top: 46px;
+}
+
+.foot_note7{
+  margin-bottom: 46px;
+}
+
+.team__container{
+  margin-top: 95.86px;
+  margin-bottom: 292px;
+}
