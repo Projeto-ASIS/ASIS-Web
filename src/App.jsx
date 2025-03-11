@@ -1,10 +1,14 @@
+import { RouterProvider } from "react-router-dom"
 
-function App() {
+import { router } from "@/Routes"
+
+export function App() {
   return (
     <>
-    <h1>Asis Project</h1>
+      <RouterProvider router={router} />
+      
+      
     </>
   )
 }
 
-export default App
