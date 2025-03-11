@@ -7,14 +7,17 @@
 
 .auth-image {
   flex: 1;
-  background-image: url("../../assets/shapeauth.png");
+  height: 100vh;
+  background-image: url("/shape.png");
   background-size: cover;
   background-position: center;
 }
 
 .UserData {
+  z-index: -99;
   flex: 1;
   width: 100%;
+  background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
