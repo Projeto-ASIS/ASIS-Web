@@ -33,7 +33,7 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      "no-undef":"error"
+      "no-undef":"error",
     },
   },
 ]
