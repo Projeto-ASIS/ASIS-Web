@@ -1,0 +1,9 @@
+.breadcrumb__base{
+  display: flex;
+
+  color: var(--color-neutral-70);
+}
+
+.breadcrumb__path--active {
+  color: var(--color-pink);
+}
