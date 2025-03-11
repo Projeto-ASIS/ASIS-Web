@@ -10,18 +10,21 @@ import "./User.css"
 
 import Footer from "@/common/components/Footer"
 import CadUnicoIcon from "@/common/components/CadUnicoIcon"
+import {  useNavigate } from "react-router-dom"
 
 ServiceCard.propTypes = {
   name: PropTypes.string,
   icon: PropTypes.node,
+  onClick: PropTypes.func
 }
 
 function ServiceCard({
   name,
   icon: Icon,
+  onClick,
 }) {
   return (
-    <article className="service-card">
+    <article onClick={onClick} className="service-card">
       <Icon color={`var(--color-blue)`} height={110} width={110} />
       <p className="service-card__title">{name}</p>
     </article>
@@ -29,7 +32,7 @@ function ServiceCard({
 }
 
 const services = [
-  { name: "Cadastro Único", icon: CadUnicoIcon },
+  { name: "Cadastro Único", icon: CadUnicoIcon, pathname: "/services/cadunico/sobre" },
   // { name: "Visita Domiciliar", iconUrl: "" },
   // { name: "Bolsa Familia", iconUrl: "" },
   // { name: "INSS", iconUrl: "" },
@@ -39,6 +42,12 @@ const services = [
 ]
 
 export default function User() {
+  const navigate = useNavigate()
+
+  const redirectToPage = (pathname) => navigate(pathname)
+
+  // const toCadunico = useCallback(() => redirectToPage(services[0].pathname), [])
+
   return (
     <>
       <Header />
@@ -48,7 +57,7 @@ export default function User() {
           <h1 className="services__top__title">Serviços que oferecemos</h1>
         </div>
         <div className="services__content">
-          {services.map((x, index) => <ServiceCard key={`ServiceCard_${index}`} {...x} />)}
+          {services.map((x, index) => <ServiceCard key={`ServiceCard_${index}`} onClick={() => redirectToPage(services[index].pathname)} {...x} />)}
         </div>
       </section>
       <section className="services-history">

@@ -1,0 +1,22 @@
+
+.services-history__footnote  {
+  margin-bottom: 40px;
+
+  text-align: center;
+
+}
+
+.services-history__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.services-history__title__divider {
+  width: 241px;
+  height: 7px;
+
+  background-color: var(--color-pink);
+  border-radius: 100px;
+}

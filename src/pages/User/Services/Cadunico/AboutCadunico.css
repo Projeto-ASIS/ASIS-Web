@@ -1,0 +1,29 @@
+.about-cadunico {
+  padding-top: calc(144px + var(--section-padding));
+}
+
+.about-cadunico__list-of-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.about-cadunico__title {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  margin-bottom: 64px;
+}
+
+.data__content__explanation {
+  max-width: 541px;
+}
+
+.data__content__actions {
+  display: flex;
+  justify-content: space-between;
+  
+  margin-top: 64px;
+  max-width: 541px;
+}

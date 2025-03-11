@@ -33,7 +33,7 @@ export default function Fields() {
           <span>{expandedSections.personalInfo ? '−' : '+'}</span>
         </button>
 
-        <div className="content" aria-expanded={expandedSections.personalInfo}>
+        <div className="data__data__content" aria-expanded={expandedSections.personalInfo}>
           <div className="inputGrid">
             <div className="inputGroup">
               <Input required placeholder="Email" hasIcon icon={AtSignIcon} />
@@ -78,7 +78,7 @@ export default function Fields() {
           <span>{expandedSections.address ? '−' : '+'}</span>
         </button>
 
-        <div className="content" aria-expanded={expandedSections.address}>
+        <div className="data__content" aria-expanded={expandedSections.address}>
           <div className="inputGrid">
             <div className="inputGroup">
               <Input
@@ -122,7 +122,7 @@ export default function Fields() {
         </button>
 
         {/* {expandedSections.househoodInfo && ( */}
-        <div className="content" aria-expanded={expandedSections.househoodInfo}>
+        <div className="data__content" aria-expanded={expandedSections.househoodInfo}>
           <div className="inputGrid">
             <div className="inputGroup">
               <Input
@@ -167,7 +167,7 @@ export default function Fields() {
         </button>
 
         {/* {expandedSections.expenses && ( */}
-        <div className="content" aria-expanded={expandedSections.expenses}>
+        <div className="data__content" aria-expanded={expandedSections.expenses}>
           <div className="inputGrid">
             <div className="inputGroup">
               <Input
@@ -212,7 +212,7 @@ export default function Fields() {
         </button>
 
         {/* {expandedSections.familyInfo && ( */}
-        <div className="content" aria-expanded={expandedSections.familyInfo}>
+        <div className="data__content" aria-expanded={expandedSections.familyInfo}>
           <div className="inputGrid">
             <div className="inputGroup">
               <Input
@@ -257,7 +257,7 @@ export default function Fields() {
         </button>
 
         {/* {expandedSections.servicesPlace && ( */}
-        <div className="content" aria-expanded={expandedSections.servicesPlace}>
+        <div className="data__content" aria-expanded={expandedSections.servicesPlace}>
           <div className="inputGrid">
             <div className="inputGroup">
               <Input
