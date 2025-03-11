@@ -11,6 +11,7 @@
 }
 .Hero__title{
   color: white;
+  margin: 20px 0;
 }
 .hero__content{
   display: flex;

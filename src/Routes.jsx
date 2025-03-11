@@ -5,7 +5,6 @@ import About from "@/pages/About/About"
 import Homepage from "./pages/Homepage/Homepage"
 import Cadunico from "./pages/User/Services/Cadunico/Cadunico"
 import Appoinments from "./pages/User/Services/Appoinments/Appoinsments"
-
 import AuthLayout from "@/pages/Auth/AuthLayout"
 import Signup from "@/pages/Auth/Sign-up/Signup"
 import Signin from "@/pages/Auth/Sign-in/Signin"

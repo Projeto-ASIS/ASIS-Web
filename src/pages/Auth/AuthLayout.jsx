@@ -7,12 +7,8 @@ import { ChevronLeft } from 'lucide-react'
 
 export default function AuthLayout({ children }) {
   return <>
-    <main className='main'>
-
-      <div className="brand">
-        <img src={shape} alt="" />
-        <img className='sign-up__logo' src={Logo} alt="" />
-      </div>
+    <main className='signin-container'>
+      <div className="signin-image" />
       <>
       
       <Outlet />

@@ -22,9 +22,9 @@ export default function Calendar() {
         <div>SAB</div>
       </div>
       <div class="semanas">
-        {[...Array(5)].map((_, i) => (
+        {Array.from({ length: 5 }, (_, i) => (
           <div key={i} className="semana">
-            {[...Array(7)].map((_, j) => {
+            {Array.from({ length: 7 }, (_, j) => {
               const day = i * 7 + j + 1;
               const color = dates.includes(day)
                 ? {
