@@ -4,14 +4,16 @@ import Logo from '../../../assets/LogoASISCentralizada.png'
 import { Check, ChevronLeft } from 'lucide-react';
 import { FaCheck } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
+import Input from '@/common/components/Input';
 
-// Componente para ionformar o email
+// Componente para informar o email
 const StepOne = ({ onNext }) => (
   <div className="form__title">
+    <img style={{ width: '70px', height: '70px' }} src={Logo} alt="" />
     <h1 className='text-blue'>Redefinir sua senha?</h1>
     <p className='text-blue-20'>Esqueceu sua senha? Não se preocupe, iremos te ajudar a redefini-la.</p>
     <form>
-      <input type="email" placeholder='Email' />
+      <Input type="email" placeholder='Email' />
       <div className="btns__register">
         <Button type="default" onClick={onNext}>Enviar Email</Button>
         <Button type="stroked">
@@ -25,6 +27,7 @@ const StepOne = ({ onNext }) => (
 // Componente para confirmação que o email foi enviado
 const StepTwo = ({ onNext }) => (
   <div className="form__title">
+    <img style={{ width: '70px', height: '70px' }} src={Logo} alt="" />
   <h1 className='text-blue'>Digite o codigo</h1>
   <p className='text-blue-20'>Enviamos ao seu email um codigo de verificação  , por favor digite-o abaixo </p>
   <form>

@@ -1,11 +1,11 @@
-.signin-container {
+.auth-container {
   display: flex;
   align-items: center;
   min-height: 100vh;
   width: 100%;
 }
 
-.signin-image {
+.auth-image {
   flex: 1;
   background-image: url("../../assets/shapeauth.png");
   background-size: cover;
@@ -19,9 +19,8 @@
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
-  background-color: #ffffff;
+  gap: 2rem;
   text-align: center;
-  gap: 45px;
   .back {
     position: absolute;
     top: 5%;
@@ -64,6 +63,7 @@
 }
 
 .breadcrumb {
+  margin: 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,11 +122,11 @@
 }
 
 @media (max-width: 768px) {
-  .signin-image {
+  .auth-image {
     display: none;
   }
 
-  .signin-form-container {
+  .auth-form-container {
     flex: 1;
   }
 }
