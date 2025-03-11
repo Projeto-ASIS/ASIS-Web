@@ -1,13 +1,14 @@
 
 .hero{
   background-image: url("/hero.jpg");
+  display: flex;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   height: 100vh;
   /* box-shadow: inset 0px 380px 100.4px 0px rgba(15, 15, 15, 0.644); */
   max-height: 1000px;
-  box-shadow: inset 0px 280px 100.4px 0px rgba(15, 15, 15, 0.35);
+  box-shadow: inset 0px 780px 100.4px 0px rgba(15, 15, 15, 0.658);
 }
 .Hero__title{
   color: white;

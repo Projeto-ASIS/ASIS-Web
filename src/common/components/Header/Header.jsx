@@ -49,7 +49,7 @@ export function Header() {
         </div>
         
         <div className="logo">
-          <img src="/Logo.png" alt="Logo" />
+          <a href='/'> <img src="/Logo.png" alt="Logo" /> </a>
         </div>
         
         <nav className={`nav__links ${mobileMenuOpen ? 'active' : ''}`}>

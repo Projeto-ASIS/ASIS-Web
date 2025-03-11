@@ -11,7 +11,7 @@ export default function Signin() {
   console.log("Signup rendered")
   return (
     <div className="UserData">
-        <Link to={{pathname:"/"}}><ChevronLeft className='back' size={80}/></Link> 
+        <Link to={{pathname:"/"}}><ChevronLeft className='back' size={60}/></Link> 
       
       <div className="form__title">
       <img style={{ width: '70px', height: '70px' }} src={Logo} alt="" />

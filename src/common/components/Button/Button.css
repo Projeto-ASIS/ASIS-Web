@@ -13,24 +13,24 @@
 
 .button[data-button-type="default"] {
   color: var(--color-neutral-100);
-  border: 5px solid var(--color-blue);
+  border: 3px solid var(--color-blue);
 
   background-color: var(--color-blue);
 }
 
 .button[data-button-type="stroked"]{
-  border: 5px solid var(--color-blue);
+  border: 3px solid var(--color-blue);
   background-color: var(--color-neutral-100);
 }
 
 .button[data-button-type="default-secondary"] {
   color: var(--color-neutral-100);
-  border: 5px solid var(--color-pink);
+  border: 3px solid var(--color-pink);
 
   background-color: var(--color-pink);
 }
 
 .button[data-button-type="stroked-secondary"]{
-  border: 5px solid var(--color-pink);
+  border: 3px solid var(--color-pink);
   background-color: var(--color-neutral-100);
 }

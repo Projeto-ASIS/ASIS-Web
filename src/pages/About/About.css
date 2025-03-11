@@ -1,6 +1,10 @@
 .about__title{
   text-align: center;
+  .title{
+    line-height: 4rem;
+  }
 }
+
 video{
   border-radius: 15px;
   
