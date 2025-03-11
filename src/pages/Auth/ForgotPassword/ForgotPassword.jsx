@@ -53,10 +53,13 @@ const StepThree = ({ onNext }) => (
   <div className="form__title">
     <img style={{ width: '70px', height: '70px' }} src={Logo} alt="" />
   <h1 className='text-blue'>Crie sua nova senha </h1>
-  <p className='text-blue-20'>Crie uma senha facil de memorizar dentro dos nossos requisitos  , para que nao esqueça novamente.</p>
+  <p className='text-blue-20'>Crie uma senha fácil de memorizar dentro dos nossos requisitos, para que não esqueça novamente.</p>
   <form>
-    <input type="password" name="" id=""  />
-    <input type="password" name="" id=""  />
+    <div className="flex-fields">
+      <Input placeholder="Digite sua senha" type="password" name="" id=""  />
+      <Input placeholder="Confirme sua senha" type="password" name="" id=""  />
+    </div>
+    
     <div className="btns__register">
       <Button type="default" onClick={onNext}>Criar senha</Button>
       <Button type="stroked">
