@@ -2,6 +2,13 @@
   padding-top: calc(144px + var(--section-padding));
 }
 
+.about-cadunico__breadcrumb{
+  display: block;
+  
+  margin-bottom: 20px;
+}
+
+
 .about-cadunico__list-of-content {
   display: flex;
   flex-direction: column;
@@ -16,6 +23,12 @@
   margin-bottom: 64px;
 }
 
+.about-cadunico__title__icon{
+  width: 62px;
+  height: 62px;
+  aspect-ratio: 1 / 1;
+}
+
 .data__content__explanation {
   max-width: 541px;
 }
@@ -26,4 +39,18 @@
   
   margin-top: 64px;
   max-width: 541px;
+}
+
+.about-cadunico__faq__title{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  margin-bottom: 58px;
+}
+
+.about-cadunico__faq__title__icon{
+  height: 72px;
+  width: 72px;
+  aspect-ratio: 1 / 1;
 }

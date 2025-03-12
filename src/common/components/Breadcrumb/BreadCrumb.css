@@ -1,0 +1,24 @@
+.breadcrumb__base{
+  display: flex;
+
+  color: var(--color-neutral-70);
+}
+
+.breadcrumb__path {
+  margin-right: 4px;
+
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+.breadcrumb__path--active {
+  color: var(--color-pink);
+  text-decoration: none;
+}
+
+.breadcrumb__path--underline {
+  margin-right: 4px;
+
+  text-decoration: none;
+}

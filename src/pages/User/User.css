@@ -51,6 +51,8 @@
 
   border: 5px solid var(--color-blue);
   border-radius: 8.6px;
+
+  cursor: pointer;
 }
 
 .service-card__icon {

@@ -32,7 +32,7 @@ function ServiceCard({
 }
 
 const services = [
-  { name: "Cadastro Único", icon: CadUnicoIcon, pathname: "/services/cadunico/sobre" },
+  { name: "Cadastro Único", icon: CadUnicoIcon, pathname: "cadunico" },
   // { name: "Visita Domiciliar", iconUrl: "" },
   // { name: "Bolsa Familia", iconUrl: "" },
   // { name: "INSS", iconUrl: "" },
@@ -45,6 +45,7 @@ export default function User() {
   const navigate = useNavigate()
 
   const redirectToPage = (pathname) => navigate(pathname)
+  const redirectToAboutServicePage = (serviceName) => navigate(`/services/${serviceName}/about`)
 
   // const toCadunico = useCallback(() => redirectToPage(services[0].pathname), [])
 
@@ -57,7 +58,7 @@ export default function User() {
           <h1 className="services__top__title">Serviços que oferecemos</h1>
         </div>
         <div className="services__content">
-          {services.map((x, index) => <ServiceCard key={`ServiceCard_${index}`} onClick={() => redirectToPage(services[index].pathname)} {...x} />)}
+          {services.map((x, index) => <ServiceCard key={`ServiceCard_${index}`} onClick={() => redirectToAboutServicePage(services[index].pathname)} {...x} />)}
         </div>
       </section>
       <section className="services-history">
