@@ -1,13 +1,10 @@
 .button {
   padding: 13px 21px;
-
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 600;
   line-height: 1;
-
   border-radius: 10px;
-
   cursor: pointer;
 }
 
@@ -33,4 +30,12 @@
 .button[data-button-type="stroked-secondary"]{
   border: 3px solid var(--color-pink);
   background-color: var(--color-neutral-100);
+}
+
+@media(min-width: 400px) and (max-width: 767px) {
+
+  .button {
+    font-size: 16px;
+  }
+
 }

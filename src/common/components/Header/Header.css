@@ -22,7 +22,7 @@
   flex-direction: row;
   max-width: var(--max-content-width);
   margin: 0 auto;
-  padding: 5px;
+  padding: 5px 20px;
   background-color: var(--color-neutral-100);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -96,6 +96,9 @@
   .desktop-user,
   .nav__links > a {
     display: none;
+  }
+  .icon-blue{
+    color: var(--color-blue);
   }
 
   /* Mobile navigation */
