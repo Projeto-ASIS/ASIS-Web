@@ -5,7 +5,7 @@ import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 
 
-export default function SaveFields(){
+export default function SaveFields({text}){
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
 
@@ -25,7 +25,7 @@ export default function SaveFields(){
   return (
     <>
       <section className="container">
-        <p>Seus dados foram registrados com sucesso e serão protegidos de acordo com a LGPD, garantindo segurança e privacidade no seu atendimento.</p>
+        <p>{text}</p>
         <div className="btns">
           <Button type="stroked-secondary">Sair agora</Button>
           <Button type="default-secondary" onClick={handleSaveClick}>Salvar dados</Button>
@@ -37,7 +37,7 @@ export default function SaveFields(){
           <>
             <div className="ilustration text-pink">!?</div>
             <h3 className="text-pink">Os registros serão avaliados!</h3>
-            <p>Seus dados agora serão enviados apra a nossa central e avaliados por um dos nossos profissionais</p>
+            <p>{text}</p>
             <div className="modal-buttons">
               <Button type="stroked-secondary" onClick={handleClose}>Cancelar</Button>
               <Button type="default-secondary" onClick={handleConfirm}>Confirmar</Button>

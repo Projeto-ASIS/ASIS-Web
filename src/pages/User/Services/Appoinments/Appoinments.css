@@ -2,14 +2,16 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  
+  padding: 20px;
+  @media screen and (max-width: 600px) {
+    padding: 10px;
+  }
 }
 .calendar__title {
   text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   .line {
     width: 303px;
     border-radius: 16px;
@@ -60,6 +62,9 @@
     cursor: pointer;
     border: 3px solid var(--color-blue);
   }
+  @media screen and (max-width: 600px) {
+    margin: 0 4px;
+  }
 }
 
 .dia.destaque-amarelo {
@@ -79,7 +84,12 @@
   background-color: #f0f0f0;
   color: #aaa;
 }
-
+.legenda{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+}
 .legenda__item {
   display: flex;
   align-items: center;

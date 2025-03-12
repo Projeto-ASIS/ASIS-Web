@@ -38,7 +38,7 @@ const services = [
   // { name: "Atendimento \n Psicológico", iconUrl: "" },
 ]
 
-export default function User() {
+export default function User({setLayoutData}) {
   return (
     <>
       <Header />
@@ -48,7 +48,7 @@ export default function User() {
           <h1 className="services__top__title">Serviços que oferecemos</h1>
         </div>
         <div className="services__content">
-          {services.map((x, index) => <ServiceCard key={`ServiceCard_${index}`} {...x} />)}
+          {services.map((x, index) => <ServiceCard onClick={() => setLayoutData({title:"Serviço tal"})} key={`ServiceCard_${index}`} {...x} />)}
         </div>
       </section>
       <section className="services-history">

@@ -5,6 +5,7 @@ import Features from "./sections/Features/Features";
 import Results from "./sections/Results/Results";
 import Invite from "./sections/Invite";
 import Hero from "./sections/hero/Hero";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
   return (

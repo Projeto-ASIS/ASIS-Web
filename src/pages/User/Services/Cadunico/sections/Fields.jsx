@@ -31,31 +31,33 @@ export default function Fields() {
         <div className="content" aria-expanded={expandedSections.personalInfo}>
           <div className="inputGrid">
             <div className="inputGroup">
-              <input
+              <Input required placeholder="Email" hasIcon icon={AtSignIcon} />
+              {/* <Input
                 type="text"
                 placeholder="Nome completo da Pessoa de Referência"
                 className="input"
-              />
+              /> */}
             </div>
             <div className="inputGroup">
-              <input
+              <Input
                 type="email"
                 placeholder="Email"
                 className="input"
               />
             </div>
             <div className="inputGroup">
-              <input
+              <Input
                 type="tel"
                 placeholder="Telefone"
-                className="input"
+                // className="input"
+                // hasIcon
               />
             </div>
             <div className="inputGroup">
-              <input
+              <Input
                 type="text"
                 placeholder="Documento"
-                className="input"
+                // className="input"
               />
             </div>
           </div>
