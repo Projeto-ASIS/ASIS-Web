@@ -15,7 +15,7 @@ export default function Signup() {
       <div className="form__title">
         <img style={{ width: '70px', height: '70px' }} src={Logo} alt="" />
         <h1 className='text-blue'>comece agora no ASIS</h1>
-        <p className='text-blue-20'>tenha autonomia para acessar, solicitar e acompanhar o que você precisa, de forma simples e segura.</p>
+        <p className='text-blue-20 text__form'>Tenha autonomia para acessar, solicitar e acompanhar o que você precisa, de forma simples e segura.</p>
       </div>
       <form action="">
         <div className="flex-fields">

@@ -16,7 +16,7 @@ export default function Signin() {
       <div className="form__title">
       <img style={{ width: '70px', height: '70px' }} src={Logo} alt="" />
         <h1 className='text-blue'>Faça seu Login!</h1>
-        <p className='text-blue-20'>Acesse sua conta e tenha autonomia para solicitar e acompanhar a assistência que você precisa.</p>
+        <p className='text-blue-20 text__form'>Acesse sua conta e tenha autonomia para solicitar e acompanhar a assistência que você precisa.</p>
       </div>
       <form action="">
         <div className="flex-fields">
