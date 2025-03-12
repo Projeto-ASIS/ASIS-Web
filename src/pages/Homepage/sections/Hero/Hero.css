@@ -12,6 +12,7 @@
 }
 .Hero__title{
   color: white;
+  line-height: 4rem;
   margin: 20px 0;
 }
 .hero__content{
