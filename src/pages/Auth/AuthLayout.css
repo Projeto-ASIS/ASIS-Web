@@ -135,4 +135,11 @@
   .auth-form-container {
     flex: 1;
   }
+  .otp__inputs{
+    gap: 10px;
+  }
+  .otp{
+    width: 40px;
+    height: 20px;
+  }
 }

@@ -9,6 +9,8 @@ import AuthLayout from "@/pages/Auth/AuthLayout"
 import Signup from "@/pages/Auth/Sign-up/Signup"
 import Signin from "@/pages/Auth/Sign-in/Signin"
 import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPassword"
+import PsycologicalSupport from "./pages/User/Services/PsychologicalSupport/PsycologicalSupport"
+import Homevisit from "./pages/User/Services/HomeVisit/Homevisit"
 
 
 export const router = createBrowserRouter([
@@ -23,6 +25,8 @@ export const router = createBrowserRouter([
       {element:<ForgotPassword /> , path: "forgot-pass"}
     ]
   },
+  { element: <PsycologicalSupport />, path: "/user/Services/PsychologicalSupport", },
+  { element: <Homevisit />, path: "/user/Services/Homevisit", },
   { element: <Cadunico />, path: "/user/Services/Cadunico", },
   { element: <Appoinments />, path: "/user/Services/Appoinments", },
   { element: <About />, path: "/about" },
