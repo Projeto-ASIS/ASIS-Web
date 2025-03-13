@@ -35,7 +35,7 @@
 
 .carousel-container {
   position: relative;
-  width: var(--max-content-width);
+  /* width: var(--max-content-width); */
   /* height: 480px; */
   display: flex;
   flex-direction: column;

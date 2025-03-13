@@ -145,3 +145,20 @@ section {
 
 
 }
+@media (min-width: 300px) and (max-width: 400px) {
+  :root {
+    --section-padding: 20px;
+    --max-content-width: 600px;
+  }
+  h1{
+    font-size: clamp(10px, 8vw, 90px);
+    line-height: 1;
+  }
+
+  .footnote{
+    font-size: 19px;
+    letter-spacing: -0.4px;
+    line-height: 1.3;
+  }
+
+}

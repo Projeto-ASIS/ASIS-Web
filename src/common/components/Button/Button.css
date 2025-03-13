@@ -39,3 +39,10 @@
   }
 
 }
+@media (min-width: 300px) and (max-width: 400px) {
+  .button {
+    font-size: 13px;
+
+  }
+
+}
