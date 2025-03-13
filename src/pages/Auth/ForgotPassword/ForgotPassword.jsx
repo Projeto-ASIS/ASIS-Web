@@ -13,7 +13,7 @@ const StepOne = ({ onNext }) => (
     <h1 className='text-blue'>Redefinir sua senha?</h1>
     <p className='text-blue-20'>Esqueceu sua senha? Não se preocupe, iremos te ajudar a redefini-la.</p>
     <form>
-      <Input type="email" placeholder='Email' />
+      <Input type="email" id="recovery-email" placeholder='Email' />
       <div className="btns__register">
         <Button type="default" onClick={onNext}>Enviar Email</Button>
         <Button type="stroked">

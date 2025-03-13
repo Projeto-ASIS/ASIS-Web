@@ -47,36 +47,6 @@ html{
 
 /*Tipografias*/
 
-@media (min-width: 1440px) {
-  :root {
-    --section-padding: 80px;
-    --max-content-width: 1380px;
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1439px) {
-  :root {
-    --section-padding: 60px;
-    --max-content-width: 1000px;
-  }
-
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  :root {
-    --section-padding: 40px;
-  }
-}
-
-@media (max-width: 767px) {
-  :root {
-    --section-padding: 20px;
-    --max-content-width: 500px;
-  }
-
-
-}
-
 h1 {
   font-size: 3.75rem;
   text-transform: uppercase;
@@ -132,6 +102,46 @@ a{
 section {
   position: relative;
   max-width: var(--max-content-width);
-  padding-top: var(--section-padding);
+  padding: var(--section-padding) ;
   margin-inline: auto;
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --section-padding: 80px;
+    --max-content-width: 1380px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  :root {
+    --section-padding: 60px;
+    --max-content-width: 1000px;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --section-padding: 40px;
+  }
+}
+
+@media(min-width: 400px) and (max-width: 767px) {
+  :root {
+    --section-padding: 20px;
+    --max-content-width: 600px;
+  }
+  h1{
+    font-size: clamp(10px, 8vw, 90px);
+    line-height: 1;
+  }
+
+  .footnote{
+    font-size: 16px;
+    letter-spacing: -0.4px;
+    line-height: 1.3;
+  }
+
+
 }

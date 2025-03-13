@@ -1,4 +1,4 @@
-import { ChevronDown, AccessibilityIcon, PersonStanding, ZoomIn, ZoomOut } from 'lucide-react';
+import { ChevronDown, AccessibilityIcon, PersonStanding, ZoomIn, ZoomOut, UserCircle, Menu, X } from 'lucide-react';
 import { MdContrast } from "react-icons/md";
 import { FiMenu, FiUser } from "react-icons/fi";
 import Button from '../Button';
@@ -45,7 +45,7 @@ export function Header() {
       
       <div className="navbar">
         <div className="hamburger-menu" onClick={toggleMobileMenu}>
-          <FiMenu size={24} />
+          <Menu className='icon-blue' size={34} />
         </div>
         
         <div className="logo">
@@ -58,7 +58,7 @@ export function Header() {
               <img src="/Logo.png" alt="Logo" />
             </div>
             <div className="close-menu" onClick={toggleMobileMenu}>
-              &times;
+              <X size={34} />
             </div>
           </div>
           
@@ -79,12 +79,12 @@ export function Header() {
           {!isLogged && (
             <div className="mobile-auth-buttons">
               <Link to="/sign-up" onClick={toggleMobileMenu}>
-                <Button type='stroked'>
+                <Button className="btn-sidebar" type='stroked'>
                   Cadastrar-se
                 </Button>
               </Link>
               <Link to="/sign-in" onClick={toggleMobileMenu}>
-                <Button type='default-secondary'>
+                <Button className="btn-sidebar" type='default-secondary'>
                   Fazer login
                 </Button>
               </Link>
@@ -115,7 +115,7 @@ export function Header() {
         )}
         
         <div className="mobile-user-icon">
-          <FiUser size={24} />
+          <UserCircle className='icon-blue' size={34} />
         </div>
       </div>
       
