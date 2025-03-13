@@ -10,16 +10,14 @@
 
 .offers__title {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   /* gap: 40px; */
 
   width: 100%;
   margin-bottom: 95px;
-
   color: var(--color-pink);
   text-align: center;
-
 }
 
 .offers__title__hr{
@@ -35,7 +33,7 @@
 }
 
 .offers__title__innerText {
-  display: block;
+  display: flex;
 
   width: max-content;
 
@@ -45,8 +43,6 @@
 .impacts {
   display: flex;
   justify-content: center;
-
-
   p {
       width: 271px;
       font-weight: 600;
@@ -71,7 +67,6 @@
 
 .icon {
   color: var(--color-pink);
-
   .gradient {
     background: linear-gradient(45deg, var(--color-blue-20), var(--color-pink));
     -webkit-background-clip: text;
@@ -110,4 +105,93 @@
   & > * {
     stroke: var(--color-pink);
   }
+}
+
+@media screen and (max-width: 600px) {
+  .offers__title__hr{
+    width: 10%;
+    height: 4px;
+  }
+  
+  .offers__title{
+    font-size: 24px;
+    margin-bottom: 25px;
+    gap: 20px;
+  }
+  .impacts {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    p {
+        width: 140px;
+        font-weight: 600;
+        font-size: 13px;
+        color: var(--color-blue-20);
+    }
+  
+  }
+  .icon{
+    width: 40px;
+  }
+  .impact {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    width: 113px;
+    text-align: center;
+  
+  }
+
+}
+
+@media screen and (min-width: 300px) and (max-width: 470px) {
+  .offers__title__hr{
+    width: 20%;
+    height: 4px;
+  }
+  
+  .offers__title{
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  .impacts {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    p {
+        width: 100%;
+        font-weight: 600;
+        font-size: 13px;
+        color: var(--color-blue-20);
+    }
+  
+  }
+  .icon{
+    width: 40px;
+  }
+  .impact {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    width: 113px;
+    text-align: center;
+  
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 768px) {
+
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+}
+
+@media screen and (min-width: 1025px) {
+
 }

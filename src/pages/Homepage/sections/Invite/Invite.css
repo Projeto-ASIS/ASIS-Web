@@ -20,6 +20,9 @@
 
 .invite__btn {
   font-size: 12px;
+  @media(min-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .invite__text {

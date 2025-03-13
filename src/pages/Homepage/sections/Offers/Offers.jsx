@@ -15,16 +15,16 @@ export default function Offers() {
       <div className="wrapper">
         <div className="impacts">
           <div className="impact">
-            <LucideTvMinimalPlay className="impact__icon--play" size={60} />
+            <LucideTvMinimalPlay className="impact__icon--play icon" size={60} />
             <p>Um sistema de fácil acesso e acessível a qualquer público</p>
           </div>
-          <div className="impact">
-            <ZapIcon height={60} />
+          <div className="impact ">
+            <ZapIcon  className="icon" height={60} />
             {/* <Zap className="impact__icon--zap" size={60} /> */}
             <p>Redução das filas e burocracia nos processos de seus direitos</p>
           </div>
           <div className="impact">
-            <ContactRound className="impact__icon--contact" size={60} />
+            <ContactRound className="impact__icon--contact icon" size={60} />
             <p>Focado em oferecer a melhor expériência para os usuários</p>
           </div>
         </div>

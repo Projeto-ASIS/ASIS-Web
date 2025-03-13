@@ -9,13 +9,17 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__top">
+      <div className="footer__top__logo__mobile">
+        <img src={logoSvgPath} alt="" className="footer__top__brand" />
+          <h3 className="footer__top__company-name">ASIS</h3>
+        </div>
         <ul className="footer__top__menu">
           <li><a href="">Inicio</a></li>
           <li><a href="">Serviços</a></li>
           <li><a href="">Sobre nós</a></li>
         </ul>
-        <div className="footer__top__logo">
-          <img src={logoSvgPath} alt="" className="footer__top__brand" />
+        <div className="footer__top__logo__desktop">
+        <img src={logoSvgPath} alt="" className="footer__top__brand" />
           <h3 className="footer__top__company-name">ASIS</h3>
         </div>
         <ul className="footer__top__social-medias">

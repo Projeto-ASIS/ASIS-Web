@@ -7,7 +7,7 @@ export default function Features() {
     <section className="features">
       <div className="features__title">
         <h3 className="features__footnote footnote">Nossas funcionalidades </h3>
-        <h1 className="text-blue">O que te <span className="text-pink">Oferecemos ?</span></h1>
+        <h1 className="text-blue title">O que te <span className="text-pink">Oferecemos ?</span></h1>
       </div>
       <p className="features__description">Observe abaixo algumas das nossas funcionalidades</p>
       <div className="features__cards">
