@@ -45,11 +45,9 @@
 
 .carousel {
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 100%;
   height: 480px;
   margin-top: 4rem;
