@@ -45,14 +45,13 @@ video{
   text-align: center;
   &:hover{
     transform: scale(1.02);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
   }
 }
 
 .member__image {
-  width: 196px;
-  height: 196px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 8px;

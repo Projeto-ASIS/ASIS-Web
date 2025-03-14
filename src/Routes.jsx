@@ -25,6 +25,7 @@ export const router = createBrowserRouter([
       {element:<ForgotPassword /> , path: "forgot-pass"}
     ]
   },
+  {element: <User /> , path:"/user"},
   { element: <PsycologicalSupport />, path: "/user/Services/PsychologicalSupport", },
   { element: <Homevisit />, path: "/user/Services/Homevisit", },
   { element: <Cadunico />, path: "/user/Services/Cadunico", },
