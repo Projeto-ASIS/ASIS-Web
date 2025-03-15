@@ -1,4 +1,3 @@
-
 .features__cards{
   display: flex;
   margin-top: 55px;
@@ -7,32 +6,29 @@
   align-items: center;
   gap: 32px;
   flex-direction: row;
+}
 
-  .card{
-    width: 296px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    border: 3px solid var(--color-pink);
-    height: 370px;
-    border-radius: 20px;
-    padding: 15px;
-    justify-content: space-between;
-    color: var(--color-blue);
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
-    
-  }
+.features__cards .card{
+  width: 296px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 3px solid var(--color-pink);
+  height: 370px;
+  border-radius: 20px;
+  padding: 15px;
+  justify-content: space-between;
+  color: var(--color-blue);
+}
 
-  .features__icon{
-    width: 4rem;
-    height: 4rem;
-    color: var(--color-blue-20);
-  }
+.features__cards .features__icon{
+  width: 4rem;
+  height: 4rem;
+  color: var(--color-blue-20);
 }
 
 .features__footnote {
   margin-bottom: 40px;
-
   color: var(--color-blue-20);
 }
 
@@ -40,7 +36,6 @@
   margin-bottom: 90px;
   text-align: center;
 }
-
 
 .features__description {
   text-align: center;
@@ -65,105 +60,169 @@
   height: 72px;
 }
 
-@media screen and (max-width: 600px) {
-  .features__cards{
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-  }
+/* Carousel Controls */
+.features-carousel-controls {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+  z-index: 10;
+}
 
-  .features__cards .card{
+.features-carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-blue-20);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.features-carousel-dot.active {
+  opacity: 1;
+  background-color: var(--color-pink);
+}
+
+@media screen and (max-width: 600px) {
+  .features__cards {
+    position: relative;
     width: 100%;
-    max-width: 200px;
-    max-height: 274px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 0;
+    margin-top: 30px;
+    touch-action: pan-y;
   }
-  .features__card__description{
-    font-size: 14px;
+  
+  .features-carousel-wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
   }
+  
+  .features-carousel-container {
+    display: flex;
+    transition: transform 0.3s ease;
+    width: 100%;
+    touch-action: pan-x;
+  }
+  
+  .features__cards .card {
+    min-width: 100%;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    margin: 0;
+    flex-shrink: 0;
+    height: 280px;
+  }
+  
+  .features__card__description {
+    font-size: 17px;
+    line-height: 1.8rem;
+  }
+  
   .features__card__name {
-    font-size: 18px;
+    font-size: 22px;
+    height: auto;
   }
+  
   .features__description {
     font-size: 24px;
+  }
+  
+  .features-carousel-controls {
+    display: flex;
   }
 }
 
 @media screen and (min-width: 300px) and (max-width: 470px) {
-
-  .features__cards .card{
-    max-width: 150px; 
-    max-height: 290px;
+  .features__cards .card {
+    height: 260px;
   }
-  .features__card__description{
-    font-size:12px;
+  
+  .features__card__description {
+    font-size: 15px;
     line-height: 2rem;
     width: 100%;
   }
+  
   .features__card__name {
-    font-size: 13px;
-    height: 50px;
+    font-size: 18px;
+    height: auto;
+    margin-top: 5px;
   }
-  .features__title .title{
+  
+  .features__title .title {
     font-size: 24px;
   }
+  
   .features__description {
     font-size: 20px;
   }
 }
 
 @media screen and (min-width: 601px) and (max-width: 768px) {
-  .features__cards{
+  .features__cards {
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     gap: 20px;
   }
 
-  .features__cards .card{
+  .features__cards .card {
     width: calc(50% - 10px);
     max-width: 230px;
     max-height: 290px;
   }
+  
   .features__description {
     font-size: 20px;
   }
-
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  .features__cards{
+  .features__cards {
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     gap: 10px;
   }
 
-  .features__cards .card{
+  .features__cards .card {
     max-width: 396px;
     max-height: 260px;
   }
 }
 
 @media screen and (min-width: 1025px) {
-  .features__cards{
+  .features__cards {
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     gap: 12px;
   }
 
-  .features__cards .card{
+  .features__cards .card {
     max-width: 210px;
     max-height: 330px;
   }
+  
   .features__card__name {
     font-size: 15px;
     height: 50px;
   }
 
-  .features__card__description{
-    font-size:14px;
+  .features__card__description {
+    font-size: 14px;
     line-height: 1.5rem;
     width: 100%;
   }
-  .features__icon{
+  
+  .features__icon {
     transform: scale(0.8);
   }
 }

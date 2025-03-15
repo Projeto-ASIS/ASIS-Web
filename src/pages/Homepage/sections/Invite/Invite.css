@@ -53,5 +53,13 @@
   h1 {
     font-size: 20px;
   }
+  .invite__call-to-actions {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+  .invite__btn {
+    width:  100%;
+  }
 
 }

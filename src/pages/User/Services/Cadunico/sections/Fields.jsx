@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+import Input from '@/common/components/Input';
+import { AtSignIcon } from 'lucide-react';
+
 export default function Fields() {
   const [expandedSections, setExpandedSections] = useState({
     personalInfo: true,
