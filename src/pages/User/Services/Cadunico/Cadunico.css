@@ -1,10 +1,11 @@
 .Cadunico__title {
   display: flex;
   justify-content: space-between;
+  
    p{
     width: 30vw;
-    
    }
+
   }
   .container{
     display: flex;
@@ -95,3 +96,59 @@
     resize: vertical;
   }
   
+
+  @media screen and (max-width: 600px) {
+    .title-span{
+      font-size: 34px;
+    }
+    .Cadunico__title {
+      flex-direction: column;
+      gap: 16px;
+      p {
+        width: 100%;
+      }
+    }
+
+  }
+  
+  @media screen and (min-width: 300px) and (max-width: 470px) {
+    .title-span{
+      font-size: 20px;
+    }
+    .Cadunico__title {
+      flex-direction: column;
+      gap: 16px;
+      p {
+        width: 100%;
+      }
+    }
+    .data__field{
+      height: 80px;
+    }
+
+  }
+  
+  @media screen and (min-width: 601px) and (max-width: 768px) {
+    .title-span{
+      font-size: 20px;
+    }
+    .Cadunico__title {
+      flex-direction: column;
+      gap: 16px;
+      p {
+        width: 100%;
+      }
+    }
+
+  }
+  
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .title-span{
+      font-size: 34px;
+    }
+
+  }
+  
+  @media screen and (min-width: 1025px) {
+
+  }

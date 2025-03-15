@@ -12,11 +12,11 @@ export default function Cadunico() {
     <>
       <Header />
       <section className='Cadunico__title'>
-        <h1 className="title">Cadúnico</h1>
+        <h1 className="title text-blue">Cadúnico</h1>
         <p className='text-blue-20'>Acesse e gerencie suas informações com segurança, garantindo mais controle no uso dos serviços de assistência social</p>
       </section>
       <Fields />
-      <SaveFields />
+      <SaveFields text="Seus dados foram registrados com sucesso e serão protegidos de acordo com a LGPD, garantindo segurança e privacidade no seu atendimento." />
       <Footer />
     </>
 

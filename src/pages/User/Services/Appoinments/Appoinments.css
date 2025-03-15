@@ -102,12 +102,146 @@
   border-radius: 40px;
 }
 
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo preto com 70% de opacidade */
+  z-index: 990;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Impede rolagem do body quando o drawer está aberto */
+body.drawer-open {
+  overflow: hidden;
+}
+
+/* Estilos para o drawer */
+.appointment-drawer {
+  position: fixed;
+  bottom: -60vh;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  background-color: white;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: transform 0.3s ease-out;
+  z-index: 1000;
+  will-change: transform;
+}
+
+.appointment-drawer.open {
+  transform: translateY(-100%);
+}
+
+/* Alça do drawer para indicar que pode ser arrastado */
+.drawer-handle {
+  width: 50px;
+  height: 5px;
+  background-color: #ddd;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+
+.drawer-content {
+  padding: 0 20px 20px;
+  height: calc(100% - 15px);
+  overflow-y: auto;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.drawer-header h2 {
+  margin: 0;
+  color: var(--color-blue);
+  font-size: 18px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+.appointment-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.appointment-type {
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  width: fit-content;
+}
+
+.appointment-date {
+  font-size: 16px;
+}
+
+.appointment-info {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid var(--color-blue);
+}
+
+/* Garantir que os dias do calendário sejam clicáveis */
+.dia {
+  cursor: pointer;
+}
+
 
 @media (max-width: 600px) {
   .dia {
     height: 45px;
     padding: 3px;
     font-size: 12px;
+  }
+  .appointment-drawer {
+    height: 60vh; /* Maior em telas menores */
+  }
+  
+  .drawer-header h2 {
+    font-size: 16px;
+  }
+  
+  .appointment-type {
+    font-size: 14px;
   }
 }
 

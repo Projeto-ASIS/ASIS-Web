@@ -28,7 +28,7 @@ export default function Fields() {
           onClick={() => toggleSection('personalInfo')}
           className="data__field"
         >
-          <span>Minhas informações</span>
+          <span className='title-span'>Minhas informações</span>
           <span>{expandedSections.personalInfo ? '−' : '+'}</span>
         </button>
         <div className="content" aria-expanded={expandedSections.personalInfo}>
@@ -238,7 +238,7 @@ export default function Fields() {
           onClick={() => toggleSection('househoodInfo')}
           className="data__field "
         >
-          <span>Endereço da familia</span>
+          <span className='title-span'>Endereço da familia</span>
           <span>{expandedSections.househoodInfo ? '−' : '+'}</span>
         </button>
 
@@ -329,7 +329,7 @@ export default function Fields() {
           onClick={() => toggleSection('expenses')}
           className="data__field"
         >
-          <span>Dados do domicílio</span>
+          <span className='title-span'>Dados do domicílio</span>
           <span>{expandedSections.expenses ? '−' : '+'}</span>
         </button>
 
@@ -452,7 +452,7 @@ export default function Fields() {
           onClick={() => toggleSection('expenses')}
           className="data__field"
         >
-          <span>Despesas mensais</span>
+          <span className='title-span'>Despesas mensais</span>
           <span>{expandedSections.expenses ? '−' : '+'}</span>
         </button>
 
@@ -518,7 +518,7 @@ export default function Fields() {
           onClick={() => toggleSection('familyInfo')}
           className="data__field"
         >
-          <span>Características da família</span>
+          <span className='title-span'>Características da família</span>
           <span>{expandedSections.familyInfo ? '−' : '+'}</span>
         </button>
 
@@ -587,7 +587,7 @@ export default function Fields() {
           onClick={() => toggleSection('servicesPlace')}
           className="data__field"
         >
-          <span>Unidades de atendimento</span>
+          <span className='title-span'>Unidades de atendimento</span>
           <span>{expandedSections.servicesPlace ? '−' : '+'}</span>
         </button>
 
