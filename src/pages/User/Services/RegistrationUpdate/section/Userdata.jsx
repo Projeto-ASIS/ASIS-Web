@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Input from '@/common/components/Input';
 import { AtSignIcon } from 'lucide-react';
 
-export default function Fields() {
+export default function UserData() {
   const [expandedSections, setExpandedSections] = useState({
     personalInfo: true,
     address: false,

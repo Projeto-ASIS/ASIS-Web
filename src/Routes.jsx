@@ -11,6 +11,7 @@ import Signin from "@/pages/Auth/Sign-in/Signin"
 import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPassword"
 import PsycologicalSupport from "./pages/User/Services/PsychologicalSupport/PsycologicalSupport"
 import Homevisit from "./pages/User/Services/HomeVisit/Homevisit"
+import RegistrationUpdate from "./pages/User/Services/RegistrationUpdate/RegistrationUpdate"
 
 
 export const router = createBrowserRouter([
@@ -32,5 +33,6 @@ export const router = createBrowserRouter([
   { element: <Appoinments />, path: "/user/Services/Appoinments", },
   { element: <About />, path: "/about" },
   { element: <Homepage />, path: "/" },
+  { element: <RegistrationUpdate />, path: "/user/Services/RegistrationUpdate", },
 
 ]) 
