@@ -4,8 +4,10 @@ import { Header } from '@/common/components/Header';
 import Fields from './sections/Fields';
 import SaveFields from '@/common/components/SaveFields/SaveFields';
 import Footer from '@/common/components/Footer';
+import { useParams } from 'react-router-dom';
 
 export default function Cadunico() {
+  const {id} = useParams();
 
 
   return (

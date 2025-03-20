@@ -1,7 +1,7 @@
 .Cadunico__title {
   display: flex;
   justify-content: space-between;
-  
+  margin-top: 90px;
    p{
     width: 30vw;
    }
@@ -33,13 +33,17 @@
     font-weight: 600;
     cursor: pointer;
     display: flex;
+
     font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+
     justify-content: space-between;
     align-items: center;
   
   }
   
-  .content {
+  .data__content {
     height: 0;
     padding-inline: 16px;
     padding-block: 0px;
@@ -54,7 +58,7 @@
     overflow: hidden;
   }
   
-  .content[aria-expanded="true"]{
+  .data__content[aria-expanded="true"]{
     height: auto;
     padding-block: 16px;
   
@@ -97,58 +101,4 @@
   }
   
 
-  @media screen and (max-width: 600px) {
-    .title-span{
-      font-size: 34px;
-    }
-    .Cadunico__title {
-      flex-direction: column;
-      gap: 16px;
-      p {
-        width: 100%;
-      }
-    }
-
-  }
-  
-  @media screen and (min-width: 300px) and (max-width: 470px) {
-    .title-span{
-      font-size: 20px;
-    }
-    .Cadunico__title {
-      flex-direction: column;
-      gap: 16px;
-      p {
-        width: 100%;
-      }
-    }
-    .data__field{
-      height: 80px;
-    }
-
-  }
-  
-  @media screen and (min-width: 601px) and (max-width: 768px) {
-    .title-span{
-      font-size: 20px;
-    }
-    .Cadunico__title {
-      flex-direction: column;
-      gap: 16px;
-      p {
-        width: 100%;
-      }
-    }
-
-  }
-  
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
-    .title-span{
-      font-size: 34px;
-    }
-
-  }
-  
-  @media screen and (min-width: 1025px) {
-
-  }
+ 

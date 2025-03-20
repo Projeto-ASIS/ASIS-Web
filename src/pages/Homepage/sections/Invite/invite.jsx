@@ -16,7 +16,7 @@ export default function Invite() {
           <br />
           aos serviços que você precisa!</p>
         <div className="invite__call-to-actions">
-          <Button className="invite__btn" >Use agora os serviços</Button>
+          <a href="/user"><Button className="invite__btn" >Use agora os serviços</Button></a>
           <a href="/about"> <Button className="invite__btn" type="stroked">Ver nossa missão</Button> </a>
         </div>
       </div>

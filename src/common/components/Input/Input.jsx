@@ -1,7 +1,6 @@
-import PropTypes from "prop-types"
-
-import "./Input.css"
-import { useCallback, useState } from "react"
+import PropTypes from "prop-types";
+import { useCallback, useRef, useState } from "react";
+import "./Input.css";
 
 Input.propTypes = {
   className: PropTypes.string,
@@ -10,30 +9,36 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   icon: PropTypes.node
-
-}
+};
 
 export default function Input({ hasIcon = false, icon: Icon, placeholder, onChange, required, ...props }) {
-  const [isEmpty, setIsEmpty] = useState(true)
+  const inputRef = useRef(null);
+  const [isEmpty, setIsEmpty] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const handleOnChange = useCallback((e) => {
-    const valueOfInput = e.target.value
+    const valueOfInput = e.target.value;
+    setIsEmpty(!valueOfInput);
 
-    setIsEmpty(!valueOfInput)
-
-    if (props.onChange) {
-      props.onChange()
+    if (onChange) {
+      onChange(e); 
     }
-  }, [isEmpty, onChange])
+  }, [onChange]);
 
   return (
-    <div className="input__container">
+    <div data-input-error={isError} className="input__container">
       <label htmlFor="" className={`input__label input__label--${isEmpty ? "empty" : "not-empty"}`}>
         {placeholder}
         {required ? <span className="input__container__required-icon">*</span> : null}
       </label>
-      <input onChange={handleOnChange} className={`input__base ${props.className ?? ""} ${hasIcon ? "input__base--has-icon" : ""} input__base--${isEmpty ? "empty" : "not-empty"}`} type="text" {...props} />
+      <input
+        ref={inputRef}
+        onChange={handleOnChange}
+        className={`input__base ${props.className ?? ""} ${hasIcon ? "input__base--has-icon" : ""} input__base--${isEmpty ? "empty" : "not-empty"}`}
+        type="text"
+        {...props}
+      />
       {hasIcon && Icon ? <Icon className="input__icon" /> : null}
     </div>
-  )
+  );
 }

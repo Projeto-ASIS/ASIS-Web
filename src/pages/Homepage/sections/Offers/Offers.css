@@ -174,7 +174,57 @@
     font-size: 24px;
   }
 }
+@media (min-width: 1440px) {
+  .impacts {
+    gap: 20px;
+  }
+  
+  .impact p {
+    width: 271px;
+    font-size: 18px;
+  }
+  
+  .icon {
+    width: 40px;
+  }
+  
+  .offers__title__innerText{
+    font-size: 44px;
+  }
+  .offers__title__hr{
+    height: 4px;
+    max-width: 100px;
+  }
 
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .impacts {
+    gap: 20px;
+  }
+  
+  .impact p {
+    width: 271px;
+    font-size: 18px;
+  }
+  
+  .icon {
+    width: 40px;
+  }
+  
+  .offers__title__innerText{
+    font-size: 44px;
+  }
+  .offers__title__hr{
+    height: 4px;
+    max-width: 100px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+
+}
 @media screen and (min-width: 300px) and (max-width: 470px) {
   .offers__title__hr{
     display: none;
