@@ -100,7 +100,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="features">
+    <section className="features" id="features">
       <div className="features__title">
         <h3 className="features__footnote footnote">Nossas funcionalidades</h3>
         <h1 className="text-blue title">O que te <span className="text-pink">Oferecemos?</span></h1>

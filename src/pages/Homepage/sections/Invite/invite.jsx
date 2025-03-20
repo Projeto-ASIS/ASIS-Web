@@ -4,7 +4,7 @@ import Button from "@/common/components/Button"
 
 export default function Invite() {
   return (
-    <section className="invite">
+    <section className="invite" id="invite">
       <div className="invite__wrapper">
         <h1 className="text-white invite__title">
           Não está

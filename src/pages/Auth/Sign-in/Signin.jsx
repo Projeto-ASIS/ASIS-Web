@@ -32,9 +32,10 @@ export default function Signin() {
     }
 
     // Mock de usuário
-    const userMock = { cpf: "148.921.794-00", password: "000468", role: "user" };
+    const userMock = { cpf: "148.921.794-00", password: "123456", role: "user",name: "Alberto" };
 
     if (cpf === userMock.cpf && password === userMock.password) {
+      localStorage.setItem("user", JSON.stringify(userMock));
       navigate("/user");
     } else {
       navigate("/employee");

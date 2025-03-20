@@ -2,14 +2,37 @@ import { ChevronDown, AccessibilityIcon, PersonStanding, ZoomIn, ZoomOut, UserCi
 import { MdContrast } from "react-icons/md";
 import { FiMenu, FiUser } from "react-icons/fi";
 import Button from '../Button';
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
 import './Header.css';
 
 export function Header() {
   const [isLogged, setIsLogged] = useState(false);
   const [username, setUsername] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
 
   useEffect(() => {
     const loggedUser = localStorage.getItem('user');
@@ -25,6 +48,7 @@ export function Header() {
   }
 
   function handleLogout() {
+    window.location.href = '/';
     localStorage.removeItem('user');
     setIsLogged(false);
   }
@@ -42,7 +66,8 @@ export function Header() {
         <ZoomOut size={16} />
         <PersonStanding size={16} />
       </div>
-      
+
+
       <div className="navbar">
         <div className="hamburger-menu" onClick={toggleMobileMenu}>
           <Menu className='icon-blue' size={34} />
@@ -61,44 +86,42 @@ export function Header() {
               <X size={34} />
             </div>
           </div>
+
+
           
           <Link to="/" onClick={toggleMobileMenu}>INÍCIO</Link>
           <Link to="/offers" onClick={toggleMobileMenu}>BENEFÍCIOS</Link>
           <Link to="/funcionalidades" onClick={toggleMobileMenu}>FUNCIONALIDADES</Link>
           <Link to="/resultados" onClick={toggleMobileMenu}>RESULTADOS</Link>
           
-          {isLogged && (
-            <div className="mobile-user-info">
-              <Button className="logged__user mobile">
-                {username}
-                <ChevronDown size={24} />
-              </Button>
-            </div>
-          )}
-          
-          {!isLogged && (
-            <div className="mobile-auth-buttons">
-              <Link to="/sign-up" onClick={toggleMobileMenu}>
-                <Button className="btn-sidebar" type='stroked'>
-                  Cadastrar-se
-                </Button>
-              </Link>
-              <Link to="/sign-in" onClick={toggleMobileMenu}>
-                <Button className="btn-sidebar" type='default-secondary'>
-                  Fazer login
-                </Button>
-              </Link>
-            </div>
-          )}
+
         </nav>
         
         {isLogged ? (
           <div className="desktop-user">
-            <Button className="logged__user">
-              {username}
-              <ChevronDown size={24} />
-            </Button>
+               <div className="user-dropdown" ref={dropdownRef}>
+      <Button className="user-button" onClick={toggleDropdown}>
+        {username}
+        <span className={`dropdown-icon ${isOpen ? 'rotate' : ''}`}>▼</span>
+      </Button>
+      
+      {isOpen && (
+        <div className="dropdown-menu">
+          <div className="user-info">
+            <div className="user-name">Alberto Silva</div>
+            <div className="user-email">alberto.silva@email.com</div>
           </div>
+          <a href="#perfil" className="dropdown-item">Meu Perfil</a>
+          <a href="#configuracoes" className="dropdown-item">Configurações</a>
+          <a href="#ajuda" className="dropdown-item">Ajuda</a>
+          <button onClick={handleLogout} href="#sair" className=" logout">Sair</button>
+        </div>
+      )}
+    </div>
+      
+            
+          </div>
+          
         ) : (
           <div className="auth__buttons desktop-auth">
             <Link to="/sign-up">
