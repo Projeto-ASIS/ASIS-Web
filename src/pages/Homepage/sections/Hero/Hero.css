@@ -1,16 +1,19 @@
 
 .hero{
-  padding-top: 124px;
-
-  background-image: url("/Hero.jpeg");
+  background-image: url("/hero.jpg");
+  display: flex;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   height: 100vh;
+  /* box-shadow: inset 0px 380px 100.4px 0px rgba(15, 15, 15, 0.644); */
   max-height: 1000px;
-  box-shadow: inset 0px 280px 100.4px 0px rgba(15, 15, 15, 0.35);
+  box-shadow: inset 0px 780px 100.4px 0px rgba(15, 15, 15, 0.658);
 }
 .Hero__title{
   color: white;
+  line-height: 4rem;
+  margin: 20px 0;
 }
 .hero__content{
   display: flex;
@@ -24,5 +27,28 @@
 .btns__hero{
   display: flex;
   gap: 2rem;
+
+}
+
+@media (min-width: 1440px) {
+
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+
+
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero{
+    height: 60vh;
+  }
+
+}
+
+@media(min-width: 400px) and (max-width: 767px) {
+  .hero{
+    height: 60vh;
+  }
 
 }

@@ -1,9 +1,12 @@
 .about__title{
   text-align: center;
+  .title{
+    line-height: 4rem;
+  }
 }
 
 .about__title__innerText {
-  font-size: 96px;
+  font-size: clamp(10px, 8vw, 90px);
   line-height: 1;
 }
 
@@ -14,14 +17,17 @@
 
 video{
   border-radius: 15px;
-  
-  
 }
+.logo-banner{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
 .team-container {
   margin: 0 auto;
   padding: 20px;
-
-  
 }
 
 .team__flex{
@@ -35,13 +41,18 @@ video{
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.3s ease-in-out;
   justify-content: center;
   text-align: center;
+  &:hover{
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+  }
 }
 
 .member__image {
-  width: 196px;
-  height: 196px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 8px;

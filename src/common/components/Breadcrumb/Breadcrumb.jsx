@@ -1,5 +1,7 @@
 import PropTypes from "prop-types"
 import "./Breadcrumb.css"
+import { useCallback } from "react"
+import { useNavigate } from "react-router-dom"
 
 BreadcrumbRoot.propTypes = {
   className: PropTypes.string,
@@ -19,11 +21,22 @@ BreadcrumbPath.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   props: PropTypes.symbol,
-  isActive: PropTypes.bool
+  isActive: PropTypes.bool,
+  path: PropTypes.string.isRequired
 }
-function BreadcrumbPath({ children, className, isActive = false, ...props }) {
+
+function BreadcrumbPath({ children, path, className, isActive = false, ...props }) {
+  const navigate = useNavigate()
+
+  const handleOnClick = useCallback(() => {
+    navigate(path)
+  }, [path])
+
   return (
-    <span className={`breadcrumb__path bread__path--${isActive ? "active" : "not-active"} ${className}`} {...props}>{children}</span>
+    <>
+      <span onClick={handleOnClick} className={`breadcrumb__path breadcrumb__path--${isActive ? "active" : "not-active"} ${className}`} {...props}>{children}</span>
+      {!isActive && <span className={`breadcrumb__path--underline`}>/</span>}
+    </>
   )
 }
 

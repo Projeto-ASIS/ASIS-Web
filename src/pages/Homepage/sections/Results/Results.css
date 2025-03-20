@@ -35,7 +35,7 @@
 
 .carousel-container {
   position: relative;
-  width: var(--max-content-width);
+  /* width: var(--max-content-width); */
   /* height: 480px; */
   display: flex;
   flex-direction: column;
@@ -45,15 +45,11 @@
 
 .carousel {
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 100%;
   height: 480px;
-  margin-top: 4rem;
-
 }
 
 .carousel-item {
@@ -177,4 +173,52 @@
   background: #333;
 
   border-radius: 99px;
+}
+
+@media screen and (max-width: 600px) {
+  .carousel{
+    transform: scale(1.8);
+  }
+  .carousel-item{
+    height: 160px;
+  }
+  .resultstitle {
+    .titlelines {
+      .line {
+        width: 50px;
+        height: 4px;
+      }
+    }
+
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 470px) {
+  .carousel{
+    transform: scale(1.8);
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  .carousel{
+    transform: scale(1.8);
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .carousel{
+    transform: scale(1.8);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .carousel{
+    transform: scale(1.5);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .carousel{
+    transform: scale(1);
+  }
 }

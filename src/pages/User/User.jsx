@@ -10,18 +10,26 @@ import "./User.css"
 
 import Footer from "@/common/components/Footer"
 import CadUnicoIcon from "@/common/components/CadUnicoIcon"
+import HomevisitIcon from "@/common/components/HomevisitIcon"
+import {  useNavigate } from "react-router-dom"
+import { HomeIcon } from "lucide-react"
+import PsychologicalSupportIcon from "@/common/components/PsychologicalSupportIcon"
+import RegistrationUpdateIcon from "@/common/components/RegistrationUpdateIcon"
+import AppoinmentsIcon from "@/common/components/AppoinmentsIcon"
 
 ServiceCard.propTypes = {
   name: PropTypes.string,
   icon: PropTypes.node,
+  onClick: PropTypes.func
 }
 
 function ServiceCard({
   name,
   icon: Icon,
+  onClick,
 }) {
   return (
-    <article className="service-card">
+    <article onClick={onClick} className="service-card">
       <Icon color={`var(--color-blue)`} height={110} width={110} />
       <p className="service-card__title">{name}</p>
     </article>
@@ -29,16 +37,25 @@ function ServiceCard({
 }
 
 const services = [
-  { name: "Cadastro Único", icon: CadUnicoIcon },
-  // { name: "Visita Domiciliar", iconUrl: "" },
+  { name: "Cadastro Único", icon: CadUnicoIcon, pathname: "cadunico" },
+  { name: "Visita Domiciliar", icon:HomevisitIcon , pathname: "homevisit"},
+  { name: "Atendimento \n psicologico", icon: PsychologicalSupportIcon, pathname: "psychologicalsupport" },
+  { name: "Atualização \n cadastral", icon: RegistrationUpdateIcon, pathname: "registrationupdate" },
+  { name: "Agendamentos", icon:AppoinmentsIcon  , pathname: "appoinments"},
   // { name: "Bolsa Familia", iconUrl: "" },
   // { name: "INSS", iconUrl: "" },
   // { name: "Atualização \n Cadastral", iconUrl: "" },
   // { name: "Agendamentos", iconUrl: "" },
-  // { name: "Atendimento \n Psicológico", iconUrl: "" },
 ]
 
 export default function User() {
+  const navigate = useNavigate()
+
+  const redirectToPage = (pathname) => navigate(pathname)
+  const redirectToAboutServicePage = (serviceName) => navigate(`/services/${serviceName}/about`)
+
+  // const toCadunico = useCallback(() => redirectToPage(services[0].pathname), [])
+
   return (
     <>
       <Header />
@@ -48,7 +65,7 @@ export default function User() {
           <h1 className="services__top__title">Serviços que oferecemos</h1>
         </div>
         <div className="services__content">
-          {services.map((x, index) => <ServiceCard key={`ServiceCard_${index}`} {...x} />)}
+          {services.map((x, index) => <ServiceCard key={`ServiceCard_${index}`} onClick={() => redirectToAboutServicePage(services[index].pathname)} {...x} />)}
         </div>
       </section>
       <section className="services-history">

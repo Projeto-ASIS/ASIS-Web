@@ -1,50 +1,28 @@
 .invite {
   max-width: none;
   height: 673px;
-  width: 100vw;
+  width: 100%;
   padding-block: 190px;
+  background: url("../../../../assets/hands-image-changed.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1920px;
+  background-position-y: -400px;
+  box-shadow: inset 0px 480px 100.4px 0px rgba(15, 15, 15, 0.579);
 
-  
-  &::after {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 50%;
-    right: 0;
-    bottom: 0;
-    width: 1920px;
-    height: 100%;
-    transform: translateX(-50%);
-
-    background: url("../../../../assets/hands-image-changed.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 1920px;
-    background-position-y: -400px;
-
-    z-index: -2;
-  }
-
-  &::before {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 100%;
-
-    background-color: rgba(0, 0, 0, 0.25);
-
-    z-index: -1;
-  }
 }
 
 .invite__title {
   margin-bottom: 2rem;
 
   line-height: 1.2;
+}
+
+.invite__btn {
+  font-size: 12px;
+  @media(min-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .invite__text {
@@ -68,5 +46,20 @@
 
 .invite__call-to-actions {
   display: flex;
-  gap: 32px;
+  gap: 10px;
+}
+
+@media(min-width: 400px) and (max-width: 767px) {
+  h1 {
+    font-size: 20px;
+  }
+  .invite__call-to-actions {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+  .invite__btn {
+    width:  100%;
+  }
+
 }

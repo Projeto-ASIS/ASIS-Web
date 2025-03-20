@@ -69,7 +69,7 @@ export default function Article(){
           <p className="text-blue-20 foot_note4">Percebemos que muitas pessoas enfrentam dificuldades para obter atendimentos sociais devido à alta demanda, burocracia e falta de um sistema integrado entre as centrais especializadas. Muitas delas ainda utilizam fichas de cadastro escritas à mão, tornando o processo mais demorado e sujeito a erros.</p>
           <p className="text-blue-20 foot_note5">Esse cenário não apenas gera desgaste social, como também impacta o meio ambiente pelo uso excessivo de papel. Nossa missão é modernizar esse sistema, oferecendo uma solução digital acessível, eficiente e humanizada. Além disso, o ASIS possibilita comunicação direta com assistentes sociais, interação com órgãos públicos e acompanhamento familiar para garantir a correta aplicação dos benefícios</p>
         </article>
-        <img src="LogoASISLayoutHorizontalCentralizado.png" alt="" />
+        <img className='logo-banner' src="LogoASISLayoutHorizontalCentralizado.png" alt="" />
       </section>
       <section>
         <article>

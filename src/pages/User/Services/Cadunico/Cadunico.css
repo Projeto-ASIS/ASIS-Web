@@ -1,10 +1,11 @@
 .Cadunico__title {
   display: flex;
   justify-content: space-between;
+  margin-top: 90px;
    p{
     width: 30vw;
-    
    }
+
   }
   .container{
     display: flex;
@@ -32,13 +33,17 @@
     font-weight: 600;
     cursor: pointer;
     display: flex;
+
     font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+
     justify-content: space-between;
     align-items: center;
   
   }
   
-  .content {
+  .data__content {
     height: 0;
     padding-inline: 16px;
     padding-block: 0px;
@@ -53,7 +58,7 @@
     overflow: hidden;
   }
   
-  .content[aria-expanded="true"]{
+  .data__content[aria-expanded="true"]{
     height: auto;
     padding-block: 16px;
   
@@ -77,13 +82,13 @@
     flex: 1 1 100%;
   }
   
-  input {
+  /* input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
-  }
+  } */
   
   textarea {
     width: 100%;
@@ -95,3 +100,5 @@
     resize: vertical;
   }
   
+
+ 

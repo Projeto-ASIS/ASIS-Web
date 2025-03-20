@@ -1,70 +1,151 @@
-// import React from 'react'
-import { ChevronDown, AccessibilityIcon, PersonStanding, ZoomIn, ZoomOut } from 'lucide-react'
+import { ChevronDown, AccessibilityIcon, PersonStanding, ZoomIn, ZoomOut, UserCircle, Menu, X } from 'lucide-react';
 import { MdContrast } from "react-icons/md";
-import Button from '../Button'
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import './Header.css'
+import { FiMenu, FiUser } from "react-icons/fi";
+import Button from '../Button';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import './Header.css';
 
 export function Header() {
-  const [isLogged, setIsLogged] = useState(false)
-  const [username, setUsername] = useState('')
+  const [isLogged, setIsLogged] = useState(false);
+  const [username, setUsername] = useState('');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
 
   useEffect(() => {
-    const loggedUser = localStorage.getItem('user')
+    const loggedUser = localStorage.getItem('user');
     if (loggedUser) {
-      setIsLogged(true)
-      setUsername(JSON.parse(loggedUser).name)
+      setIsLogged(true);
+      setUsername(JSON.parse(loggedUser).name);
     }
-  }, [])
+  }, []);
 
   function handleLogin() {
-    localStorage.setItem('user', JSON.stringify({ name: 'Alberto' }))
-    setIsLogged(true)
+    localStorage.setItem('user', JSON.stringify({ name: 'Alberto' }));
+    setIsLogged(true);
   }
 
   function handleLogout() {
-    localStorage.removeItem('user')
-    setIsLogged(false)
+    window.location.href = '/';
+    localStorage.removeItem('user');
+    setIsLogged(false);
+  }
+
+  function toggleMobileMenu() {
+    setMobileMenuOpen(!mobileMenuOpen);
+    document.body.style.overflow = mobileMenuOpen ? 'auto' : 'hidden';
   }
 
   return (
     <header className="header">
       <div className="header__accessibility">
-        <MdContrast className="header__accessibility__option--high-contrast" size={16} />
-        <ZoomIn className="header__accessibility__option--zoom-in" size={16} />
+        <MdContrast size={16} />
+        <ZoomIn size={16} />
         <ZoomOut size={16} />
         <PersonStanding size={16} />
       </div>
-      <div className="navbar container header-content">
-        <div className="logo">
-          <img src="/Logo.png" alt="Logo" />
-        </div>
-        <nav className="nav__links">
-          
-          <Link to="/">INÍCIO</Link>
-          <Link to="/offers">BENEFÍCIOS</Link>
-          <Link to="/funcionalidades">FUNCIONALIDADES</Link>
-          <Link to="/resultados">RESULTADOS</Link>
-        </nav>
-        {isLogged ? (
-          <Button className="logged__user">
-            {username}
-            <ChevronDown size={35} />
 
-          </Button>
+
+      <div className="navbar">
+        <div className="hamburger-menu" onClick={toggleMobileMenu}>
+          <Menu className='icon-blue' size={34} />
+        </div>
+        
+        <div className="logo">
+          <a href='/'> <img src="/Logo.png" alt="Logo" /> </a>
+        </div>
+        
+        <nav className={`nav__links ${mobileMenuOpen ? 'active' : ''}`}>
+          <div className="mobile-nav-header">
+            <div className="logo-mobile">
+              <img src="/Logo.png" alt="Logo" />
+            </div>
+            <div className="close-menu" onClick={toggleMobileMenu}>
+              <X size={34} />
+            </div>
+          </div>
+
+
+          
+          <Link to="/" onClick={toggleMobileMenu}>INÍCIO</Link>
+          <Link to="/offers" onClick={toggleMobileMenu}>BENEFÍCIOS</Link>
+          <Link to="/funcionalidades" onClick={toggleMobileMenu}>FUNCIONALIDADES</Link>
+          <Link to="/resultados" onClick={toggleMobileMenu}>RESULTADOS</Link>
+          
+
+        </nav>
+        
+        {isLogged ? (
+          <div className="desktop-user">
+               <div className="user-dropdown" ref={dropdownRef}>
+      <Button className="user-button" onClick={toggleDropdown}>
+        {username}
+        <span className={`dropdown-icon ${isOpen ? 'rotate' : ''}`}>▼</span>
+      </Button>
+      
+      {isOpen && (
+        <div className="dropdown-menu">
+          <div className="user-info">
+            <div className="user-name">Alberto Silva</div>
+            <div className="user-email">alberto.silva@email.com</div>
+          </div>
+          <a href="#perfil" className="dropdown-item">Meu Perfil</a>
+          <a href="#configuracoes" className="dropdown-item">Configurações</a>
+          <a href="#ajuda" className="dropdown-item">Ajuda</a>
+          <button onClick={handleLogout} href="#sair" className=" logout">Sair</button>
+        </div>
+      )}
+    </div>
+      
+            
+          </div>
+          
         ) : (
-          <div className="auth__buttons">
-            <Button type='stroked'>
-              <Link to="/auth/signup">Cadastrar-se</Link>
+          <div className="auth__buttons desktop-auth">
+            <Link to="/sign-up">
+              <Button className="button-header" type='stroked'>
+                Cadastrar-se
               </Button>
-            <Button type='default-secondary'>
-              <Link style={{ color: 'white' }} to="/auth/signin">Fazer login</Link>
-            </Button>
+            </Link>
+            <Link to="/sign-in">
+              <Button className="button-header" type='default-secondary'>
+                Fazer login
+              </Button>
+            </Link>
           </div>
         )}
+        
+        <div className="mobile-user-icon">
+          <UserCircle className='icon-blue' size={34} />
+        </div>
       </div>
+      
+      <div 
+        className={`overlay ${mobileMenuOpen ? 'active' : ''}`} 
+        onClick={toggleMobileMenu}
+      />
     </header>
-  )
+  );
 }
-

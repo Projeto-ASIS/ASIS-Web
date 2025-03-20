@@ -1,69 +1,134 @@
-import '../Appoinments.css'
+import { useState } from 'react';
+import '../Appoinments.css';
 
 export default function Calendar() {
+  const [showDrawer, setShowDrawer] = useState(false);
+  const [selectedDay, setSelectedDay] = useState(null);
 
-  const dates = [26 , 5, 13]
+  const appointments = {
+    5: {
+      type: 'Visita domiciliar',
+      details: 'Visita domiciliar às 14:00',
+      color: 'var(--color-blue)'
+    },
+    13: {
+      type: 'Atendimento psicológico',
+      details: 'Sessão com Dra. Ana Maria às 10:30',
+      color: 'var(--color-yellow)'
+    },
+    26: {
+      type: 'Cadunico',
+      details: 'Atualização cadastral às 9:00', 
+      color: 'var(--color-pink)'
+    }
+  };
 
-  return <>
-    <section className='calendar' >
-      <div className="calendar__title">
-        <div className="line"></div>
-        <h1 className='text-pink'>Agendamentos</h1>
-        <div className="line"></div>
-      </div>
-      <div className="main">
-      <div class="cabecalho">
-        <div>DOM</div>
-        <div>SEG</div>
-        <div>TER</div>
-        <div>QUA</div>
-        <div>QUI</div>
-        <div>SEX</div>
-        <div>SAB</div>
-      </div>
-      <div class="semanas">
-        {[...Array(5)].map((_, i) => (
-          <div key={i} className="semana">
-            {[...Array(7)].map((_, j) => {
-              const day = i * 7 + j + 1;
-              const color = dates.includes(day)
-                ? {
-                    26: 'var(--color-pink)',
-                    5: 'var(--color-blue)',
-                    13: 'var(--color-yellow)',
-                  }[day]
-                : '';
-              return (
-                <div
-                  key={j}
-                  className={`dia ${color ? `destaque-${color.replace('var(--color-', '').replace(')', '')}` : ''
-                    }`}
-                  style={{ backgroundColor: color }}
-                >
-                  {(j === 0 || j === 6) ? '' : day}
-                </div>
-              );
-            })}
+  const dates = [26, 5, 13];
+
+  // Função para lidar com clique em uma data
+  const handleDayClick = (day) => {
+    if (dates.includes(day)) {
+      setSelectedDay(day);
+      setShowDrawer(true);
+      // Adiciona classe ao body para prevenir rolagem quando drawer estiver aberto
+      document.body.classList.add('drawer-open');
+    }
+  };
+
+  // Função para fechar o drawer
+  const closeDrawer = () => {
+    setShowDrawer(false);
+    // Remove classe do body quando drawer for fechado
+    document.body.classList.remove('drawer-open');
+  };
+
+  return (
+    <>
+      <section className='calendar'>
+        <div className="calendar__title">
+          <div className="line"></div>
+          <h1 className='text-pink'>Agendamentos</h1>
+          <div className="line"></div>
+        </div>
+        <div className="main">
+          <div className="cabecalho">
+            <div>DOM</div>
+            <div>SEG</div>
+            <div>TER</div>
+            <div>QUA</div>
+            <div>QUI</div>
+            <div>SEX</div>
+            <div>SAB</div>
           </div>
-        ))}
-      </div>
+          <div className="semanas">
+            {Array.from({ length: 5 }, (_, i) => (
+              <div key={i} className="semana">
+                {Array.from({ length: 7 }, (_, j) => {
+                  const day = i * 7 + j + 1;
+                  const color = dates.includes(day)
+                    ? {
+                        26: 'var(--color-pink)',
+                        5: 'var(--color-blue)',
+                        13: 'var(--color-yellow)',
+                      }[day]
+                    : '';
+                  return (
+                    <div
+                      key={j}
+                      className={`dia ${color ? `destaque-${color.replace('var(--color-', '').replace(')', '')}` : ''}`}
+                      style={{ backgroundColor: color }}
+                      onClick={() => handleDayClick(day)}
+                    >
+                      {(j === 0 || j === 6) ? '' : day}
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="legenda">
+          <div className="legenda__item">
+            <div style={{ backgroundColor: 'var(--color-pink)' }} className="legenda__item__color"></div>
+            <p>Cadunico</p>
+          </div>
+          <div className="legenda__item">
+            <div style={{ backgroundColor: 'var(--color-blue)' }} className="legenda__item__color"></div>
+            <p>Visita domiciliar</p>
+          </div>
+          <div className="legenda__item">
+            <div style={{ backgroundColor: 'var(--color-yellow)' }} className="legenda__item__color"></div>
+            <p>Atendimento psicologico</p>
+          </div>
+        </div>
+      </section>
 
-      </div>
-      <div className="legenda">
-        <div className="legenda__item">
-          <div style={{ backgroundColor: 'var(--color-pink)' }} className="legenda__item__color"></div>
-          <p>Cadunico</p>
-        </div>
-        <div className="legenda__item">
-          <div style={{ backgroundColor: 'var(--color-blue)' }} className="legenda__item__color"></div>
-          <p>Visita domiciliar</p>
-        </div>
-        <div className="legenda__item">
-          <div style={{ backgroundColor: 'var(--color-yellow)' }} className="legenda__item__color"></div>
-          <p>Atendimento psicologico</p>
-        </div>
-      </div>
-    </section>
-  </>
+      
+      <div className={`drawer-overlay ${showDrawer ? 'active' : ''}`} onClick={closeDrawer}></div>
 
+      {/* Drawer para exibir detalhes do agendamento */}
+      <div className={`appointment-drawer ${showDrawer ? 'open' : ''}`}>
+        <div className="drawer-handle"></div>
+        <div className="drawer-content">
+          <div className="drawer-header">
+            <h2>Detalhes do Agendamento</h2>
+            <button className="close-button" onClick={closeDrawer}>×</button>
+          </div>
+          {selectedDay && appointments[selectedDay] && (
+            <div className="appointment-details">
+              <div className="appointment-type" style={{ backgroundColor: appointments[selectedDay].color }}>
+                {appointments[selectedDay].type}
+              </div>
+              <div className="appointment-date">
+                <strong>Data:</strong> Dia {selectedDay}
+              </div>
+              <div className="appointment-info">
+                <p>{appointments[selectedDay].details}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  );
 }
