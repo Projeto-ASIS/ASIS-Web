@@ -58,13 +58,21 @@ export function Header() {
     document.body.style.overflow = mobileMenuOpen ? 'auto' : 'hidden';
   }
 
+  function handleOnSwitchAccessibility(){
+
+     
+    // return (
+      
+    // )
+  }
+
   return (
     <header className="header">
       <div className="header__accessibility">
         <MdContrast size={16} />
         <ZoomIn size={16} />
         <ZoomOut size={16} />
-        <PersonStanding size={16} />
+        <PersonStanding onClick={handleOnSwitchAccessibility} size={16} />
       </div>
 
 
