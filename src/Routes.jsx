@@ -18,6 +18,7 @@ import AboutHomevisit from "./pages/User/Services/HomeVisit/AboutHomevisit"
 import AboutRegistrationUpdate from "./pages/User/Services/RegistrationUpdate/AboutRegistrationUpdate"
 import AboutPsychological from "./pages/User/Services/PsychologicalSupport/AboutPsychological"
 import AppoinmentsAbout from "./pages/User/Services/Appoinments/AppoinmentsAbout"
+import EmployeeLayout from "./pages/Employee/EmployeeLayout"
 
 
 export const router = createBrowserRouter([
@@ -43,8 +44,8 @@ export const router = createBrowserRouter([
   { element: <Cadunico />, path: "/cadunico", },
   { element: <Appoinments />, path: "/user/Services/Appoinments", },
   { element: <About />, path: "/about" },
-  {
-    element: <AboutServiceLayout />,
+  { element: <EmployeeLayout />, path: "employee" },
+  { element: <AboutServiceLayout />,
     path: "services",
     children: [
       { element: <AboutCadunico />, path: "cadunico/about" },
