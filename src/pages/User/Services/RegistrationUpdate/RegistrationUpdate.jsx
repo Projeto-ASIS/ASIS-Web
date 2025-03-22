@@ -1,7 +1,7 @@
 
 import "../Cadunico/Cadunico.css"
 import { Header } from '@/common/components/Header';
-import Userdata from '@/pages/User/Services/RegistrationUpdate/section/UserData';
+import Userdata from './section/Userdata';
 import SaveFields from '@/common/components/SaveFields/SaveFields';
 import Footer from '@/common/components/Footer';
 
