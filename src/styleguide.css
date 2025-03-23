@@ -1,7 +1,9 @@
 :root {
-  color-scheme: light dark;
+  
   --section-padding: 126px;
   --max-content-width: 1280px;
+  --sidebar-width-collapsed: 60px;
+
 
   /* Cores dos azuis */
   --color-blue: #0056AD;
@@ -115,7 +117,6 @@ section {
     --max-content-width: 1380px;
   }
 }
-
 @media (min-width: 1024px) and (max-width: 1439px) {
   :root {
     --section-padding: 60px;
@@ -123,13 +124,11 @@ section {
   }
 
 }
-
 @media (min-width: 768px) and (max-width: 1023px) {
   :root {
     --section-padding: 40px;
   }
 }
-
 @media(min-width: 400px) and (max-width: 767px) {
   :root {
     --section-padding: 20px;
