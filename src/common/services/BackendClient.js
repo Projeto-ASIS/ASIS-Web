@@ -3,7 +3,7 @@ import axios from "axios"
 const THIRTY_MINUTE_IN_MS = 30 * 1000
 
 const backendClient = axios.create({
-  baseURL: "https://localhost:8080",
+  baseURL: "http://localhost:8080",
   timeout: THIRTY_MINUTE_IN_MS,
   responseType: "json"
 })
