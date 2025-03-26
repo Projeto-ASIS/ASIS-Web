@@ -35,7 +35,7 @@ const SideBarEmployee = ({ isExpanded, setIsExpanded }) => {
         <div className="sidebar-content">
           {menuItems.map((item, index) => (
             <div className="sidebar-item" key={index}>
-              <Link className="links" to={`/employee/${item.tab}`}>
+              <Link className="links__sidebar" to={`/employee/${item.tab}`}>
               <span className="icon">{item.icon}</span>
               <span className="label">{item.label}</span>
               </Link>

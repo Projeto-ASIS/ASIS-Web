@@ -11,19 +11,19 @@
   background-color: #ffffff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   transition: width 0.3s ease;
-  width: 80px;
+  width: 100px;
   z-index: 1000;
 }
 
 .sidebar.expanded {
-  width: 300px;
+  width: 400px;
 }
 
 .toggle-button {
   background: #ffffff;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,10 +44,11 @@
   width: 100%;
 }
 .logo__sidebar {
-  margin: 20px 8px;
+  margin: 30px 18px;
   height: 60px;
 }
-.links{
+.links__sidebar{
+  display: flex;
   text-decoration: none;
   color: var(--color-blue);
 }
@@ -76,7 +77,7 @@
   width: 100%;
   justify-items: center;
   align-items: center;
-  padding: 23px;
+  padding: 33px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
