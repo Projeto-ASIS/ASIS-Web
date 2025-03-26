@@ -2,6 +2,7 @@ import SideBarEmployee from "@/common/components/SideBarEmployee/SideBarEmployee
 import React from "react"
 import Breadcrumb from "@/common/components/Breadcrumb/Breadcrumb"
 import "./EmployeeLayout.css"
+import AppoinmentsTab from "./AppoinmentsTab/AppoinmentsTab"
 export default function EmployeeLayout() {
   const [isExpanded, setIsExpanded] = React.useState(false)
   return (
@@ -21,8 +22,7 @@ export default function EmployeeLayout() {
               </Breadcrumb.Path>
             </Breadcrumb.Root>
           </div>
-          <h1>Main Content Area</h1>
-          <p>Your content goes here</p>
+        <AppoinmentsTab />
         </div>
       </div>
     </>
