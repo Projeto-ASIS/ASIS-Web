@@ -10,6 +10,10 @@ header {
 .header__accessibility {
   background-color: var(--color-blue);
   color: white;
+  max-width: var(--max-content-width);
+  margin-inline: auto;
+  box-shadow: 0 0 0 100vmax var(--color-blue);
+  clip-path: inset(0 -100vmax);
   padding: 8px 16px;
   display: flex;
   justify-content: flex-end;
@@ -19,15 +23,18 @@ header {
 
 /* Main navbar */
 .navbar {
-  width: 100%;
+  width: var(--max-content-width);
+  margin-inline: auto;
+  box-shadow: 0 0 0 100vmax var(--color-neutral-90);
   gap: 90px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  clip-path: inset(0 -100vmax);
   flex-direction: row;
   margin: 0 auto;
   padding: 8px 16px;
-  background-color: var(--color-neutral-100);
+  background-color: var(--color-neutral-90);
 }
 
 .logo img {
@@ -55,6 +62,11 @@ header {
 .button-header{
   padding: 10px;
   font-size: 1rem;
+}
+
+.button-header--sign-in {
+  background-color: var(--color-neutral-90) !important;
+
 }
 /* Auth buttons */
 .auth__buttons {

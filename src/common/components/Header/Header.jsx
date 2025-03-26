@@ -132,7 +132,7 @@ export function Header() {
         ) : (
           <div className="auth__buttons desktop-auth">
             <Link to="/sign-up">
-              <Button className="button-header" type='stroked'>
+              <Button className="button-header button-header--sign-in" type='stroked'>
                 Cadastrar-se
               </Button>
             </Link>

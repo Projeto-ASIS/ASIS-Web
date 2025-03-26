@@ -12,18 +12,10 @@ export default function UserProvider({ children }) {
     fnKey: "user",
     fnMethod: async () => {
       try {
-        const postData = {
-          cpf: userMocked.cpf,
-          senha: userMocked.senha
-        }
-  
-        console.log(postData)
-  
-        const data = await BackendService.getLogin(postData)
-  
-        return data
+
+        return
       } catch (error) {
-        console.error(error)  
+        console.error(error)
       }
     }
   })
