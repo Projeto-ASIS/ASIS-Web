@@ -43,9 +43,13 @@
   flex-direction: column;
   width: 100%;
 }
-.logo {
+.logo__sidebar {
   margin: 20px 8px;
   height: 60px;
+}
+.links{
+  text-decoration: none;
+  color: var(--color-blue);
 }
 .menu {
   background-color: var(--color-pink);
@@ -85,7 +89,6 @@
 
 .sidebar-item .label {
   white-space: nowrap;
-  color:;
   font-size: 1.5rem !important;
   margin-left: 15px;
   opacity: 0;

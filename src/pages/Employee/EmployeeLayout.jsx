@@ -3,6 +3,7 @@ import React from "react"
 import Breadcrumb from "@/common/components/Breadcrumb/Breadcrumb"
 import "./EmployeeLayout.css"
 import AppoinmentsTab from "./AppoinmentsTab/AppoinmentsTab"
+import { Outlet } from "react-router-dom"
 export default function EmployeeLayout() {
   const [isExpanded, setIsExpanded] = React.useState(false)
   return (
@@ -22,9 +23,9 @@ export default function EmployeeLayout() {
               </Breadcrumb.Path>
             </Breadcrumb.Root>
           </div>
-        <AppoinmentsTab />
+        <Outlet />
         </div>
-      </div>
+      </div>S
     </>
   )
 }

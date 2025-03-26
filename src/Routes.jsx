@@ -19,6 +19,8 @@ import AboutRegistrationUpdate from "./pages/User/Services/RegistrationUpdate/Ab
 import AboutPsychological from "./pages/User/Services/PsychologicalSupport/AboutPsychological"
 import AppoinmentsAbout from "./pages/User/Services/Appoinments/AppoinmentsAbout"
 import EmployeeLayout from "./pages/Employee/EmployeeLayout"
+import InitialTab from "./pages/Employee/InitialTab/InitialTab"
+import AppoinmentsTab from "./pages/Employee/AppoinmentsTab/AppoinmentsTab"
 
 
 export const router = createBrowserRouter([
@@ -44,7 +46,6 @@ export const router = createBrowserRouter([
   { element: <Cadunico />, path: "/cadunico", },
   { element: <Appoinments />, path: "/user/Services/Appoinments", },
   { element: <About />, path: "/about" },
-  { element: <EmployeeLayout />, path: "employee" },
   { element: <AboutServiceLayout />,
     path: "services",
     children: [
@@ -54,6 +55,15 @@ export const router = createBrowserRouter([
       { element: <AboutPsychological />, path: "psychologicalsupport/about" },
       { element: <AppoinmentsAbout/> , path: "appoinments/about"}
     ]
+  },
+  {
+    element: <EmployeeLayout />,
+    path: "employee",
+    children: [
+      { index: true, element: <InitialTab /> }, // Define InitialTab como o componente padrão
+      { path: "InitialTab", element: <InitialTab /> },
+      { path: "AppoinmentsTab", element: <AppoinmentsTab /> },
+    ],
   },
   { element: <Signup />, path: "/auth/signup" },
   { element: <Signin />, path: "/auth/signin" },
