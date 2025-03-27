@@ -21,3 +21,14 @@ export async function getLogin(userData, options = {}){
     return null
   }
 }
+
+export async function getLoginByToken(token){
+  try {
+    const user = await BackendClient.post("/usuario/jwt", {"Authorizationl": `Baerer ${token}`})
+
+    return user
+  } catch (error) {
+    console.error(error)
+    return null
+  }
+}

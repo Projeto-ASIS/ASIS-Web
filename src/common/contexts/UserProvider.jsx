@@ -1,9 +1,8 @@
 import * as BackendService from "@/common/services/BackendService"
 
-import useFetch from "../hooks/useFetch"
-import { createContext } from "react"
+import useFetch from "@/common/hooks/useFetch"
 
-import userMocked from "@/common/mocks/user"
+import { createContext } from "react"
 
 const UserContext = createContext(null)
 
@@ -12,6 +11,13 @@ export default function UserProvider({ children }) {
     fnKey: "user",
     fnMethod: async () => {
       try {
+        let user = null
+        const userJWTTOken = getCookie('user-token-jwt')
+
+        if(userJWTTOken){
+          user = await BackendService.get
+        }
+
 
         return
       } catch (error) {
@@ -20,7 +26,6 @@ export default function UserProvider({ children }) {
     }
   })
 
-  console.log("User data:", user)
   return (
     <UserContext.Provider value={user}>
       {children}
