@@ -2,7 +2,7 @@ import * as BackendService from "@/common/services/BackendService"
 
 import useFetch from "@/common/hooks/useFetch"
 
-import { createContext } from "react"
+import { createContext, useContext } from "react"
 
 const UserContext = createContext(null)
 
@@ -11,17 +11,15 @@ export default function UserProvider({ children }) {
     fnKey: "user",
     fnMethod: async () => {
       try {
-        let user = null
-        const userJWTTOken = getCookie('user-token-jwt')
+        const userInJson = JSON.parse(localStorage.getItem("user-package"))
 
-        if(userJWTTOken){
-          user = await BackendService.get
-        }
-
-
-        return
+        if(typeof userInJson !== "object") return null
+        
+        
+        return userInJson
       } catch (error) {
         console.error(error)
+        return null
       }
     }
   })
@@ -31,4 +29,8 @@ export default function UserProvider({ children }) {
       {children}
     </UserContext.Provider>
   )
+}
+
+export function useUser(){
+  return useContext(UserContext)
 }
