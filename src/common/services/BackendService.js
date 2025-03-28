@@ -24,7 +24,7 @@ export async function getLogin(userData, options = {}){
 
 export async function getLoginByToken(token){
   try {
-    const user = await BackendClient.post("/usuario/jwt", {"Authorizationl": `Baerer ${token}`})
+    const user = await BackendClient.post("/usuario/jwt", {"Authorization": `Bearer ${token}`})
 
     return user
   } catch (error) {

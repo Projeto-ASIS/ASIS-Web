@@ -1,19 +1,19 @@
 import { useNavigate } from "react-router-dom";
 
-import { cpf as cpfValidator } from "cpf-cnpj-validator"; // Biblioteca para CPF
-
 import Logo from "../../../assets/LogoASISCentralizada.png";
 
 import Button from "@/common/components/Button";
 import * as BackendService from "@/common/services/BackendService"
 
+import { useMask } from "@react-input/mask";
 
 import "../AuthLayout.css";
 import { Link } from "react-router-dom";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Eye } from "lucide-react";
 import Input from "@/common/components/Input";
 
 import useForm from "@/common/hooks/useForm"
+import formatCPF from "@/common/utils/formatCPF";
 
 const INITIAL_FORMDATA = {
   cpf: "",
@@ -25,27 +25,25 @@ export default function Signin() {
     initialFormData: INITIAL_FORMDATA
   })
   const navigate = useNavigate();
-
-  // Função para formatar CPF e validar automaticamente
-  const handleCpfChange = (e) => {
-    const rawCpf = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
-    const formattedCpf = cpfValidator.format(rawCpf); // Formata automaticamente
-
-    setCpf(formattedCpf);
-    setCpfError(!cpfValidator.isValid(rawCpf)); // Valida CPF enquanto digita
-  };
+  const cpfRef = useMask({
+    mask: "___.___.___-__",
+    replacement: { _: /\d/ }
+  })
 
   const handleLogin = async (e) => {
     e.preventDefault();
     console.log(formData)
 
     try {
-      const user = { cpf: formData.cpf, senha: formData.password }
+      const user = { cpf: formatCPF(cpfRef.current.value), senha: formData.password }
       const res = await BackendService.getLogin(user)
-      console.log(res)
-      console.log(res.status)
+
+      console.log(user)
 
       if (300 > res.status && res.status >= 200) {
+        const jwtToken = res.data.token
+        localStorage.setItem("user-package", jwtToken)
+        
         navigate("/user")
       }
 
@@ -78,12 +76,12 @@ export default function Signin() {
           <Input
             type="text"
             placeholder="CPF"
+            ref={cpfRef}
             value={formData.cpf}
             id="cpf"
             onChange={handleChange}
             required
           />
-
 
           <Input
             type="password"
@@ -92,6 +90,8 @@ export default function Signin() {
             value={formData.password}
             onChange={handleChange}
             required
+            hasIcon
+            icon={Eye}
           />
         </div>
 

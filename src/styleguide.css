@@ -105,7 +105,7 @@ a{
 section {
   position: relative;
   max-width: var(--max-content-width);
-  padding: var(--section-padding) ;
+  padding-block: var(--section-padding) ;
   margin-inline: auto;
 }
 

@@ -15,7 +15,6 @@ export default function UserProvider({ children }) {
 
         if(typeof userInJson !== "object") return null
         
-        
         return userInJson
       } catch (error) {
         console.error(error)
@@ -23,6 +22,8 @@ export default function UserProvider({ children }) {
       }
     }
   })
+
+  console.log("User value", user)
 
   return (
     <UserContext.Provider value={user}>

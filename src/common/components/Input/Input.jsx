@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
-import { useCallback, useRef, useState, forwardRef } from "react";
+import { useCallback, useState, forwardRef, useRef } from "react";
+
 import "./Input.css";
 
 const Input = forwardRef(({ hasIcon = false, icon: Icon, placeholder, onChange, required, ...props }, ref) => {
-  const inputRef = useRef(null);
   const [isEmpty, setIsEmpty] = useState(true);
   const [isError, setIsError] = useState(false);
+  const inputRef = useRef()
 
   const handleOnChange = useCallback((e) => {
     const valueOfInput = e.target.value;
@@ -40,7 +41,7 @@ Input.propTypes = {
   hasIcon: PropTypes.bool,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
-  icon: PropTypes.node
+  icon: PropTypes.elementType
 };
 
 export default Input;
