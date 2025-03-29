@@ -7,7 +7,7 @@ ContainerWithCollapseRoot.propTypes = {
   className: PropTypes.string,
   opened: PropTypes.bool,
   children: PropTypes.node,
-  props: PropTypes.symbol
+  props: PropTypes.symbol,
 }
 
 const IsCollapsedContext = createContext(null)

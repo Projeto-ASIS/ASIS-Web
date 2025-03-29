@@ -44,10 +44,10 @@
 .about__faq__title{
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   width: 100%;
   gap: 40px;
-  margin: 50px;
+  margin-block: 50px;
 }
 
 .about__faq__title__icon{

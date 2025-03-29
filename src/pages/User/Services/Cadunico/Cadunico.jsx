@@ -1,4 +1,3 @@
-
 import './Cadunico.css';
 import { Header } from '@/common/components/Header';
 import Fields from './sections/Fields';
@@ -7,9 +6,6 @@ import Footer from '@/common/components/Footer';
 import { useParams } from 'react-router-dom';
 
 export default function Cadunico() {
-  const {id} = useParams();
-
-
   return (
     <>
       <Header />

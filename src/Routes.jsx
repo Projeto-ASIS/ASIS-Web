@@ -2,16 +2,16 @@ import { createBrowserRouter } from "react-router-dom"
 
 import User from "@/pages/User"
 import About from "@/pages/About/About"
-import Homepage from "./pages/Homepage/Homepage"
-import Cadunico from "./pages/User/Services/Cadunico/Cadunico"
-import Appoinments from "./pages/User/Services/Appoinments/Appoinsments"
+import Homepage from "@/pages/Homepage/Homepage"
+import Cadunico from "@/pages/User/Services/Cadunico/Cadunico"
+import Appoinments from "@/pages/User/Services/Appoinments/Appoinsments"
 import AuthLayout from "@/pages/Auth/AuthLayout"
 import Signup from "@/pages/Auth/Sign-up/Signup"
 import Signin from "@/pages/Auth/Sign-in/Signin"
-import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPassword"
-import PsycologicalSupport from "./pages/User/Services/PsychologicalSupport/PsycologicalSupport"
-import Homevisit from "./pages/User/Services/HomeVisit/Homevisit"
-import RegistrationUpdate from "./pages/User/Services/RegistrationUpdate/RegistrationUpdate"
+import ForgotPassword from "@/pages/Auth/ForgotPassword/ForgotPassword"
+import PsycologicalSupport from "@/pages/User/Services/PsychologicalSupport/PsycologicalSupport"
+import Homevisit from "@/pages/User/Services/HomeVisit/Homevisit"
+import RegistrationUpdate from "@/pages/User/Services/RegistrationUpdate/RegistrationUpdate"
 import AboutServiceLayout from "@/pages/User/Services/AboutServiceLayout"
 import AboutCadunico from "./pages/User/Services/Cadunico/AboutCadunico"
 import AboutHomevisit from "./pages/User/Services/HomeVisit/AboutHomevisit"
@@ -65,5 +65,4 @@ export const router = createBrowserRouter([
 },
 { element: <Signup />, path: "/auth/signup" },
 { element: <Signin />, path: "/auth/signin" }
-
 ]) 
