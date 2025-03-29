@@ -1,0 +1,109 @@
+.summary-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  width: 100%;
+}
+
+
+.appointments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.appoinments-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  flex-wrap: wrap;
+}
+
+.appoinments-dot-blue {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-blue);
+  flex-shrink: 0;
+}
+.appoinments-dot-pink {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-pink);
+  flex-shrink: 0;
+}
+.appoinments-dot-yellow {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-yellow);
+  flex-shrink: 0;
+}
+
+.appoinments-info {
+  flex: 1;
+  color: white;
+}
+
+.appoinments-type {
+  font-weight: bold;
+  color: #333;
+}
+
+.appoinments-location {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.appoinments-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+.appoinments-status.finalizado {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.appoinments-status.pendente {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.appoinments-date {
+  color: #666;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .summary-container {
+    padding: 10px;
+  }
+
+  .appoinments-row {
+    padding: 8px;
+    gap: 10px;
+  }
+
+  .appoinments-info {
+    min-width: 120px;
+  }
+
+  .appoinments-status {
+    padding: 3px 10px;
+    font-size: 0.8em;
+  }
+
+  .appoinments-date {
+    font-size: 0.8em;
+  }
+}

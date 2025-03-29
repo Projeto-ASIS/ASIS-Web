@@ -1,0 +1,24 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 20px;
+  margin-left: 100px;
+  transition: margin-left 0.3s ease;
+}
+
+.app.sidebar-expanded .main-content {
+  margin-left: 400px;
+}
+
+@media screen and (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    margin-bottom: 70px;
+  }
+}

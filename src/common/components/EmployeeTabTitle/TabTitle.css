@@ -1,0 +1,13 @@
+.header__tab {
+  background-color: #0066cc;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.icon__title{
+  rotate: 30deg;
+}

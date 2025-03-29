@@ -1,106 +1,143 @@
 /* Sidebar Styles */
 .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    background-color: #ffffff;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    transition: width 0.3s ease;
-    width: 60px;
-    z-index: 1000;
-  }
-  
-  .sidebar.expanded {
-    width: 200px;
-  }
-  
-  .toggle-button {
-    position: absolute;
-    right: -20px;
-    top: 20px;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .sidebar-content {
-    padding-top: 60px;
-  }
-  
-  .sidebar-item {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .sidebar-item:hover {
-    background-color: #f5f5f5;
-  }
-  
-  .sidebar-item .icon {
-    font-size: 20px;
-    min-width: 30px;
-  }
-  
-  .sidebar-item .label {
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  
-  .sidebar.expanded .sidebar-item .label {
-    opacity: 1;
-  }
-  
-  /* Mobile Bottom Navbar */
-  .mobile-navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  align-items: flex-start;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
+  width: 100px;
+  z-index: 1000;
+}
+
+.sidebar.expanded {
+  width: 400px;
+}
+
+.toggle-button {
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+.top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.brand {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+.logo__sidebar {
+  margin: 30px 18px;
+  height: 60px;
+}
+.links__sidebar{
+  display: flex;
+  text-decoration: none;
+  color: var(--color-blue);
+}
+.menu {
+  background-color: var(--color-pink);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 70px;
+  border-radius: 7px;
+}
+.open {
+  rotate: 270deg;
+}
+.close {
+  rotate: 270deg;
+}
+.sidebar-content {
+  padding-top: 30px;
+}
+
+.sidebar-item {
+  display: flex;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+  padding: 33px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sidebar-item .icon {
+  font-size: 20px;
+  color: var(--color-blue);
+  min-width: 30px;
+}
+
+.sidebar-item .label {
+  white-space: nowrap;
+  font-size: 1.5rem !important;
+  margin-left: 15px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.sidebar.expanded .sidebar-item .label {
+  opacity: 1;
+}
+
+/* Mobile Bottom Navbar */
+.mobile-navbar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.mobile-navbar .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  cursor: pointer;
+}
+
+.mobile-navbar .icon {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.mobile-navbar .label {
+  font-size: 12px;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+  .sidebar {
     display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
-    z-index: 1000;
   }
-  
-  .mobile-navbar .nav-item {
+
+  .mobile-navbar {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    cursor: pointer;
+    justify-content: space-around;
   }
-  
-  .mobile-navbar .icon {
-    font-size: 20px;
-    margin-bottom: 5px;
-  }
-  
-  .mobile-navbar .label {
-    font-size: 12px;
-  }
-  
-  /* Responsive Layout */
-  @media screen and (max-width: 768px) {
-    .sidebar {
-      display: none;
-    }
-  
-    .mobile-navbar {
-      display: flex;
-      justify-content: space-around;
-    }
-  }
+}

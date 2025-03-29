@@ -76,7 +76,7 @@ export default function Results() {
 
 
           <ul className="dots-container">
-            <button className="nav-button" id="prev" onClick={prev}>
+            <button className="nav-button-slider" id="prev" onClick={prev}>
               <ArrowLeft />
             </button>
             {items.map((_, index) => (
@@ -86,7 +86,7 @@ export default function Results() {
                 onClick={() => goToSlide(index)}
               ></li>
             ))}
-            <button className="nav-button" id="next" onClick={next}>
+            <button className="nav-button-slider" id="next" onClick={next}>
               <ArrowRight />
             </button>
           </ul>
