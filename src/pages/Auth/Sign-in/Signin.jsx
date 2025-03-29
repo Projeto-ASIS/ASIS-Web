@@ -1,44 +1,59 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { cpf as cpfValidator } from "cpf-cnpj-validator"; // Biblioteca para CPF
+
 import Logo from "../../../assets/LogoASISCentralizada.png";
+
 import Button from "@/common/components/Button";
+import * as BackendService from "@/common/services/BackendService"
+
+import { useMask } from "@react-input/mask";
+
 import "../AuthLayout.css";
 import { Link } from "react-router-dom";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Eye } from "lucide-react";
 import Input from "@/common/components/Input";
 
+import useForm from "@/common/hooks/useForm"
+import formatCPF from "@/common/utils/formatCPF";
+
+const INITIAL_FORMDATA = {
+  cpf: "",
+  password: ""
+}
+
 export default function Signin() {
-  const [cpf, setCpf] = useState("");
-  const [password, setPassword] = useState("");
-  const [cpfError, setCpfError] = useState(false);
+  const { formData, handleChange } = useForm({
+    initialFormData: INITIAL_FORMDATA
+  })
   const navigate = useNavigate();
+  const cpfRef = useMask({
+    mask: "___.___.___-__",
+    replacement: { _: /\d/ }
+  })
 
-  // Função para formatar CPF e validar automaticamente
-  const handleCpfChange = (e) => {
-    const rawCpf = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
-    const formattedCpf = cpfValidator.format(rawCpf); // Formata automaticamente
-
-    setCpf(formattedCpf);
-    setCpfError(!cpfValidator.isValid(rawCpf)); // Valida CPF enquanto digita
-  };
-
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    console.log(formData)
 
-    if (cpfError || cpf.length < 14) {
-      alert("CPF inválido! Por favor, digite um CPF válido.");
-      return;
-    }
+    try {
+      const user = { cpf: formatCPF(cpfRef.current.value), senha: formData.password }
+      const res = await BackendService.getLogin(user)
 
-    // Mock de usuário
-    const userMock = { cpf: "148.921.794-00", password: "123456", role: "user",name: "Alberto" };
+      console.log(user)
 
-    if (cpf === userMock.cpf && password === userMock.password) {
-      localStorage.setItem("user", JSON.stringify(userMock));
-      navigate("/user");
-    } else {
-      navigate("/employee");
+      if (300 > res.status && res.status >= 200) {
+        const jwtToken = res.data.token
+        localStorage.setItem("user-package", jwtToken)
+        
+        navigate("/user")
+      }
+
+    } catch (error) {
+
+      if (error.status === 403) {
+        alert("Usuário não existente")
+      }
+
+      console.error(error)
     }
   };
 
@@ -61,18 +76,22 @@ export default function Signin() {
           <Input
             type="text"
             placeholder="CPF"
-            value={cpf}
-            onChange={handleCpfChange}
+            ref={cpfRef}
+            value={formData.cpf}
+            id="cpf"
+            onChange={handleChange}
             required
           />
-         
 
           <Input
             type="password"
-            placeholder="SENHA"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Senha"
+            id="password"
+            value={formData.password}
+            onChange={handleChange}
             required
+            hasIcon
+            icon={Eye}
           />
         </div>
 

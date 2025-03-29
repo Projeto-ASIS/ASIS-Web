@@ -1,6 +1,7 @@
 import { ChevronDown, AccessibilityIcon, PersonStanding, ZoomIn, ZoomOut, UserCircle, Menu, X } from 'lucide-react';
 import { MdContrast } from "react-icons/md";
 import { FiMenu, FiUser } from "react-icons/fi";
+import { usePreferencesDispatcher } from "@/common/contexts/HighContrastProvider"
 import Button from '../Button';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
@@ -11,7 +12,8 @@ export function Header() {
   const [username, setUsername] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  
+  const preferencesDispatcher = usePreferencesDispatcher()
+
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -58,13 +60,18 @@ export function Header() {
     document.body.style.overflow = mobileMenuOpen ? 'auto' : 'hidden';
   }
 
+  function handleOnSwitchAccessibility() {
+    preferencesDispatcher({ type: "toogle" })
+
+  }
+
   return (
     <header className="header">
       <div className="header__accessibility">
         <MdContrast size={16} />
         <ZoomIn size={16} />
         <ZoomOut size={16} />
-        <PersonStanding size={16} />
+        <PersonStanding onClick={handleOnSwitchAccessibility} size={16} />
       </div>
 
 
@@ -72,11 +79,11 @@ export function Header() {
         <div className="hamburger-menu" onClick={toggleMobileMenu}>
           <Menu className='icon-blue' size={34} />
         </div>
-        
+
         <div className="logo">
           <a href='/'> <img src="/Logo.png" alt="Logo" /> </a>
         </div>
-        
+
         <nav className={`nav__links ${mobileMenuOpen ? 'active' : ''}`}>
           <div className="mobile-nav-header">
             <div className="logo-mobile">
@@ -88,44 +95,44 @@ export function Header() {
           </div>
 
 
-          
+
           <Link to="/" onClick={toggleMobileMenu}>INÍCIO</Link>
           <Link to="/offers" onClick={toggleMobileMenu}>BENEFÍCIOS</Link>
           <Link to="/funcionalidades" onClick={toggleMobileMenu}>FUNCIONALIDADES</Link>
           <Link to="/resultados" onClick={toggleMobileMenu}>RESULTADOS</Link>
-          
+
 
         </nav>
-        
+
         {isLogged ? (
           <div className="desktop-user">
-               <div className="user-dropdown" ref={dropdownRef}>
-      <Button className="user-button" onClick={toggleDropdown}>
-        {username}
-        <span className={`dropdown-icon ${isOpen ? 'rotate' : ''}`}>▼</span>
-      </Button>
-      
-      {isOpen && (
-        <div className="dropdown-menu">
-          <div className="user-info">
-            <div className="user-name">Alberto Silva</div>
-            <div className="user-email">alberto.silva@email.com</div>
+            <div className="user-dropdown" ref={dropdownRef}>
+              <Button className="user-button" onClick={toggleDropdown}>
+                {username}
+                <span className={`dropdown-icon ${isOpen ? 'rotate' : ''}`}>▼</span>
+              </Button>
+
+              {isOpen && (
+                <div className="dropdown-menu">
+                  <div className="user-info">
+                    <div className="user-name">Alberto Silva</div>
+                    <div className="user-email">alberto.silva@email.com</div>
+                  </div>
+                  <a href="#perfil" className="dropdown-item">Meu Perfil</a>
+                  <a href="#configuracoes" className="dropdown-item">Configurações</a>
+                  <a href="#ajuda" className="dropdown-item">Ajuda</a>
+                  <button onClick={handleLogout} href="#sair" className=" logout">Sair</button>
+                </div>
+              )}
+            </div>
+
+
           </div>
-          <a href="#perfil" className="dropdown-item">Meu Perfil</a>
-          <a href="#configuracoes" className="dropdown-item">Configurações</a>
-          <a href="#ajuda" className="dropdown-item">Ajuda</a>
-          <button onClick={handleLogout} href="#sair" className=" logout">Sair</button>
-        </div>
-      )}
-    </div>
-      
-            
-          </div>
-          
+
         ) : (
           <div className="auth__buttons desktop-auth">
             <Link to="/sign-up">
-              <Button className="button-header" type='stroked'>
+              <Button className="button-header button-header--sign-in" type='stroked'>
                 Cadastrar-se
               </Button>
             </Link>
@@ -136,14 +143,14 @@ export function Header() {
             </Link>
           </div>
         )}
-        
+
         <div className="mobile-user-icon">
           <UserCircle className='icon-blue' size={34} />
         </div>
       </div>
-      
-      <div 
-        className={`overlay ${mobileMenuOpen ? 'active' : ''}`} 
+
+      <div
+        className={`overlay ${mobileMenuOpen ? 'active' : ''}`}
         onClick={toggleMobileMenu}
       />
     </header>

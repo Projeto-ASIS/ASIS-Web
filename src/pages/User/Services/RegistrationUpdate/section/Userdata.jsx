@@ -1,10 +1,10 @@
-import { useState } from 'react';
+
 import ContainerWithCollapse from "@/common/components/ContainerWithCollapse/ContainerWithCollapse"
 import Input from '@/common/components/Input';
 import { AtSignIcon } from 'lucide-react';
 
 
-export default function Useraata() {
+export default function Userdata() {
 
   return (
     <section className='container'>

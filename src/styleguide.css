@@ -1,4 +1,5 @@
 :root {
+  /* color-scheme: light dark; */
   --section-padding: 126px;
   --max-content-width: 1280px;
 
@@ -34,7 +35,7 @@
   --color-neutral-80: #CFCAC9;
   --color-neutral-90: #E7E5E5;
   --color-neutral-95: #F3F2F1;
-  --color-neutral-100: #fff;
+  --color-neutral-100: light-dark(#fff, #444);
   --color-neutral-sec-95: #F2F2F2;
   --color-neutral-sec-80: #CCC;
 
@@ -104,7 +105,7 @@ a{
 section {
   position: relative;
   max-width: var(--max-content-width);
-  padding: var(--section-padding) ;
+  padding-block: var(--section-padding) ;
   margin-inline: auto;
 }
 
