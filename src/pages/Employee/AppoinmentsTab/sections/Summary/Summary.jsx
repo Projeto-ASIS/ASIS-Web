@@ -8,7 +8,7 @@ function Summary({ appointments }) {
       <div className="appointments-list">
         {appointments.map((appoinments, index) => (
           <div key={index} className="appoinments-row">
-            <div className="appoinments-dot"></div>
+            <div className={`${appoinments.color}`}></div>
             <div className="appoinments-info">
               <div className="appoinments-type">{appoinments.type}</div>
               <div className="appoinments-location">{appoinments.location}</div>

@@ -24,11 +24,25 @@
   flex-wrap: wrap;
 }
 
-.appoinments-dot {
+.appoinments-dot-blue {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #0066cc;
+  background-color: var(--color-blue);
+  flex-shrink: 0;
+}
+.appoinments-dot-pink {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-pink);
+  flex-shrink: 0;
+}
+.appoinments-dot-yellow {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-yellow);
   flex-shrink: 0;
 }
 

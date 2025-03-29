@@ -5,7 +5,7 @@ function Calendar({ selectedDays, onDayClick }) {
   const days = [
     { day: 7, type: 'Visita Domiciliar', location: 'pontizinha', status: 'Finalizado' },
     { day: 18, type: 'cadunico', location: 'pontizinha', status: 'pendente' },
-    { day: 23, type: 'Visita Domiciliar', location: 'pontizinha', status: 'Finalizado' }
+    { day: 23, type: 'Atendimento psicologico', location: 'pontizinha', status: 'Finalizado' }
   ];
 
   const isDaySelected = (day) => {

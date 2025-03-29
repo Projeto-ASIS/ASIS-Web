@@ -26,19 +26,19 @@ export default function InitialTab() {
           <tbody>
             <tr>
               <td>Luiz Roberto Lima</td>
-              <td>Negligência da mãe dos idosos</td>
+              <td>Falta de saniamento e alimentação básica</td>
               <td>Huam Vicente</td>
               <td>14/02/2015</td>
             </tr>
             <tr>
               <td>Luiz Roberto Lima</td>
-              <td>Negligência da mãe dos idosos</td>
+              <td>Falta de saniamento e alimentação básica</td>
               <td>Huam Vicente</td>
               <td>14/02/2015</td>
             </tr>
             <tr>
               <td>Luiz Roberto Lima</td>
-              <td>Negligência da mãe dos idosos</td>
+              <td>Falta de saniamento e alimentação básica</td>
               <td>Huam Vicente</td>
               <td>14/02/2015</td>
             </tr>

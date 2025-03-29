@@ -24,49 +24,46 @@ import AppoinmentsTab from "./pages/Employee/AppoinmentsTab/AppoinmentsTab"
 
 
 export const router = createBrowserRouter([
-  { element: <User />, path: "/user", },
   {
-    element: <AuthLayout />,
-    // path: "/",
-    // errorElement: <h1>Error</h1>,
-    children: [
-      { element: <Signup />, path: "sign-up" },
-      { element: <Signin />, path: "sign-in" },
-      {element:<ForgotPassword /> , path: "forgot-pass"}
-    ]
-  },
-  {element: <User /> , path:"/user"},
-  { element: <PsycologicalSupport />, path: "/user/Services/PsychologicalSupport", },
-  { element: <Homevisit />, path: "/user/Services/Homevisit", },
-  { element: <Cadunico />, path: "/user/Services/Cadunico", },
-  { element: <Appoinments />, path: "/user/Services/Appoinments", },
-  { element: <About />, path: "/about" },
-  { element: <Homepage />, path: "/" },
-  { element: <RegistrationUpdate />, path: "/user/Services/RegistrationUpdate", },
-  { element: <Cadunico />, path: "/cadunico", },
-  { element: <Appoinments />, path: "/user/Services/Appoinments", },
-  { element: <About />, path: "/about" },
-  { element: <AboutServiceLayout />,
-    path: "services",
-    children: [
-      { element: <AboutCadunico />, path: "cadunico/about" },
-      { element: <AboutHomevisit />, path: "homevisit/about" },
-      { element: <AboutRegistrationUpdate />, path: "registrationupdate/about" },
-      { element: <AboutPsychological />, path: "psychologicalsupport/about" },
-      { element: <AppoinmentsAbout/> , path: "appoinments/about"}
-    ]
-  },
-  {
-    element: <EmployeeLayout />,
-    path: "employee",
-    children: [
-      { index: true, element: <InitialTab /> }, // Define InitialTab como o componente padrão
-      { path: "InitialTab", element: <InitialTab /> },
-      { path: "AppoinmentsTab", element: <AppoinmentsTab /> },
-    ],
-  },
-  { element: <Signup />, path: "/auth/signup" },
-  { element: <Signin />, path: "/auth/signin" },
-  { element: <Homepage />, path: "/home" },
+  element: <AuthLayout />,
+  children: [
+    { element: <Signup />, path: "sign-up" },
+    { element: <Signin />, path: "sign-in" },
+    { element: <ForgotPassword />, path: "forgot-pass" }
+  ]
+},
+{ element: <Homepage />, path: "/" },
+{ element: <Homepage />, path: "/home" },
+{ element: <About />, path: "/about" },
+{ element: <User />, path: "/user" },
+{ element: <PsycologicalSupport />, path: "/user/Services/PsychologicalSupport" },
+{ element: <Homevisit />, path: "/user/Services/Homevisit" },
+{ element: <Cadunico />, path: "/user/Services/Cadunico" },
+{ element: <Appoinments />, path: "/user/Services/Appoinments" },
+{ element: <RegistrationUpdate />, path: "/user/Services/RegistrationUpdate" },
+{ element: <Cadunico />, path: "/cadunico" },
+{ element: <Appoinments />, path: "/user/Services/Appoinments" },
+{
+  element: <AboutServiceLayout />,
+  path: "services",
+  children: [
+    { element: <AboutCadunico />, path: "cadunico/about" },
+    { element: <AboutHomevisit />, path: "homevisit/about" },
+    { element: <AboutRegistrationUpdate />, path: "registrationupdate/about" },
+    { element: <AboutPsychological />, path: "psychologicalsupport/about" },
+    { element: <AppoinmentsAbout />, path: "appoinments/about" }
+  ]
+},
+{
+  element: <EmployeeLayout />,
+  path: "employee",
+  children: [
+    { index: true, element: <InitialTab /> },
+    { path: "InitialTab", element: <InitialTab /> },
+    { path: "AppoinmentsTab", element: <AppoinmentsTab /> }
+  ]
+},
+{ element: <Signup />, path: "/auth/signup" },
+{ element: <Signin />, path: "/auth/signin" }
 
 ]) 
