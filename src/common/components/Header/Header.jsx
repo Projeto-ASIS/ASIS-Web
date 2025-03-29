@@ -137,7 +137,7 @@ export function Header() {
               </Button>
             </Link>
             <Link to="/sign-in">
-              <Button className="button-header" type='default-secondary'>
+              <Button className="button-header" type='default'>
                 Fazer login
               </Button>
             </Link>

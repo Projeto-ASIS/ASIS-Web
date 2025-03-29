@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 export default function Results() {
   const items = [
-    { id: 1, url: './images/imageslider.jpg' },
+    { id: 1, url: './Alisson.jpeg' },
     { id: 2, url: './images/imageslider.jpg' },
     { id: 3, url: './images/imageslider.jpg' },
     { id: 4, url: './images/imageslider.jpg' },
