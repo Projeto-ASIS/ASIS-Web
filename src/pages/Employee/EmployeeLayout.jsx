@@ -14,15 +14,7 @@ export default function EmployeeLayout() {
           setIsExpanded={setIsExpanded}
         />
         <div className="main-content">
-          <div className="breadcrumb-top">
-            <Breadcrumb.Root className="about-cadunico__breadcrumb">
-              <Breadcrumb.Path path="/home">Usuario</Breadcrumb.Path>
-              <Breadcrumb.Path path="/user">Serviços</Breadcrumb.Path>
-              <Breadcrumb.Path path="/services/cadunico/about" isActive>
-                Cadúnico
-              </Breadcrumb.Path>
-            </Breadcrumb.Root>
-          </div>
+          
         <Outlet />
         </div>
       </div>S

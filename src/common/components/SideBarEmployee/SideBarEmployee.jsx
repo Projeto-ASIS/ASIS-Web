@@ -1,11 +1,11 @@
 import "./SideBarEmployee.css"
-import { PanelTopClose, PanelTopOpen } from "lucide-react"
+import { Home, PanelTopClose, PanelTopOpen } from "lucide-react"
 import logoSvgPath from "@/assets/Logo.svg"
 import { FolderPlus, Files, FileText, Users } from "lucide-react"
 import { Link } from "react-router-dom"
 const SideBarEmployee = ({ isExpanded, setIsExpanded }) => {
   const menuItems = [
-    { icon: <FolderPlus size={36} />, label: "Criar diagnóstico" },
+    { icon: <Home size={36} />, label: "Home",tab:"InitialTab" },
     { icon: <FileText size={36} />, label: "Registros" },
     { icon: <Files size={36} />, label: "Agendamentos",tab:"AppoinmentsTab" },
     { icon: <Users size={36} />, label: "Familias" },
@@ -24,11 +24,11 @@ const SideBarEmployee = ({ isExpanded, setIsExpanded }) => {
         >
           {isExpanded ? (
             <div className="menu">
-              <PanelTopClose size={45} className="close " />
+              <PanelTopClose size={45} className="close-icon " />
             </div>
           ) : (
             <div className="menu">
-              <PanelTopOpen size={45} className="open" />
+              <PanelTopOpen size={45} className="open-icon" />
             </div>
           )}
         </button>
