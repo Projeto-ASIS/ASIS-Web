@@ -6,11 +6,11 @@ import { useState, useEffect } from 'react';
 
 export default function Results() {
   const items = [
-    { id: 1, url: './images/imageslider.jpg' },
-    { id: 2, url: './images/imageslider.jpg' },
-    { id: 3, url: './images/imageslider.jpg' },
-    { id: 4, url: './images/imageslider.jpg' },
-    { id: 5, url: './images/imageslider.jpg' },
+    { id: 1, url: './slide-01.jpeg' },
+    { id: 2, url: './slide-02.jpeg' },
+    { id: 3, url: './slide-03.jpeg' },
+    { id: 4, url: './slide-04.jpeg' },
+    { id: 5, url: './slide-05.jpeg' },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

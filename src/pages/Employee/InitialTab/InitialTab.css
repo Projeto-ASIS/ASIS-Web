@@ -12,50 +12,56 @@
   justify-content: flex-start;
   align-items: stretch;
 }
+.title__card{
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  h4{
+    flex:1;
+  }
+}
+.cardYellow{
+  background-color: var(--color-yellow);
+  color: #323232;
+}
+.cardBlue{
+  background-color: var(--color-blue);
+  color: #fff;
+  .icon-color{
+    color: white;
+  }
+}
+.cardPink{
+  background-color: var(--color-pink);
+  color: #fff;
+}
 
-.records-section {
-  background: white;
-  border-radius: 8px;
+.card {
+  border-radius: 10px;
   padding: 15px;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  &:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+    .icon-card{
+      transition: all 0.2s ease-in-out;
+      rotate: 30deg;
+    }
+  }
+    
 }
-
-.records-section h3 {
-  color: #666;
-  margin: 0 0 8px 0;
-  font-size: 1rem;
-}
-
-.records-section h4 {
-  color: #ff1493;
-  margin: 0 0 15px 0;
-  font-size: 1.1rem;
-}
-
-.records-table {
+.link{
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-  font-size: 0.9rem;
 }
 
-.records-table th,
-.records-table td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #eee;
-}
 
-.records-table th {
-  background-color: #f8f9fa;
-  font-weight: bold;
-  color: #666;
-}
 
-.records-table tr:hover {
-  background-color: #f8f9fa;
-}
 
 @media (max-width: 768px) {
   .container {
@@ -72,20 +78,6 @@
     flex-wrap: wrap;
   }
 
-  .records-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .header h1 {
-    font-size: 0.9rem;
-  }
-
-  .header h2 {
-    font-size: 1.2rem;
-  }
-
   .day {
     min-width: 25px;
     min-height: 25px;
@@ -98,7 +90,7 @@
   }
 
   .calendar-section,
-  .records-section {
+  .card {
     padding: 10px;
   }
 
@@ -116,12 +108,4 @@
     font-size: 0.8rem;
   }
 
-  .records-table {
-    font-size: 0.8rem;
-  }
-
-  .records-table th,
-  .records-table td {
-    padding: 8px;
-  }
 }

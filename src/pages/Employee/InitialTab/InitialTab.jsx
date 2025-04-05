@@ -1,50 +1,41 @@
 import TabTitle from "@/common/components/EmployeeTabTitle/TabTitle";
 import './InitialTab.css'
-import Calendar from '../AppoinmentsTab/sections/Calendar/Calendar';
 import { useState, useRef, useEffect } from "react";
+import PsychologicalSupportIcon from "@/common/components/PsychologicalSupportIcon";
+import HomevisitIcon from "@/common/components/HomevisitIcon";
+import CadUnicoIcon from "@/common/components/CadUnicoIcon";
+import { Link } from "react-router-dom";
 export default function InitialTab() {
- 
+
+  const cards = [
+    {title:'Atendi. Psicológico', icon:<PsychologicalSupportIcon fill="#323232" /> , styleCard:'cardYellow',amount:12},
+    {title:'Visitar Domiciliar', icon:<HomevisitIcon fill="#fff" stroke="#fff" /> , styleCard:'cardBlue',amount:18},
+    {title:'CadUnico', icon:<CadUnicoIcon fill="#fff" /> , styleCard:'cardPink',amount:24},
+  ]
+
+
   return (
     <>
-      <TabTitle titleTab="REGISTROS GERAIS" titleSpan="ACOMPANHE SEU HISTÓRICO DE SERVIÇOS ACESSADOS" />
+
+      <TabTitle titleTab="REGISTROS GERAIS" titleSpan="PAINEL DO FUNCIONÁRIO" />
       <div className="all__sections">
         <div className="top__section">
-         <Calendar />
-         <div className="records-section">
-        <h3>ACOMPANHAR AS FAMÍLIAS CADASTRADAS NA UNIDADE</h3>
-        <h4>FAMÍLIAS</h4>
-        
-        <table className="records-table">
-          <thead>
-            <tr>
-              <th>NOME DO RESPONSÁVEL</th>
-              <th>DESCRIÇÃO</th>
-              <th>NOME DO TÉCNICO RESPONSÁVEL</th>
-              <th>CÓDIGO</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Luiz Roberto Lima</td>
-              <td>Falta de saniamento e alimentação básica</td>
-              <td>Huam Vicente</td>
-              <td>14/02/2015</td>
-            </tr>
-            <tr>
-              <td>Luiz Roberto Lima</td>
-              <td>Falta de saniamento e alimentação básica</td>
-              <td>Huam Vicente</td>
-              <td>14/02/2015</td>
-            </tr>
-            <tr>
-              <td>Luiz Roberto Lima</td>
-              <td>Falta de saniamento e alimentação básica</td>
-              <td>Huam Vicente</td>
-              <td>14/02/2015</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+
+          {cards.map((card, index) => (
+<Link className="link" style={{ textDecoration: 'none',color: 'in' }} to={`/employee/AppoinmentsTab`}>
+            <div key={index} className={`card ${card.styleCard}`}>
+              
+               <div className="title__card">
+              <h3>{card.title}</h3>
+              <p className="icon-card" style={{scale: '0.9'}} >{card.icon}</p>
+              </div>
+              
+              <p><h3>{card.amount}</h3> agendamentos</p>
+             
+             
+            </div>
+              </Link>
+          ))}
         </div>
 
       </div>

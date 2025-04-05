@@ -62,10 +62,10 @@
   height: 70px;
   border-radius: 7px;
 }
-.open {
+.open-icon {
   rotate: 270deg;
 }
-.close {
+.close-icon {
   rotate: 270deg;
 }
 .sidebar-content {

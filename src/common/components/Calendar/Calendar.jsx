@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../Appoinments.css';
+import './Calendar.css';
 
 export default function Calendar() {
   const [showDrawer, setShowDrawer] = useState(false);
@@ -8,17 +8,26 @@ export default function Calendar() {
   const appointments = {
     5: {
       type: 'Visita domiciliar',
-      details: 'Visita domiciliar às 14:00',
+      details: 'Visita domiciliar ',
+      user:'João',
+      dr:'Dra. Maria',
+      hour: 14,
       color: 'var(--color-blue)'
     },
     13: {
       type: 'Atendimento psicológico',
-      details: 'Sessão com Dra. Ana Maria às 10:30',
+      user:'João',
+      dr:'Dra. Maria',
+      hour: 14,
+      details: 'Atendimento psicológico',
       color: 'var(--color-yellow)'
     },
     26: {
       type: 'Cadunico',
-      details: 'Atualização cadastral às 9:00', 
+      user:'João',
+      dr:'Dra. Maria',
+      hour: 14,
+      details: 'Atualização cadastral ', 
       color: 'var(--color-pink)'
     }
   };
@@ -45,11 +54,7 @@ export default function Calendar() {
   return (
     <>
       <section className='calendar'>
-        <div className="calendar__title">
-          <div className="line"></div>
-          <h1 className='text-pink'>Agendamentos</h1>
-          <div className="line"></div>
-        </div>
+
         <div className="main">
           <div className="cabecalho">
             <div>DOM</div>
@@ -124,6 +129,15 @@ export default function Calendar() {
               </div>
               <div className="appointment-info">
                 <p>{appointments[selectedDay].details}</p>
+              </div>
+              <div className="appointment-info">
+                <p>Agendado por : {appointments[selectedDay].user}</p>
+              </div>
+              <div className="appointment-info">
+                <p>Dr. : {appointments[selectedDay].dr}</p>
+              </div>
+              <div className="appointment-info">
+                <p>Horário: {appointments[selectedDay].hour}</p>
               </div>
             </div>
           )}
