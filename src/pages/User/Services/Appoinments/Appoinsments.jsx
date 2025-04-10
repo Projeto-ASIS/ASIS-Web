@@ -5,8 +5,8 @@ import Footer from '@/common/components/Footer'
 
 export default function Appoinments() {
   return <>
-  <Header />
-  <Calendar />
-  <Footer />
+    <Header />
+    <Calendar />
+    <Footer />
   </>
 }

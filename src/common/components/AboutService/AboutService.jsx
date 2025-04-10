@@ -5,15 +5,16 @@ import Button from "@/common/components/Button"
 import Breadcrumb from "@/common/components/Breadcrumb/Breadcrumb"
 import HandOnApprovedIcon from "@/common/components/HandOnApprovedIcon"
 import FAQIcon from "@/common/components/FaqIcon"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
-export default function AboutService({propTitle , passOne, passTwo, passThree , proplink}) {
-  function GoService(){
-      window.location.href = `/user/Services/${proplink}`
-      
+export default function AboutService({ propTitle, passOne, passTwo, passThree, proplink }) {
+  const navigate = useNavigate()
+  
+  function handleOnClickAcessService() {
+    navigate(`/user/Services/${proplink}`)
   }
-  function Login(){
-      window.location.href = "/sign-in";
+  function handleClickLogin() {
+    navigate("/sign-in")
   }
 
   return (
@@ -23,7 +24,7 @@ export default function AboutService({propTitle , passOne, passTwo, passThree , 
         <Breadcrumb.Path path="/user">Serviços</Breadcrumb.Path>
         <Breadcrumb.Path path="/services/cadunico/about" isActive>Cadúnico</Breadcrumb.Path>
       </Breadcrumb.Root>
-      <div className="about__title">
+      <div className="about-service__title">
         <HandOnApprovedIcon className="about__title__icon" />
         <h1 className="about__title__innerText text-blue mb-4">{propTitle}</h1>
       </div>
@@ -50,8 +51,8 @@ export default function AboutService({propTitle , passOne, passTwo, passThree , 
               {passThree}
             </p>
             <div className="data__content__actions">
-             <Button className="btns__actions" onClick={GoService}>Acessar o Serviço</Button> 
-              <Button className="btns__actions" onClick={Login} type="stroked">Fazer o Login</Button>
+              <Button className="btns__actions" onClick={handleOnClickAcessService}>Acessar o Serviço</Button>
+              <Button className="btns__actions" onClick={handleClickLogin} type="stroked">Fazer o Login</Button>
             </div>
           </ContainerWithCollapse.Content>
         </ContainerWithCollapse.Root>
@@ -68,7 +69,7 @@ export default function AboutService({propTitle , passOne, passTwo, passThree , 
       </div>
       <div className="about__faq">
         <div className="about__faq__title">
-          <FAQIcon className="about__faq__title__icon"/>
+          <FAQIcon className="about__faq__title__icon" />
           <h1 className="text-blue">Perguntas Frequentes</h1>
         </div>
         <ContainerWithCollapse.Root className="collapse__faq">

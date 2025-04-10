@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import Logo from "../../../assets/LogoASISCentralizada.png";
+import "./Signin.css"
 
 import Button from "@/common/components/Button";
 import * as BackendService from "@/common/services/BackendService"
@@ -39,11 +40,12 @@ export default function Signin() {
       const res = await BackendService.getLogin(user)
 
       console.log(user)
+      console.log(res)
 
       if (300 > res.status && res.status >= 200) {
         const jwtToken = res.data.token
         localStorage.setItem("user-package", jwtToken)
-        
+
         navigate("/user")
       }
 
@@ -60,19 +62,18 @@ export default function Signin() {
   return (
     <div className="UserData">
       <Link to="/">
-        <ChevronLeft className="back" size={60} />
+        <ChevronLeft className="back" size={36} color="var(--color-blue-80" />
       </Link>
 
       <div className="form__title">
-        
         <h1 className="text-blue">Faça seu Login!</h1>
-        <p className="text-blue-20 text__form">
+        <p className="text-blue-40 text-semibold text__form">
           Acesse sua conta e tenha autonomia para solicitar e acompanhar a assistência que você precisa.
         </p>
       </div>
 
-      <form onSubmit={handleLogin}>
-        <div className="flex-fields">
+      <form className="sign-in__forms" onSubmit={handleLogin}>
+        <div className="sign-in__flex-fields">
           <Input
             type="text"
             placeholder="CPF"
@@ -94,13 +95,12 @@ export default function Signin() {
             icon={Eye}
           />
         </div>
-
-        <a href="forgot-pass" className="text-blue-20">Esqueci minha senha</a>
+          <a href="forgot-pass" className="sign-in__forgot-pass text-blue-20">Esqueci minha senha</a>
 
         <div className="btns__register">
           <Button type="default">Confirmar Login</Button>
           <Button type="stroked">
-            <a href="sign-up" style={{ color: "var(--color-blue)" }}>Criar uma conta</a>
+            <a className="text-blue" href="sign-up" >Criar uma conta</a>
           </Button>
         </div>
       </form>

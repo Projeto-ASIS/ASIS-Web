@@ -5,14 +5,14 @@
   gap: 20px;
 }
 
-.title{
+.calendar__title{
   font-size: 50px;
 }
 
-.date-selection {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.calendar__user-forms {
+  display: grid;
+  grid-template-columns: 4fr 12fr 3fr;
+  gap: 32px 16px;
 }
 
 .date-selection label {

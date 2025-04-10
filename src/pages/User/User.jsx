@@ -16,6 +16,8 @@ import { HomeIcon } from "lucide-react"
 import PsychologicalSupportIcon from "@/common/components/PsychologicalSupportIcon"
 import RegistrationUpdateIcon from "@/common/components/RegistrationUpdateIcon"
 import AppoinmentsIcon from "@/common/components/AppoinmentsIcon"
+import ProtectedRoute from "@/common/components/ProtectdRoute"
+
 
 ServiceCard.propTypes = {
   name: PropTypes.string,
@@ -42,10 +44,6 @@ const services = [
   { name: "Atendimento \n psicologico", icon: PsychologicalSupportIcon, pathname: "psychologicalsupport" },
   { name: "Atualização \n cadastral", icon: RegistrationUpdateIcon, pathname: "registrationupdate" },
   { name: "Agendamentos", icon:AppoinmentsIcon  , pathname: "appoinments"},
-  // { name: "Bolsa Familia", iconUrl: "" },
-  // { name: "INSS", iconUrl: "" },
-  // { name: "Atualização \n Cadastral", iconUrl: "" },
-  // { name: "Agendamentos", iconUrl: "" },
 ]
 
 export default function User() {
@@ -57,7 +55,7 @@ export default function User() {
   // const toCadunico = useCallback(() => redirectToPage(services[0].pathname), [])
 
   return (
-    <>
+    <ProtectedRoute>
       <Header />
       <section className="services">
         <div className="services__top text-blue">
@@ -84,6 +82,6 @@ export default function User() {
         </div>
       </section>
       <Footer />
-    </>
+    </ProtectedRoute>
   )
 }

@@ -75,11 +75,11 @@ export default function Signup() {
 
   return (
     <div className="UserData">
-      <Link to={{ pathname: "/" }}><ChevronLeft className='back' size={60} /></Link>
+      <Link to={{ pathname: "/" }}><ChevronLeft className='back' size={36} color='var(--color-blue-80)' /></Link>
 
       <div className="form__title">
-        <h1 className='text-blue'>comece agora no ASIS</h1>
-        <p className='text-blue-20 text__form'>Tenha autonomia para acessar, solicitar e acompanhar o que você precisa, de forma simples e segura.</p>
+        <h1 className='text-blue-80'>comece agora no ASIS</h1>
+        <p className='text-blue-40 text-semibold text__form'>Tenha autonomia para acessar, solicitar e acompanhar o que você precisa, de forma simples e segura.</p>
       </div>
       <form onSubmit={handleOnSubmit}>
         <div className="flex-fields">

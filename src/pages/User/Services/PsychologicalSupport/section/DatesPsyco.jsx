@@ -1,17 +1,41 @@
 import SaveFields from '@/common/components/SaveFields/SaveFields';
 import '../PsycologicalSupport.css'
+
+import * as BackendService from "@/common/services/BackendService"
+import Button from '@/common/components/Button';
+import Input from '@/common/components/Input';
+
 import { useState, useRef, useEffect } from 'react';
+import { jwtDecode } from 'jwt-decode';
+import Breadcrumb from '@/common/components/Breadcrumb/Breadcrumb';
+
+import { useMask } from '@react-input/mask';
+import useForm from '@/common/hooks/useForm';
+import formatCPF from '@/common/utils/formatCPF';
+
+const INITIAL_FORMDATA = {
+  nomeMae: "",
+  endereco: "",
+  cadunico: "",
+  cpf: "",
+  dataNascimento: "",
+}
+
+
 export default function DatesPsyco() {
+  const { formData, handleChange } = useForm({ initialFormData: INITIAL_FORMDATA })
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [selectedStaff, setSelectedStaff] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const cpfRef = useMask({
+    mask: "___.___.___-__",
+    replacement: { _: /\d/ }
+  })
 
-  // Dias da semana
   const weekDays = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
 
-  // Geração de dias do mês atual
   const generateCalendarDays = () => {
     const days = [];
     const today = new Date();
@@ -19,15 +43,32 @@ export default function DatesPsyco() {
     const currentYear = today.getFullYear();
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-    // Adicionar dias do mês
     for (let i = 1; i <= daysInMonth; i++) {
       days.push(i);
     }
 
     return days;
-  };
+  }
 
-  // Horários disponíveis
+  async function handleOnConfirmAppointment(e) {
+    try {
+      const req = {
+        cpf: formatCPF(cpfRef.current.value),
+        nomeMae: formData.nomeMae,
+        endereco: formData.endereco,
+        dataNascimento: formData.dataNascimento,
+        cadunico: formData.cadunico
+      }
+      const userToken = localStorage.getItem("user-package")
+      const userIdDecodedd = jwtDecode(userToken)
+
+      const res = await BackendService.setAppointment(userIdDecodedd, req)
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   const availableTimes = [
     ['07:30', '08:00', '08:30', '09:00'],
     ['09:30', '10:00', '10:30', '11:00'],
@@ -44,18 +85,18 @@ export default function DatesPsyco() {
     { id: 6, name: 'Nt. Juliana Costa', specialty: 'Nutricionista' }
   ];
 
-  const handleDateSelect = (day) => {
+  function handleDateSelect(day) {
     setSelectedDate(day);
-  };
+  }
 
-  const handleTimeSelect = (time) => {
+  function handleTimeSelect(time) {
     setSelectedTime(time);
   };
 
-  const handleStaffSelect = (staff) => {
+  function handleStaffSelect(staff) {
     setSelectedStaff(staff);
     setIsDropdownOpen(false);
-  };
+  }
 
   // Fechar dropdown quando clicar fora dele
   useEffect(() => {
@@ -73,16 +114,24 @@ export default function DatesPsyco() {
 
   return (
     <>
-      <section className='title'>
-        <h1 className='text-blue title'>agendamento de atendimento psicologico  </h1>
-      </section>
-
       <section className="calendar-container">
-        <div className="date-selection">
-          <label htmlFor="date-picker">Escolha uma Data</label>
-          <input type="date" id="date-picker" />
-        </div>
-
+        <Breadcrumb.Root>
+          <Breadcrumb.Path />
+        </Breadcrumb.Root>
+        <h1 className='text-blue title'>
+          agendamento de atendimento
+          <br />
+          psicologico  </h1>
+        <forms className="calendar__user-forms">
+          <Input id="cpf" ref={cpfRef} placeholder="CPF" />
+          <Input id="nomeMae" onChange={handleChange} placeholder="Nome Da mae" />
+          <Input id="dataDeNascimento" onChange={handleChange} placeholder="Data de nascimento" />
+          <Input id="tipoDoAtendimento" onChange={handleChange} placeholder="Tipo de atendimento" />
+          <Input id="numeroDoCadunico" onChange={handleChange} placeholder="Número do NIS" />
+          <Input id="nis" onChange={handleChange} placeholder="Número do CADÚnico" />
+          <Input id="enderecoCompleto" onChange={handleChange} placeholder="Endereço Completo" />
+          <Input id="atendimentoEspecial" onChange={handleChange} placeholder="Atendimento Especial" />
+        </forms>
         <div className="selection-container">
           <div className="calendar-section">
             <div className="weekdays">
@@ -154,7 +203,7 @@ export default function DatesPsyco() {
         {(selectedDate && selectedTime && selectedStaff) && (
           <div className="confirmation">
             <p>Agendamento: Dia {selectedDate}, às {selectedTime}, com {selectedStaff.name}</p>
-            <button className="confirm-button">Confirmar Agendamento</button>
+            <Button onClick={handleOnConfirmAppointment} className="confirm-button">Confirmar Agendamento</Button>
           </div>
         )}
       </section>

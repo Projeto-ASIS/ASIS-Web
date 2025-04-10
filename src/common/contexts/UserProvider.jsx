@@ -1,5 +1,3 @@
-import * as BackendService from "@/common/services/BackendService"
-
 import useFetch from "@/common/hooks/useFetch"
 
 import { createContext, useContext } from "react"
@@ -22,8 +20,6 @@ export default function UserProvider({ children }) {
       }
     }
   })
-
-  console.log("User value", user)
 
   return (
     <UserContext.Provider value={user}>

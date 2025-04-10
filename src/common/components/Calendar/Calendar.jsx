@@ -1,37 +1,15 @@
 import { useState } from 'react';
+
 import './Calendar.css';
 
 export default function Calendar() {
   const [showDrawer, setShowDrawer] = useState(false);
   const [selectedDay, setSelectedDay] = useState(null);
 
-  const appointments = {
-    5: {
-      type: 'Visita domiciliar',
-      details: 'Visita domiciliar ',
-      user:'João',
-      dr:'Dra. Maria',
-      hour: 14,
-      color: 'var(--color-blue)'
-    },
-    13: {
-      type: 'Atendimento psicológico',
-      user:'João',
-      dr:'Dra. Maria',
-      hour: 14,
-      details: 'Atendimento psicológico',
-      color: 'var(--color-yellow)'
-    },
-    26: {
-      type: 'Cadunico',
-      user:'João',
-      dr:'Dra. Maria',
-      hour: 14,
-      details: 'Atualização cadastral ', 
-      color: 'var(--color-pink)'
-    }
-  };
-
+  const cpfRef = useMask({
+    mask: "___.___.___-__",
+    replacement: { _: /\d/ }
+  })
   const dates = [26, 5, 13];
 
   // Função para lidar com clique em uma data
@@ -54,7 +32,6 @@ export default function Calendar() {
   return (
     <>
       <section className='calendar'>
-
         <div className="main">
           <div className="cabecalho">
             <div>DOM</div>
@@ -72,10 +49,10 @@ export default function Calendar() {
                   const day = i * 7 + j + 1;
                   const color = dates.includes(day)
                     ? {
-                        26: 'var(--color-pink)',
-                        5: 'var(--color-blue)',
-                        13: 'var(--color-yellow)',
-                      }[day]
+                      26: 'var(--color-pink)',
+                      5: 'var(--color-blue)',
+                      13: 'var(--color-yellow)',
+                    }[day]
                     : '';
                   return (
                     <div
@@ -108,7 +85,7 @@ export default function Calendar() {
         </div>
       </section>
 
-      
+
       <div className={`drawer-overlay ${showDrawer ? 'active' : ''}`} onClick={closeDrawer}></div>
 
       {/* Drawer para exibir detalhes do agendamento */}

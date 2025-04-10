@@ -10,6 +10,8 @@
   --color-blue: #0056AD;
   --color-blue-20: #003D7A;
   --color-blue-60: #47A3FF;
+  --color-blue-80: #292A61;
+  --color-text-blue-40: rgba(41, 42, 97, 0.4);
 
   /* Cores dos verdes */
   --color-green: #1C783A;
@@ -100,6 +102,16 @@ p{
 .text-blue-20{
   color: var(--color-blue-20);
 }
+.text-blue-40 {
+  color: var(--color-text-blue-40);
+}
+.text-blue-80 {
+  color: var(--color-blue-80);
+}
+
+.text-semibold {
+  font-weight: 600;
+}
 
 a{
   text-decoration: none;
@@ -111,6 +123,10 @@ section {
   max-width: var(--max-content-width);
   padding-block: var(--section-padding) ;
   margin-inline: auto;
+}
+
+section:nth-of-type(1){
+  padding-top: 120px;
 }
 
 @media (min-width: 1440px) {
