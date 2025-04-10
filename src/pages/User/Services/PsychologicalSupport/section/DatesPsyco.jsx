@@ -114,9 +114,11 @@ export default function DatesPsyco() {
 
   return (
     <>
-      <section className="calendar-container">
+      <section className="psycological-support">
         <Breadcrumb.Root>
-          <Breadcrumb.Path />
+          <Breadcrumb.Path path="/home" >Inicio</Breadcrumb.Path>
+          <Breadcrumb.Path path="/user" >Usuario</Breadcrumb.Path>
+          <Breadcrumb.Path path="/user/Services/PsychologicalSupport" isActive >Atendimento Psicologico</Breadcrumb.Path>
         </Breadcrumb.Root>
         <h1 className='text-blue-80 title pyschological-support__title'>
           agendamento de atendimento
@@ -127,14 +129,14 @@ export default function DatesPsyco() {
         <forms className="calendar__user-forms">
           <Input required id="cpf" ref={cpfRef} placeholder="CPF" />
           <Input required id="nomeMae" onChange={handleChange} placeholder="Nome da Mãe" />
-          <Input required id="dataDeNascimento" onChange={handleChange} placeholder="Data de nascimento" />
+          <Input required id="dataDeNascimento" onChange={handleChange} placeholder="Data de Nascimento" />
           <Input required id="tipoDoAtendimento" onChange={handleChange} placeholder="Tipo de atendimento" />
           <Input id="numeroDoCadunico" onChange={handleChange} placeholder="Número do NIS" />
           <Input id="nis" onChange={handleChange} placeholder="Número do CADÚnico" />
           <Input id="enderecoCompleto" onChange={handleChange} placeholder="Endereço Completo" />
           <Input id="atendimentoEspecial" onChange={handleChange} placeholder="Atendimento Especial" />
         </forms>
-        <h3 className='text-blue-80 '>ESCOLHA UMA DATA DE ATENDIMNTO</h3>
+        <h3 className='text-blue-80 '>ESCOLHA UMA DATA</h3>
         <div className="selection-container">
           <div className="calendar-section">
             <div className="weekdays">
@@ -155,53 +157,6 @@ export default function DatesPsyco() {
               ))}
             </div>
           </div>
-
-          {/* <div className="time-section">
-            <h3>Horários Disponíveis</h3>
-            <div className="time-slots">
-              {availableTimes.map((row, rowIndex) => (
-                <div key={rowIndex} className="time-row">
-                  {row.map((time) => (
-                    <div
-                      key={time}
-                      className={`time-slot ${selectedTime === time ? 'selected' : ''}`}
-                      onClick={() => handleTimeSelect(time)}
-                    >
-                      {time}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div> */}
-
-          {/* <div className="option-section" ref={dropdownRef}>
-            <h3>Funcionários Disponíveis</h3>
-            <div className="dropdown-container">
-              <div
-                className="dropdown-header"
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              >
-                <span>{selectedStaff ? selectedStaff.name : 'Escolha um funcionário'}</span>
-                <button className="dropdown-button">▼</button>
-              </div>
-
-              {isDropdownOpen && (
-                <div className="dropdown-list">
-                  {staffMembers.map((staff) => (
-                    <div
-                      key={staff.id}
-                      className="dropdown-item"
-                      onClick={() => handleStaffSelect(staff)}
-                    >
-                      <span className="staff-name">{staff.name}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div> */}
-
         </div>
 
         {(selectedDate && selectedTime && selectedStaff) && (

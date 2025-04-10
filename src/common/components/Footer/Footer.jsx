@@ -14,9 +14,9 @@ export default function Footer() {
           <h3 className="footer__top__company-name">ASIS</h3>
         </div>
         <ul className="footer__top__menu">
-          <li><a href="">Inicio</a></li>
-          <li><a href="">Serviços</a></li>
-          <li><a href="">Sobre nós</a></li>
+          <li><a href="/home">Inicio</a></li>
+          <li><a href="/home">Serviços</a></li>
+          <li><a href="/home">Sobre nós</a></li>
         </ul>
         <div className="footer__top__logo__desktop">
           <img src={logoSvgPath} alt="" className="footer__top__brand" />

@@ -15,6 +15,8 @@ import Input from "@/common/components/Input";
 
 import useForm from "@/common/hooks/useForm"
 import formatCPF from "@/common/utils/formatCPF";
+import { useUser } from "@/common/contexts/UserProvider";
+import { useEffect } from "react";
 
 const INITIAL_FORMDATA = {
   cpf: "",
@@ -22,6 +24,7 @@ const INITIAL_FORMDATA = {
 }
 
 export default function Signin() {
+  const user = useUser()
   const { formData, handleChange } = useForm({
     initialFormData: INITIAL_FORMDATA
   })
@@ -44,10 +47,10 @@ export default function Signin() {
 
       if (300 > res.status && res.status >= 200) {
         const jwtToken = res.data.token
-        console.log(jwtToken)
         localStorage.setItem("user-package", jwtToken)
 
         navigate("/user")
+        navigate(0)
       }
 
     } catch (error) {
@@ -59,6 +62,12 @@ export default function Signin() {
       console.error(error)
     }
   };
+
+  useEffect(() => {
+    if(typeof user === "object"){
+      // navigate("/user")
+    }
+  },[user])
 
   return (
     <div className="UserData">

@@ -5,8 +5,9 @@ import { MdContrast } from "react-icons/md";
 import { usePreferencesDispatcher } from "@/common/contexts/HighContrastProvider"
 
 import Button from '../Button';
+import { useNavigate } from 'react-router-dom';
 
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 
 import { useState, useEffect, useRef } from 'react';
 
@@ -17,6 +18,7 @@ import { useUser } from '@/common/contexts/UserProvider';
 
 export function Header() {
   const token = getUserToken()
+  const navigate = useNavigate()
   const user = useUser()
   const [isLogged, setIsLogged] = useState(!!token);
   const [sections, setSections] = useState([])
@@ -35,7 +37,7 @@ export function Header() {
 
   function handleLogout() {
     localStorage.removeItem("user-package")
-
+    navigate(0)
   }
 
   useEffect(() => {

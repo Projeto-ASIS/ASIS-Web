@@ -12,15 +12,20 @@ export default function UserProvider({ children }) {
     fnKey: "user",
     fnMethod: async () => {
       try {
-        const resDecoded = jwtDecode(localStorage.getItem("user-package"))
+        let resDecoded
+        const token = localStorage.getItem("user-package")
+        if (token) {
+          resDecoded = jwtDecode(localStorage.getItem("user-package"))
+
+        }
         console.log("resDecoded: ", resDecoded)
 
-        if(typeof resDecoded !== "object") return null
+        if (typeof resDecoded !== "object") return null
 
-        const token = resDecoded.sub
-        const userRes = await BackendService.getLoginByToken(token)
+        const tokenSub = resDecoded.sub
+        const userRes = await BackendService.getLoginByToken(tokenSub)
         console.log("userRes: ", userRes.data)
-        
+
         return userRes.data
       } catch (error) {
         console.error(error)
@@ -36,6 +41,6 @@ export default function UserProvider({ children }) {
   )
 }
 
-export function useUser(){
+export function useUser() {
   return useContext(UserContext)
 }

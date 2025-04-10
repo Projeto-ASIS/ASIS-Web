@@ -14,7 +14,6 @@ export default function ProtectedRoute({ children }) {
   const user = useUser()
   const isAuthenticated = getUserToken()
 
-
   if (!isAuthenticated) {
     return <Navigate to="/sign-in" replace />
   }
