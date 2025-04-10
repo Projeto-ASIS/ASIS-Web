@@ -44,6 +44,7 @@ export default function Signin() {
 
       if (300 > res.status && res.status >= 200) {
         const jwtToken = res.data.token
+        console.log(jwtToken)
         localStorage.setItem("user-package", jwtToken)
 
         navigate("/user")

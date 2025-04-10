@@ -1,14 +1,22 @@
-import { ChevronDown, AccessibilityIcon, PersonStanding, ZoomIn, ZoomOut, UserCircle, Menu, X } from 'lucide-react';
+import { PersonStanding, ZoomIn, ZoomOut, UserCircle, Menu, X } from 'lucide-react';
+
 import { MdContrast } from "react-icons/md";
-import { FiMenu, FiUser } from "react-icons/fi";
+
 import { usePreferencesDispatcher } from "@/common/contexts/HighContrastProvider"
+
 import Button from '../Button';
-import { Link, useNavigate } from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
+
 import { useState, useEffect, useRef } from 'react';
+
 import './Header.css';
 
+import getUserToken from '@/common/utils/getUserToken';
+
 export function Header() {
-  const [isLogged, setIsLogged] = useState(false);
+  const token = getUserToken()
+  const [isLogged, setIsLogged] = useState(!!token);
   const [username, setUsername] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
