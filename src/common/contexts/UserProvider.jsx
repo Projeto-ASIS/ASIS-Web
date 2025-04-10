@@ -2,6 +2,9 @@ import useFetch from "@/common/hooks/useFetch"
 
 import { createContext, useContext } from "react"
 
+import { jwtDecode } from "jwt-decode"
+import * as BackendService from "@/common/services/BackendService"
+
 const UserContext = createContext(null)
 
 export default function UserProvider({ children }) {
@@ -9,11 +12,16 @@ export default function UserProvider({ children }) {
     fnKey: "user",
     fnMethod: async () => {
       try {
-        const userInJson = JSON.parse(localStorage.getItem("user-package"))
+        const resDecoded = jwtDecode(localStorage.getItem("user-package"))
+        console.log("resDecoded: ", resDecoded)
 
-        if(typeof userInJson !== "object") return null
+        if(typeof resDecoded !== "object") return null
+
+        const token = resDecoded.sub
+        const userRes = await BackendService.getLoginByToken(token)
+        console.log("userRes: ", userRes.data)
         
-        return userInJson
+        return userRes.data
       } catch (error) {
         console.error(error)
         return null

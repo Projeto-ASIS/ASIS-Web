@@ -44,7 +44,7 @@ export default function Offers() {
   }, [isMobile]);
 
   return (
-    <section className="offers" id="offers">
+    <section data-section-id="FUNCIONALIDADES" data-section-redirect="#offers" className="offers" id="offers">
       <h3 className="offers__top__footnote footnote">
         Facilitando o acesso aos seus <br /> direitos
       </h3>

@@ -6,17 +6,20 @@ import { usePreferencesDispatcher } from "@/common/contexts/HighContrastProvider
 
 import Button from '../Button';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { useState, useEffect, useRef } from 'react';
 
 import './Header.css';
 
 import getUserToken from '@/common/utils/getUserToken';
+import { useUser } from '@/common/contexts/UserProvider';
 
 export function Header() {
   const token = getUserToken()
+  const user = useUser()
   const [isLogged, setIsLogged] = useState(!!token);
+  const [sections, setSections] = useState([])
   const [username, setUsername] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -25,11 +28,31 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  console.log("Location", location)
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  // Close dropdown when clicking outside
+  function handleLogout() {
+    localStorage.removeItem("user-package")
+
+  }
+
+  useEffect(() => {
+    const pageSections = []
+    let newSections = document.querySelectorAll("[data-section-id]")
+
+    newSections.forEach((section) => {
+      pageSections.push({
+        name: section.dataset.sectionId,
+        to: section.dataset.sectionRedirect
+      })
+    })
+    console.log(pageSections)
+
+    setSections(pageSections)
+  }, [location.pathname])
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -43,26 +66,6 @@ export function Header() {
     };
   }, []);
 
-
-  useEffect(() => {
-    const loggedUser = localStorage.getItem('user');
-    if (loggedUser) {
-      setIsLogged(true);
-      setUsername(JSON.parse(loggedUser).name);
-    }
-  }, []);
-
-  function handleLogin() {
-    localStorage.setItem('user', JSON.stringify({ name: 'Alberto' }));
-    setIsLogged(true);
-  }
-
-  function handleLogout() {
-    window.location.href = '/';
-    localStorage.removeItem('user');
-    setIsLogged(false);
-  }
-
   function toggleMobileMenu() {
     setMobileMenuOpen(!mobileMenuOpen);
     document.body.style.overflow = mobileMenuOpen ? 'auto' : 'hidden';
@@ -70,7 +73,6 @@ export function Header() {
 
   function handleOnSwitchAccessibility() {
     preferencesDispatcher({ type: "toogle" })
-
   }
 
   return (
@@ -84,79 +86,73 @@ export function Header() {
 
 
       <div className="navbar">
-        <div className="hamburger-menu" onClick={toggleMobileMenu}>
-          <Menu className='icon-blue' size={34} />
-        </div>
-
-        <div className="logo">
-          <a href='/'> <img src="/Logo.png" alt="Logo" /> </a>
-        </div>
-
-        <nav className={`nav__links ${mobileMenuOpen ? 'active' : ''}`}>
-          <div className="mobile-nav-header">
-            <div className="logo-mobile">
-              <img src="/Logo.png" alt="Logo" />
-            </div>
-            <div className="close-menu" onClick={toggleMobileMenu}>
-              <X size={34} />
-            </div>
+        <div className="navbar__content">
+          <div className="hamburger-menu" onClick={toggleMobileMenu}>
+            <Menu className='icon-blue' size={34} />
           </div>
 
+          <div className="logo">
+            <a href='/'> <img src="/Logo.png" alt="Logo" /> </a>
+          </div>
 
+          <nav className={`nav__links ${mobileMenuOpen ? 'active' : ''}`}>
+            <div className="mobile-nav-header">
+              <div className="logo-mobile">
+                <img src="/Logo.png" alt="Logo" />
+              </div>
+              <div className="close-menu" onClick={toggleMobileMenu}>
+                <X size={34} />
+              </div>
+            </div>
 
-          <Link to="/" onClick={toggleMobileMenu}>INÍCIO</Link>
-          <Link to="/offers" onClick={toggleMobileMenu}>BENEFÍCIOS</Link>
-          <Link to="/funcionalidades" onClick={toggleMobileMenu}>FUNCIONALIDADES</Link>
-          <Link to="/resultados" onClick={toggleMobileMenu}>RESULTADOS</Link>
+            {sections.lenght !== 0 && sections.map((section) => <Link onClick={toggleMobileMenu} to={section.to}>{section.name}</Link>)}
+          </nav>
 
+          {isLogged ? (
+            <div className="desktop-user">
+              <div className="user-dropdown" ref={dropdownRef}>
+                <Button className="user-button" onClick={toggleDropdown}>
+                  {user?.nomeCompleto && `Seja bem-vindo, ${user.nomeCompleto}`}
+                  <span className={`dropdown-icon ${isOpen ? 'rotate' : ''}`}>▼</span>
+                </Button>
 
-        </nav>
-
-        {isLogged ? (
-          <div className="desktop-user">
-            <div className="user-dropdown" ref={dropdownRef}>
-              <Button className="user-button" onClick={toggleDropdown}>
-                {username}
-                <span className={`dropdown-icon ${isOpen ? 'rotate' : ''}`}>▼</span>
-              </Button>
-
-              {isOpen && (
-                <div className="dropdown-menu">
-                  <div className="user-info">
-                    <div className="user-name">Alberto Silva</div>
-                    <div className="user-email">alberto.silva@email.com</div>
+                {isOpen && (
+                  <div className="dropdown-menu">
+                    <div className="user-info">
+                      <div className="user-name">{user?.nomeCompleto}</div>
+                      <div className="user-email">{user.email}</div>
+                    </div>
+                    <a href="#perfil" className="dropdown-item">Meu Perfil</a>
+                    <a href="#configuracoes" className="dropdown-item">Configurações</a>
+                    <a href="#ajuda" className="dropdown-item">Ajuda</a>
+                    <button onClick={handleLogout} href="#sair" className=" logout">Sair</button>
                   </div>
-                  <a href="#perfil" className="dropdown-item">Meu Perfil</a>
-                  <a href="#configuracoes" className="dropdown-item">Configurações</a>
-                  <a href="#ajuda" className="dropdown-item">Ajuda</a>
-                  <button onClick={handleLogout} href="#sair" className=" logout">Sair</button>
-                </div>
-              )}
+                )}
+              </div>
+
+
             </div>
 
+          ) : (
+            <div className="auth__buttons desktop-auth">
+              <Link to="/sign-up">
+                <Button className="button-header button-header--sign-in" type='stroked'>
+                  Cadastrar-se
+                </Button>
+              </Link>
+              <Link to="/sign-in">
+                <Button className="button-header" type='default'>
+                  Fazer login
+                </Button>
+              </Link>
+            </div>
+          )}
 
+          <div className="mobile-user-icon">
+            <UserCircle className='icon-blue' size={34} />
           </div>
-
-        ) : (
-          <div className="auth__buttons desktop-auth">
-            <Link to="/sign-up">
-              <Button className="button-header button-header--sign-in" type='stroked'>
-                Cadastrar-se
-              </Button>
-            </Link>
-            <Link to="/sign-in">
-              <Button className="button-header" type='default'>
-                Fazer login
-              </Button>
-            </Link>
-          </div>
-        )}
-
-        <div className="mobile-user-icon">
-          <UserCircle className='icon-blue' size={34} />
         </div>
       </div>
-
       <div
         className={`overlay ${mobileMenuOpen ? 'active' : ''}`}
         onClick={toggleMobileMenu}

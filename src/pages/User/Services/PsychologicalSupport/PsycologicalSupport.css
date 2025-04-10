@@ -5,14 +5,26 @@
   gap: 20px;
 }
 
+.pyschological-support__title{
+  margin-bottom: 32px;
+}
+
 .calendar__title{
   font-size: 50px;
 }
 
 .calendar__user-forms {
-  display: grid;
-  grid-template-columns: 4fr 12fr 3fr;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
   gap: 32px 16px;
+}
+
+.calendar__user-forms .input__container {
+  width: 250px;
 }
 
 .date-selection label {

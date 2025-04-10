@@ -23,18 +23,26 @@ header {
 
 /* Main navbar */
 .navbar {
-  width: var(--max-content-width);
+  /* width: 100vw; */
   margin-inline: auto;
-  box-shadow: 0 0 0 100vmax var(--color-neutral-90);
+  /* box-shadow: 0 0 0 100vmax var(--color-neutral-90); */
   gap: 90px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  clip-path: inset(0 -100vmax);
+  /* clip-path: inset(0 -100vmax); */
   flex-direction: row;
   margin: 0 auto;
   padding: 8px 16px;
   background-color: var(--color-neutral-90);
+}
+
+.navbar__content {
+  display: flex;
+  width: 100%;
+  max-width: var(--max-content-width);
+  justify-content: space-between;
+  max-width: var(--max-content-width);
 }
 
 .logo img {

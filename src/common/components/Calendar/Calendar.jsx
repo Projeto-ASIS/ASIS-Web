@@ -6,10 +6,6 @@ export default function Calendar() {
   const [showDrawer, setShowDrawer] = useState(false);
   const [selectedDay, setSelectedDay] = useState(null);
 
-  const cpfRef = useMask({
-    mask: "___.___.___-__",
-    replacement: { _: /\d/ }
-  })
   const dates = [26, 5, 13];
 
   // Função para lidar com clique em uma data

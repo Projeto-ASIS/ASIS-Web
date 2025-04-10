@@ -67,9 +67,11 @@ export default function Signin() {
       </Link>
 
       <div className="form__title">
-        <h1 className="text-blue">Faça seu Login!</h1>
+        <h1 className="text-blue-80">Faça seu Login!</h1>
         <p className="text-blue-40 text-semibold text__form">
-          Acesse sua conta e tenha autonomia para solicitar e acompanhar a assistência que você precisa.
+          Acesse sua conta e tenha autonomia para
+          <br />solicitar e acompanhar a assistência que você
+          <br />precisa.
         </p>
       </div>
 
@@ -96,7 +98,7 @@ export default function Signin() {
             icon={Eye}
           />
         </div>
-          <a href="forgot-pass" className="sign-in__forgot-pass text-blue-20">Esqueci minha senha</a>
+          <a href="forgot-pass" className="sign-in__forgot-pass text-blue-80">Esqueci minha senha</a>
 
         <div className="btns__register">
           <Button type="default">Confirmar Login</Button>

@@ -118,20 +118,23 @@ export default function DatesPsyco() {
         <Breadcrumb.Root>
           <Breadcrumb.Path />
         </Breadcrumb.Root>
-        <h1 className='text-blue title'>
+        <h1 className='text-blue-80 title pyschological-support__title'>
           agendamento de atendimento
           <br />
-          psicologico  </h1>
+          psicologico
+        </h1>
+        <h3 className='text-blue-80'>MINHAS INFORMAÇÕES</h3>
         <forms className="calendar__user-forms">
-          <Input id="cpf" ref={cpfRef} placeholder="CPF" />
-          <Input id="nomeMae" onChange={handleChange} placeholder="Nome Da mae" />
-          <Input id="dataDeNascimento" onChange={handleChange} placeholder="Data de nascimento" />
-          <Input id="tipoDoAtendimento" onChange={handleChange} placeholder="Tipo de atendimento" />
+          <Input required id="cpf" ref={cpfRef} placeholder="CPF" />
+          <Input required id="nomeMae" onChange={handleChange} placeholder="Nome da Mãe" />
+          <Input required id="dataDeNascimento" onChange={handleChange} placeholder="Data de nascimento" />
+          <Input required id="tipoDoAtendimento" onChange={handleChange} placeholder="Tipo de atendimento" />
           <Input id="numeroDoCadunico" onChange={handleChange} placeholder="Número do NIS" />
           <Input id="nis" onChange={handleChange} placeholder="Número do CADÚnico" />
           <Input id="enderecoCompleto" onChange={handleChange} placeholder="Endereço Completo" />
           <Input id="atendimentoEspecial" onChange={handleChange} placeholder="Atendimento Especial" />
         </forms>
+        <h3 className='text-blue-80 '>ESCOLHA UMA DATA DE ATENDIMNTO</h3>
         <div className="selection-container">
           <div className="calendar-section">
             <div className="weekdays">
@@ -153,7 +156,7 @@ export default function DatesPsyco() {
             </div>
           </div>
 
-          <div className="time-section">
+          {/* <div className="time-section">
             <h3>Horários Disponíveis</h3>
             <div className="time-slots">
               {availableTimes.map((row, rowIndex) => (
@@ -170,9 +173,9 @@ export default function DatesPsyco() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
-          <div className="option-section" ref={dropdownRef}>
+          {/* <div className="option-section" ref={dropdownRef}>
             <h3>Funcionários Disponíveis</h3>
             <div className="dropdown-container">
               <div
@@ -197,7 +200,8 @@ export default function DatesPsyco() {
                 </div>
               )}
             </div>
-          </div>
+          </div> */}
+
         </div>
 
         {(selectedDate && selectedTime && selectedStaff) && (
