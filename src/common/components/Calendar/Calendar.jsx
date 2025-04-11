@@ -10,6 +10,9 @@ function Info(props) {
       {/* <div className="appointment-type" style={{ backgroundColor: appointments[selectedDay]?.color }}>
       </div> */}
       <div className="appointment-date">
+        <strong>Nome do responsável: {props.nomeCompleto}</strong>
+      </div>
+      <div className="appointment-date">
         <strong>Data de Atendimento: {props.dataAtendimento}</strong>
       </div>
       <div className="appointment-date">
