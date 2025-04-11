@@ -80,7 +80,7 @@ export default function Signup() {
       <div className="form__title">
         <h1 className='text-blue-80'>
           comece agora
-          <br />no ASIS</h1>
+          o ASIS</h1>
         <p className='text-blue-40 text-semibold text__form'>Tenha autonomia para acessar, solicitar e acompanhar o que você precisa, de forma simples e segura.</p>
       </div>
       <form onSubmit={handleOnSubmit}>

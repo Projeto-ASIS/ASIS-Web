@@ -1,5 +1,7 @@
 .psycological-support {
   display: flex;
+  max-width:var(--max-content-width);
+  margin-inline: auto;
   padding-top: calc(161px + 124px) !important;
   flex-direction: column;
   gap: 20px;

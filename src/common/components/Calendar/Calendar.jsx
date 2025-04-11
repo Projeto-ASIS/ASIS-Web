@@ -1,16 +1,44 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 import './Calendar.css';
 
-export default function Calendar() {
+import getDayInISOFormat from '@/common/utils/getDayInISOFormat';
+
+function Info(props) {
+  return (
+    <article className='appointment-info'>
+      {/* <div className="appointment-type" style={{ backgroundColor: appointments[selectedDay]?.color }}>
+      </div> */}
+      <div className="appointment-date">
+        <strong>Data de Atendimento: {props.dataAtendimento}</strong>
+      </div>
+      <div className="appointment-date">
+        <strong>Serviço: {props.servico}</strong>
+      </div>
+      <div className="appointment-date">
+        <strong>statusAtendimento: {props.statusAtendimento}</strong>
+      </div>
+    </article>
+
+
+  )
+}
+
+export default function Calendar({ appointments }) {
   const [showDrawer, setShowDrawer] = useState(false);
   const [selectedDay, setSelectedDay] = useState(null);
+
+  const dayOfAppointments = useMemo(() => appointments.map(x => Number(getDayInISOFormat(x.dataAtendimento))), [appointments])
+  const selectedAppointments = useMemo(() => appointments.filter(x => Number(getDayInISOFormat(x.dataAtendimento)) === selectedDay), [selectedDay])
+  console.log("SelectedAppointments", selectedAppointments)
 
   const dates = [26, 5, 13];
 
   // Função para lidar com clique em uma data
   const handleDayClick = (day) => {
-    if (dates.includes(day)) {
+    console.log("handleDayClick fired")
+
+    if (dayOfAppointments.includes(day)) {
       setSelectedDay(day);
       setShowDrawer(true);
       // Adiciona classe ao body para prevenir rolagem quando drawer estiver aberto
@@ -42,14 +70,11 @@ export default function Calendar() {
             {Array.from({ length: 5 }, (_, i) => (
               <div key={i} className="semana">
                 {Array.from({ length: 7 }, (_, j) => {
+                  const dayOfAppointments = appointments.map(x => Number(getDayInISOFormat(x.dataAtendimento)))
+                  const isWeekend = j === 0 || j === 6
                   const day = i * 7 + j + 1;
-                  const color = dates.includes(day)
-                    ? {
-                      26: 'var(--color-pink)',
-                      5: 'var(--color-blue)',
-                      13: 'var(--color-yellow)',
-                    }[day]
-                    : '';
+                  const color = dayOfAppointments.includes(day) ? "var(--color-blue)" : "var(--color-neutral)"
+
                   return (
                     <div
                       key={j}
@@ -57,7 +82,7 @@ export default function Calendar() {
                       style={{ backgroundColor: color }}
                       onClick={() => handleDayClick(day)}
                     >
-                      {(j === 0 || j === 6) ? '' : day}
+                      {isWeekend ? '' : day}
                     </div>
                   );
                 })}
@@ -92,26 +117,10 @@ export default function Calendar() {
             <h2>Detalhes do Agendamento</h2>
             <button className="close-button" onClick={closeDrawer}>×</button>
           </div>
-          {selectedDay && appointments[selectedDay] && (
+          {/* {selectedDay && appointments[selectedDay] && ( */}
+          {selectedDay && selectedAppointments.length !== 0 && (
             <div className="appointment-details">
-              <div className="appointment-type" style={{ backgroundColor: appointments[selectedDay].color }}>
-                {appointments[selectedDay].type}
-              </div>
-              <div className="appointment-date">
-                <strong>Data:</strong> Dia {selectedDay}
-              </div>
-              <div className="appointment-info">
-                <p>{appointments[selectedDay].details}</p>
-              </div>
-              <div className="appointment-info">
-                <p>Agendado por : {appointments[selectedDay].user}</p>
-              </div>
-              <div className="appointment-info">
-                <p>Dr. : {appointments[selectedDay].dr}</p>
-              </div>
-              <div className="appointment-info">
-                <p>Horário: {appointments[selectedDay].hour}</p>
-              </div>
+              {selectedAppointments.map(x => <Info {...x} />)}
             </div>
           )}
         </div>

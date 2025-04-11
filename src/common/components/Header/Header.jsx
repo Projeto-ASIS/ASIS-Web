@@ -22,8 +22,8 @@ export function Header() {
   const user = useUser()
   const [isLogged, setIsLogged] = useState(!!token);
   const [sections, setSections] = useState([])
-  const [username, setUsername] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  console.log('User', user)
 
   const preferencesDispatcher = usePreferencesDispatcher()
 

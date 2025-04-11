@@ -196,6 +196,8 @@ body.drawer-open {
 
 .appointment-details {
   display: flex;
+  max-width: var(--max-content-width);
+  margin-inline: auto;
   flex-direction: column;
   gap: 15px;
 }

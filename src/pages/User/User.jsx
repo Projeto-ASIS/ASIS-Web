@@ -11,7 +11,7 @@ import "./User.css"
 import Footer from "@/common/components/Footer"
 import CadUnicoIcon from "@/common/components/CadUnicoIcon"
 import HomevisitIcon from "@/common/components/HomevisitIcon"
-import {  useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { HomeIcon } from "lucide-react"
 import PsychologicalSupportIcon from "@/common/components/PsychologicalSupportIcon"
 import RegistrationUpdateIcon from "@/common/components/RegistrationUpdateIcon"
@@ -40,10 +40,10 @@ function ServiceCard({
 
 const services = [
   { name: "Cadastro Único", icon: CadUnicoIcon, pathname: "cadunico" },
-  { name: "Visita Domiciliar", icon:HomevisitIcon , pathname: "homevisit"},
+  { name: "Visita Domiciliar", icon: HomevisitIcon, pathname: "homevisit" },
   { name: "Atendimento \n psicologico", icon: PsychologicalSupportIcon, pathname: "psychologicalsupport" },
   { name: "Atualização \n cadastral", icon: RegistrationUpdateIcon, pathname: "registrationupdate" },
-  { name: "Agendamentos", icon:AppoinmentsIcon  , pathname: "appoinments"},
+  { name: "Agendamentos", icon: AppoinmentsIcon, pathname: "appoinments" },
 ]
 
 export default function User() {

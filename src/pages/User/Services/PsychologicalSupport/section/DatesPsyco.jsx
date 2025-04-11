@@ -11,7 +11,10 @@ import Breadcrumb from '@/common/components/Breadcrumb/Breadcrumb';
 
 import { useMask } from '@react-input/mask';
 import useForm from '@/common/hooks/useForm';
+// import useMask from '@react-input/mask';
 import formatCPF from '@/common/utils/formatCPF';
+import useFetch from '@/common/hooks/useFetch';
+import getUserToken from '@/common/utils/getUserToken';
 
 const INITIAL_FORMDATA = {
   nomeMae: "",
@@ -32,6 +35,38 @@ export default function DatesPsyco() {
   const cpfRef = useMask({
     mask: "___.___.___-__",
     replacement: { _: /\d/ }
+  })
+  const serviceDayRef = useMask({
+    mask: "dd/mm/yyyy",
+    replacement: { d: /\d/, m: /\d/, y: /\d/ },
+    separate: true
+  })
+  const { data: serviceUnits } = useFetch({
+    fnKey: "servicesUnits",
+    fnMethod: async () => {
+      try {
+        const token = getUserToken()
+        const serviceUnits = await BackendService.getServiceUnits(token)
+
+        return serviceUnits.data
+      } catch (error) {
+        return null
+      }
+    }
+
+  })
+  const { data: services } = useFetch({
+    fnKey: "servicesUnits",
+    fnMethod: async () => {
+      try {
+        const token = getUserToken()
+        const serviceUnits = await BackendService.getServiceUnits(token)
+
+        return serviceUnits.data
+      } catch (error) {
+        return null
+      }
+    }
   })
 
   const weekDays = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
@@ -69,36 +104,42 @@ export default function DatesPsyco() {
     }
   }
 
-  const availableTimes = [
-    ['07:30', '08:00', '08:30', '09:00'],
-    ['09:30', '10:00', '10:30', '11:00'],
-    ['11:30', '12:00', '12:30', '13:00'],
-  ];
-
-  // Lista de funcionários
-  const staffMembers = [
-    { id: 1, name: 'Dr. Paulo Silva', specialty: 'Clínico Geral' },
-    { id: 2, name: 'Dra. Maria Santos', specialty: 'Cardiologista' },
-    { id: 3, name: 'Dr. Carlos Oliveira', specialty: 'Geriatra' },
-    { id: 4, name: 'Enf. Ana Luiza', specialty: 'Enfermeira' },
-    { id: 5, name: 'Ft. Ricardo Souza', specialty: 'Fisioterapeuta' },
-    { id: 6, name: 'Nt. Juliana Costa', specialty: 'Nutricionista' }
-  ];
-
   function handleDateSelect(day) {
     setSelectedDate(day);
   }
 
-  function handleTimeSelect(time) {
-    setSelectedTime(time);
-  };
+  async function handleOnSubmit(e) {
+    e.preventDefault()
 
-  function handleStaffSelect(staff) {
-    setSelectedStaff(staff);
-    setIsDropdownOpen(false);
+    try {
+      console.log("handleOnSubmit foi")
+      const token = getUserToken()
+      const userId = jwtDecode(token).sub
+      console.log(services[0])
+      console.log(serviceUnits[0])
+
+      const user = await BackendService.getLoginByToken(userId)
+
+      const newAppointment = {
+        CPF: user.cpf,
+        nomeMae: formData.nomeMae,
+        dataNascimento: user.dataNascimento,
+        nis: user.nis,
+        telefone1: user.telefone1,
+        telefone2: user.telefone2,
+        servicoId: services[0],
+        unidadeId: serviceUnits[0],
+      }
+
+      await BackendService.setAppointment(userId, newAppointment)
+
+      return true
+    } catch (error) {
+      console.error(error)
+      return false
+    }
   }
 
-  // Fechar dropdown quando clicar fora dele
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -114,7 +155,7 @@ export default function DatesPsyco() {
 
   return (
     <>
-      <section className="psycological-support">
+      <form onSubmit={handleOnSubmit} className="psycological-support">
         <Breadcrumb.Root>
           <Breadcrumb.Path path="/home" >Inicio</Breadcrumb.Path>
           <Breadcrumb.Path path="/user" >Usuario</Breadcrumb.Path>
@@ -126,16 +167,17 @@ export default function DatesPsyco() {
           psicologico
         </h1>
         <h3 className='text-blue-80'>MINHAS INFORMAÇÕES</h3>
-        <forms className="calendar__user-forms">
+        <form onSubmit={handleOnSubmit} className="calendar__user-forms">
           <Input required id="cpf" ref={cpfRef} placeholder="CPF" />
           <Input required id="nomeMae" onChange={handleChange} placeholder="Nome da Mãe" />
           <Input required id="dataDeNascimento" onChange={handleChange} placeholder="Data de Nascimento" />
           <Input required id="tipoDoAtendimento" onChange={handleChange} placeholder="Tipo de atendimento" />
           <Input id="numeroDoCadunico" onChange={handleChange} placeholder="Número do NIS" />
           <Input id="nis" onChange={handleChange} placeholder="Número do CADÚnico" />
-          <Input id="enderecoCompleto" onChange={handleChange} placeholder="Endereço Completo" />
+          {/* <Input id="enderecoCompleto" onChange={handleChange} placeholder="Endereço Completo" /> */}
           <Input id="atendimentoEspecial" onChange={handleChange} placeholder="Atendimento Especial" />
-        </forms>
+          <Input id="dataAtendimento" onChange={handleChange} placeholder="Dia do Atendimento" ref={serviceDayRef} />
+        </form>
         <h3 className='text-blue-80 '>ESCOLHA UMA DATA</h3>
         <div className="selection-container">
           <div className="calendar-section">
@@ -165,9 +207,9 @@ export default function DatesPsyco() {
             <Button onClick={handleOnConfirmAppointment} className="confirm-button">Confirmar Agendamento</Button>
           </div>
         )}
-      </section>
+        <SaveFields text="Seus dados foram registrados com sucesso e serão protegidos de acordo com a LGPD, garantindo segurança e privacidade no seu atendimento." />
+      </form>
 
-      <SaveFields text="Seus dados foram registrados com sucesso e serão protegidos de acordo com a LGPD, garantindo segurança e privacidade no seu atendimento." />
     </>
 
 

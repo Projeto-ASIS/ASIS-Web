@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import Logo from "../../../assets/LogoASISCentralizada.png";
+// import Logo from "../../../assets/LogoASISCentralizada.png";
 import "./Signin.css"
 
 import Button from "@/common/components/Button";
@@ -46,10 +46,17 @@ export default function Signin() {
       console.log(res)
 
       if (300 > res.status && res.status >= 200) {
+        const userData = res.data
+        console.log("handleLogin user", res)
+
         const jwtToken = res.data.token
         localStorage.setItem("user-package", jwtToken)
 
-        navigate("/user")
+        if (userData.role === "ROLE_FUNCIONARIO") {
+          navigate("/employee")
+        } else if (userData.role === "ROLE_USUARIO") {
+          navigate("/user")
+        }
         navigate(0)
       }
 
@@ -64,10 +71,10 @@ export default function Signin() {
   };
 
   useEffect(() => {
-    if(typeof user === "object"){
+    if (typeof user === "object") {
       // navigate("/user")
     }
-  },[user])
+  }, [user])
 
   return (
     <div className="UserData">
@@ -107,7 +114,7 @@ export default function Signin() {
             icon={Eye}
           />
         </div>
-          <a href="forgot-pass" className="sign-in__forgot-pass text-blue-80">Esqueci minha senha</a>
+        <a href="forgot-pass" className="sign-in__forgot-pass text-blue-80">Esqueci minha senha</a>
 
         <div className="btns__register">
           <Button type="default">Confirmar Login</Button>
